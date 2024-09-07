@@ -1,0 +1,37 @@
+class Solution {
+public:
+    int romanToInt(const std::string& s) {
+        // Create a hash map to store the Roman numerals and their corresponding integer values.
+        std::unordered_map<char, int> romanMap = {
+            {'I', 1}, {'V', 5}, {'X', 10}, {'L', 50}, {'C', 100}, {'D', 500}, {'M', 1000}
+        };
+
+        // Initialize the total value to 0.
+        int total = 0;
+
+        // Keep track of the previous Roman numeral's value.
+        int prevValue = 0;
+
+        // Iterate through each character in the Roman numeral string.
+        for (char ch : s) {
+            // Get the integer value of the current Roman numeral.
+            int currentValue = romanMap[ch];
+
+            // Check if the current Roman numeral has a higher value than the previous one.
+            // If so, it means we need to subtract the previous value from the current value to account for the subtraction rule.
+            // For example, "IV" is 5 - 1 = 4.
+            if (currentValue > prevValue) {
+                total += currentValue - 2 * prevValue;
+            } else {
+                // If the current Roman numeral has a lower or equal value to the previous one, simply add its value to the total.
+                total += currentValue;
+            }
+
+            // Update the previous value for the next iteration.
+            prevValue = currentValue;
+        }
+
+        // Return the final calculated integer value.
+        return total;
+    }
+};
