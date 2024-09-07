@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        // Initialize indices i and j to iterate through the array
+        int i, j;
+        // Get the size of the input array
+        int n = nums.size();
+
+        // Iterate through the array using nested loops
+        for (i = 0; i < n; i++) {
+            // Inner loop starts from the next element after i
+            for (j = i + 1; j < n; j++) {
+                // Check if the sum of elements at indices i and j equals the target
+                if (nums[i] + nums[j] == target) {
+                    // If found, return the indices i and j as a vector
+                    return {i, j};
+                }
+            }
+        }
+
+        // If no solution is found, return an empty vector
+        return {};
+    }
+};
