@@ -1,0 +1,32 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        // Handle negative numbers directly: negative numbers cannot be palindromes.
+        if (x < 0) {
+            return false;
+        }
+
+        // Create a copy of the original number to avoid modifying it during the reversal process.
+        unsigned int copy = x, value = 0;
+
+        // Loop until all digits of the original number have been processed.
+        while (copy > 0) {
+            // Extract the last digit of the original number.
+            int digit = copy % 10;
+
+            // Append the extracted digit to the reversed number.
+            value = value * 10 + digit;
+
+            // Remove the last digit from the original number.
+            copy /= 10;
+        }
+
+        // Compare the reversed number with the original number.
+        // If they are equal, the original number is a palindrome.
+        if (value == x) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+};
