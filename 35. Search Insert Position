@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        // Initialize left and right pointers to search the entire array.
+        int i = 0, j = nums.size() - 1;
+
+        // Perform binary search until the left and right pointers cross.
+        while (i <= j) {
+            // Calculate the middle index to divide the search space.
+            int mid = i + (j - i) / 2;
+
+            // If the target is found at the middle index, return its position.
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                // If the target is greater than the middle element,
+                // search in the right half of the array.
+                i = mid + 1;
+            } else {
+                // If the target is less than the middle element,
+                // search in the left half of the array.
+                j = mid - 1;
+            }
+        }
+
+        // If the target is not found, return the insertion position.
+        // This is the index where the target would be inserted to maintain the sorted order.
+        return i;
+    }
+};
