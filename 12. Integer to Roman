@@ -1,0 +1,27 @@
+class Solution {
+public:
+    string intToRoman(int num) {
+        // Array of Roman numerals and their corresponding integer values.
+        // The values are arranged in descending order.
+        const int romanValues[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        const string romanSymbols[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+        // Initialize an empty string to store the Roman numeral representation.
+        string result = "";
+
+        // Iterate through the Roman numeral values and symbols.
+        for (int i = 0; i < 13; ++i) {
+            // While the current Roman numeral value is less than or equal to the remaining number:
+            while (num >= romanValues[i]) {
+                // Append the current Roman numeral symbol to the result string.
+                result += romanSymbols[i];
+
+                // Subtract the current Roman numeral value from the remaining number.
+                num -= romanValues[i];
+            }
+        }
+
+        // Return the final Roman numeral representation.
+        return result;
+    }
+};
