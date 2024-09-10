@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool containsDuplicate(std::vector<int>& nums) {
+        // Sort the vector in ascending order
+        std::sort(nums.begin(), nums.end());
+        
+        // Iterate through the sorted vector, starting from the second element
+        for (size_t i = 1; i < nums.size(); ++i) {
+            // Check if the current element is equal to the previous element
+            if (nums[i] == nums[i - 1]) {
+                // If a duplicate is found, return true
+                return true;
+            }
+        }
+        
+        // If no duplicates are found after the loop, return false
+        return false;
+    }
+};
