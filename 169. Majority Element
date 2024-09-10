@@ -1,0 +1,17 @@
+int majorityElement(int* nums, int numsSize) {
+    int candidate = 0;  // Variable to hold the candidate for majority element
+    int count = 0;      // Counter for the candidate
+
+    // Iterate through each element in the array
+    for (int i = 0; i < numsSize; i++) {
+        // If count is zero, update the candidate to the current element
+        if (count == 0) {
+            candidate = nums[i];
+        }
+        // Adjust the count based on whether the current element matches the candidate
+        count += (nums[i] == candidate) ? 1 : -1;
+    }
+
+    // Return the candidate, which is assumed to be the majority element
+    return candidate;
+}
