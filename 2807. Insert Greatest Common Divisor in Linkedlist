@@ -1,0 +1,31 @@
+class Solution {
+public:
+    // Function to insert nodes containing the GCD of adjacent nodes
+    ListNode* insertGreatestCommonDivisors(ListNode* head) {
+        // If the list is empty or has only one node, return it as is
+        if (!head || !head->next) {
+            return head; // No need to insert GCDs
+        }
+
+        ListNode* current = head; // Start with the head of the list
+
+        // Traverse the list until we reach the second last node
+        while (current && current->next) {
+            // Calculate the GCD of the current node and the next node
+            int gcdValue = std::gcd(current->val, current->next->val);
+
+            // Create a new node with the calculated GCD value
+            ListNode* newNode = new ListNode(gcdValue);
+
+            // Insert the new node between the current node and the next node
+            newNode->next = current->next; // Point newNode to the next node
+            current->next = newNode;        // Link current node to newNode
+
+            // Move to the next original node, skipping the newly inserted node
+            current = newNode->next; // Move to the next original node
+        }
+
+        // Return the modified linked list with GCDs inserted
+        return head;
+    }
+};
