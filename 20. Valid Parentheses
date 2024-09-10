@@ -1,0 +1,35 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        // Create an empty stack to keep track of opening brackets
+        stack<char> stack;
+
+        // Create a map to associate closing brackets with their corresponding opening brackets
+        unordered_map<char, char> bracketMap = {
+            {')', '('}, // Map closing parenthesis to opening parenthesis
+            {'}', '{'}, // Map closing curly brace to opening curly brace
+            {']', '['}   // Map closing square bracket to opening square bracket
+        };
+
+        // Iterate through each character in the input string
+        for (char c : s) {
+            // Check if the character is an opening bracket
+            if (bracketMap.count(c) == 0) {
+                // If it's an opening bracket, push it onto the stack
+                stack.push(c);
+            } else {
+                // If it's a closing bracket, check for matching opening bracket
+                // Check if the stack is empty (no opening bracket to match)
+                if (stack.empty() || stack.top() != bracketMap[c]) {
+                    return false; // Return false if there's a mismatch
+                }
+                // Pop the matching opening bracket from the stack
+                stack.pop();
+            }
+        }
+
+        // After processing all characters, check if the stack is empty
+        // If empty, all brackets were matched correctly, return true
+        return stack.empty();
+    }
+};
