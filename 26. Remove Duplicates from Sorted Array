@@ -1,0 +1,22 @@
+from typing import List
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        # Check if the array is empty
+        if not nums:
+            return 0  # If empty, return 0
+
+        # Initialize the slow pointer
+        slow = 1
+
+        # Iterate through the array using the fast pointer
+        for fast in range(1, len(nums)):
+            # If the current element is different from the last unique element
+            if nums[fast] != nums[slow - 1]:
+                # Assign the current element to the position of the slow pointer
+                nums[slow] = nums[fast]
+                # Increment the slow pointer
+                slow += 1
+
+        # Return the count of unique elements
+        return slow
