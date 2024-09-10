@@ -1,0 +1,53 @@
+class Solution {
+public:
+    vector<vector<int>> spiralMatrix(int m, int n, ListNode* head) {
+        // Initialize the matrix with -1, which will be used to fill any remaining cells
+        vector<vector<int>> matrix(m, vector<int>(n, -1));
+
+        // Step 1: Convert the linked list to a vector of values
+        vector<int> values;
+        values.reserve(m * n);  // Reserve space to avoid frequent reallocations
+        ListNode* current = head;
+        while (current) {
+            values.push_back(current->val);  // Store each value from the linked list into the vector
+            current = current->next;
+        }
+
+        // Step 2: Initialize boundaries for spiral traversal
+        int top = 0, bottom = m - 1, left = 0, right = n - 1;
+        int index = 0;  // Index to track the position in the values vector
+
+        // Continue filling the matrix while there are still rows and columns to process
+        while (top <= bottom && left <= right) {
+            // Traverse from left to right across the top row
+            for (int i = left; i <= right && index < values.size(); ++i) {
+                matrix[top][i] = values[index++];  // Place value and move to the next value
+            }
+            ++top;  // Move down the top boundary
+
+            // Traverse from top to bottom down the right column
+            for (int i = top; i <= bottom && index < values.size(); ++i) {
+                matrix[i][right] = values[index++];  // Place value and move to the next value
+            }
+            --right;  // Move left the right boundary
+
+            // Traverse from right to left across the bottom row
+            if (top <= bottom) {  // Check if there are rows remaining
+                for (int i = right; i >= left && index < values.size(); --i) {
+                    matrix[bottom][i] = values[index++];  // Place value and move to the next value
+                }
+                --bottom;  // Move up the bottom boundary
+            }
+
+            // Traverse from bottom to top up the left column
+            if (left <= right) {  // Check if there are columns remaining
+                for (int i = bottom; i >= top && index < values.size(); --i) {
+                    matrix[i][left] = values[index++];  // Place value and move to the next value
+                }
+                ++left;  // Move right the left boundary
+            }
+        }
+
+        return matrix;  // Return the completed matrix
+    }
+};
