@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if (needle.empty()) return 0; // Edge case: empty needle is found at the start of haystack
+
+        int haystackLength = haystack.size();
+        int needleLength = needle.size();
+
+        if (needleLength > haystackLength) return -1; // Needle longer than haystack
+
+        for (int i = 0; i <= haystackLength - needleLength; i++) {
+            // Check if substring of haystack matches needle
+            if (haystack.substr(i, needleLength) == needle) {
+                return i;
+            }
+        }
+
+        return -1; // Needle not found in haystack
+    }
+};
