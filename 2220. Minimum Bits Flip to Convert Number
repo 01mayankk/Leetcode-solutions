@@ -1,0 +1,11 @@
+int minBitFlips(int start, int goal) {
+    int count = 0;                           // Initialize a counter for bit flips
+    int xor_result = start ^ goal;          // XOR the start and goal to find differing bits
+    
+    while (xor_result) {                     // Loop until there are no more differing bits
+        count += xor_result & 1;             // Add the least significant bit to count
+        xor_result >>= 1;                    // Shift right to check the next bit
+    }
+    
+    return count;                            // Return the total number of bit flips
+}
