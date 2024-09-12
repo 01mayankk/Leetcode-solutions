@@ -1,0 +1,33 @@
+class Solution {
+public:
+    // Function to determine if a given positive integer num is a perfect square
+    bool isPerfectSquare(int num) {
+        // Initialize the search range for binary search
+        long int left = 1;  // Start from 1 since 0 is not a valid square root for positive integers
+        long int right = num; // The maximum possible square root is num itself
+
+        // Perform binary search to find the integer square root
+        while (left <= right) {
+            // Calculate the middle point to avoid overflow
+            long int mid = left + (right - left) / 2;
+            // Calculate the square of mid
+            long int square = mid * mid;
+
+            // Check if mid squared is equal to num
+            if (square == num) {
+                return true; // Found a perfect square
+            } 
+            // If mid squared is less than num, search in the right half
+            else if (square < num) {
+                left = mid + 1; // Move left pointer up to search for a larger mid
+            } 
+            // If mid squared is greater than num, search in the left half
+            else {
+                right = mid - 1; // Move right pointer down to search for a smaller mid
+            }
+        }
+
+        // If no perfect square is found, return false
+        return false; // num is not a perfect square
+    }
+};
