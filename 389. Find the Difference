@@ -1,0 +1,22 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        // Create an array to count occurrences of each character
+        vector<int> count(26, 0); // There are 26 lowercase English letters
+        
+        // Count characters in string s
+        for (char c : s) {
+            count[c - 'a']++; // Increment the count for character c
+        }
+        
+        // Count characters in string t and find the extra character
+        for (char c : t) {
+            count[c - 'a']--; // Decrement the count for character c
+            if (count[c - 'a'] < 0) {
+                return c; // If count goes negative, c is the extra character
+            }
+        }
+        
+        return ' '; // This line should never be reached if input constraints are followed
+    }
+};
