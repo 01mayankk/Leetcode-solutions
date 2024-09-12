@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int countConsistentStrings(std::string allowed, std::vector<std::string>& words) {
+        // Initialize a bitset to store whether each letter in the alphabet is allowed
+        std::bitset<26> allowedLetters;
+        for (char ch : allowed) {
+            allowedLetters.set(ch - 'a'); // Mark the character as allowed
+        }
+
+        // Counter for the number of consistent strings
+        int consistentCount = 0;
+
+        // Iterate through each word and check if it's consistent
+        for (const std::string& word : words) {
+            bool isConsistent = true; // Assume the word is consistent
+            for (char ch : word) {
+                // If any character is not allowed, mark it as inconsistent
+                if (!allowedLetters.test(ch - 'a')) {
+                    isConsistent = false;
+                    break; // No need to check further
+                }
+            }
+            // Increment the count if the word is consistent
+            if (isConsistent) {
+                ++consistentCount;
+            }
+        }
+
+        // Return the final count of consistent strings
+        return consistentCount;
+    }
+};
