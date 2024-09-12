@@ -1,0 +1,26 @@
+// Assume this is the API provided for the guessing game.
+int guess(int num); // This function is predefined and returns -1, 1, or 0.
+
+class Solution {
+public:
+    int guessNumber(int n) {
+        long left = 1; // Start of the range
+        long right = n; // End of the range
+
+        while (left <= right) {
+            long mid = left + (right - left) / 2; // Calculate mid to avoid overflow
+
+            int result = guess(mid); // Call the guess API
+
+            if (result == 0) {
+                return mid; // We found the correct number
+            } else if (result == -1) {
+                right = mid - 1; // The picked number is lower
+            } else {
+                left = mid + 1; // The picked number is higher
+            }
+        }
+
+        return -1; // This line should never be reached if the input constraints are followed
+    }
+};
