@@ -1,0 +1,27 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        if (strs.empty()) return "";  // If the input vector is empty, return an empty string
+        
+        // Find the minimum length among all strings
+        int minLen = INT_MAX;
+        for (const string& str : strs) {
+            minLen = min(minLen, (int)str.length());
+        }
+        
+        // Iterate through each character position
+        for (int i = 0; i < minLen; ++i) {
+            char c = strs[0][i];  // Get the character at the current position from the first string
+            
+            // Check if the character at the current position is the same in all strings
+            for (int j = 1; j < strs.size(); ++j) {
+                if (strs[j][i] != c) {
+                    return strs[0].substr(0, i);  // Return the substring up to the previous position
+                }
+            }
+        }
+        
+        // If all characters match up to the minimum length, return the first string
+        return strs[0].substr(0, minLen);
+    }
+};
