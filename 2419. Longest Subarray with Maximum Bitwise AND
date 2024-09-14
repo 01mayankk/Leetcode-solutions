@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        // Find the maximum value in the array
+        int mx = *max_element(nums.begin(), nums.end());
+        int ans = 0; // Variable to store the length of the longest subarray
+        int cnt = 0; // Counter for the current length of contiguous maximum elements
+
+        // Iterate through each element in the array
+        for (int v : nums) {
+            // Check if the current element is equal to the maximum value
+            if (v == mx) {
+                ++cnt; // Increment the count of contiguous maximum elements
+                ans = max(ans, cnt); // Update the answer with the maximum length found
+            } else {
+                cnt = 0; // Reset count if the current element is not the maximum
+            }
+        }
+        return ans; // Return the length of the longest subarray with the maximum value
+    }
+};
