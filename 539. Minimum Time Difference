@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int findMinDifference(vector<string>& timePoints) {
+        // Check if there are more than 1440 time points, which means there must be a duplicate
+        int n = timePoints.size();
+        if (n > 1440) return 0;
+        
+        // Create a set to store the total minutes of each time point
+        set<int> minutesSet;
+        
+        // Iterate through each time point
+        for (const string& time : timePoints) {
+            // Extract the hours and minutes from the time string
+            int hours = stoi(time.substr(0, 2));
+            int mins = stoi(time.substr(3, 2));
+            
+            // Calculate the total minutes of the time point
+            int totalMinutes = hours * 60 + mins;
+            
+            // Check if the total minutes already exist in the set, if so, return 0 (duplicate time points)
+            if (minutesSet.count(totalMinutes)) return 0;
+            
+            // Insert the total minutes into the set
+            minutesSet.insert(totalMinutes);
+        }
+        
+        // Convert the set to a vector for easier iteration
+        vector<int> minutes(minutesSet.begin(), minutesSet.end());
+        
+        // Initialize the minimum difference to a large value
+        int minDiff = INT_MAX;
+        
+        // Iterate through the vector to find the minimum difference between adjacent time points
+        for (int i = 1; i < minutes.size(); ++i) {
+            minDiff = min(minDiff, minutes[i] - minutes[i - 1]);
+        }
+        
+        // Handle the wrap-around case: from last time point to first time point of the next day
+        minDiff = min(minDiff, 1440 - (minutes.back() - minutes.front()));
+        
+        // Return the minimum difference
+        return minDiff;
+    }
+};
