@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<string> uncommonFromSentences(string s1, string s2) {
+        // Create an unordered_map to count occurrences of each word
+        unordered_map<string, int> wordCount;
+        
+        // Concatenate the two sentences with a space in between
+        // This will allow us to process both sentences as a single stream
+        istringstream stream(s1 + " " + s2);
+        string word;
+
+        // Read each word from the combined stream
+        while (stream >> word) {
+            // Increment the count of the current word
+            wordCount[word]++;
+        }
+
+        // Vector to store the result: words that appear only once in total
+        vector<string> result;
+        
+        // Iterate over the word count map to find words with exactly one occurrence
+        for (const auto& entry : wordCount) {
+            if (entry.second == 1) {
+                // If the word occurs only once, add it to the result vector
+                result.push_back(entry.first);
+            }
+        }
+
+        // Return the list of uncommon words
+        return result;
+    }
+};
