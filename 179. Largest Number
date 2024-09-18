@@ -1,0 +1,35 @@
+class Solution {
+public:
+    string largestNumber(vector<int>& nums) {
+        // Create a vector to hold the string representations of the numbers
+        vector<string> strNums;
+        strNums.reserve(nums.size());  // Reserve space for the vector to avoid multiple allocations
+
+        // Convert each integer in nums to a string and store it in strNums
+        for (int num : nums) {
+            strNums.push_back(to_string(num));
+        }
+
+        // Sort the string numbers based on a custom comparator
+        // The comparator checks which concatenation is greater: a + b or b + a
+        sort(strNums.begin(), strNums.end(), [](const string& a, const string& b) {
+            return a + b > b + a; 
+        });
+
+        // If the largest number after sorting is "0", it means all numbers are zeros
+        if (strNums[0] == "0") {
+            return "0";  // Return "0" as the result
+        }
+
+        // Initialize a string to build the largest number
+        string largestNum;
+        largestNum.reserve(strNums.size() * 10);  // Reserve enough space for the result
+
+        // Concatenate all sorted strings to form the largest number
+        for (const string& str : strNums) {
+            largestNum += str; 
+        }
+        
+        return largestNum;  // Return the final result
+    }
+};
