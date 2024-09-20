@@ -1,0 +1,40 @@
+class Solution {
+public:
+    string shortestPalindrome(string s) {
+        if (s.empty()) return ""; // If the input string is empty, return an empty string
+
+        // Create a new string with s + '#' + reversed(s)
+        string rev_s = string(s.rbegin(), s.rend()); // Reverse the input string
+        string combined = s + "#" + rev_s; // Concatenate s, a separator '#', and the reversed string
+
+        // Compute the prefix function
+        vector<int> pi = computePrefixFunction(combined); // Call the helper function to compute the prefix function
+        
+        // The length of the longest palindromic prefix
+        int pal_len = pi.back(); // The last value of the prefix array gives the length of the longest palindromic prefix
+
+        // Characters to add in front of original string
+        string to_add = rev_s.substr(0, rev_s.size() - pal_len); // Get the substring from the reversed string that does not overlap with the palindromic prefix
+
+        // Return the shortest palindrome
+        return to_add + s; // Concatenate the characters to add with the original string to form the shortest palindrome
+    }
+
+private:
+    // Function to compute the prefix function for KMP algorithm
+    vector<int> computePrefixFunction(const string& s) {
+        int n = s.size();
+        vector<pi(n, 0); // Initialize the prefix array with zeros
+        for (int i = 1; i < n; ++i) {
+            int j = pi[i - 1]; // Get the value of the prefix function at the previous index
+            while (j > 0 && s[i] != s[j]) { // If the current character does not match, move back in the prefix array
+                j = pi[j - 1];
+            }
+            if (s[i] == s[j]) { // If the current character matches, increment the prefix value
+                ++j;
+            }
+            pi[i] = j; // Store the prefix value at the current index
+        }
+        return pi; // Return the computed prefix array
+    }
+};
