@@ -1,0 +1,24 @@
+class Solution {
+public:
+    // Function to generate numbers in lexical order from 1 to n
+    vector<int> lexicalOrder(int n) {
+        vector<int> res; // Vector to store the result
+        // Start DFS from each digit 1 to 9, as these are the possible starting points
+        for (int i = 1; i <= 9 && i <= n; i++) {
+            dfs(i, n, res); // Perform DFS for each starting digit
+        }
+        return res; // Return the result vector containing numbers in lexical order
+    }
+
+    // Depth-first search helper function
+    void dfs(int cur, int n, vector<int>& res) {
+        res.push_back(cur); // Add the current number to the result
+        // Explore all possible next digits (0 to 9)
+        for (int i = 0; i <= 9; i++) {
+            int next = cur * 10 + i; // Form the next number by appending digit i
+            if (next <= n) { // Check if the next number is within the limit n
+                dfs(next, n, res); // Recursively call DFS for the next number
+            }
+        }
+    }
+};
