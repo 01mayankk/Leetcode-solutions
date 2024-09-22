@@ -1,0 +1,45 @@
+class Solution {
+public:
+    // Function to find the kth lexicographically smallest number in the range [1, n]
+    int findKthNumber(int n, int k) {
+        int curr = 1; // Start from the first lexicographical number
+        k--; // Decrement k since we start counting from 1 (0-based index)
+
+        // Loop until we find the kth number
+        while (k > 0) {
+            // Calculate the number of steps from the current prefix (curr)
+            // to its next sibling (curr + 1)
+            long long steps = calcSteps(n, curr, curr + 1);
+            
+            // If k is greater than or equal to the number of steps,
+            // move to the next sibling
+            if (k >= steps) {
+                k -= steps; // Reduce k by the number of steps counted
+                curr += 1; // Move to the next sibling
+            } else {
+                // Otherwise, go deeper into the tree (to the next level)
+                curr *= 10; // Move down to the first child of curr
+                k--; // Decrement k since we have moved down one level
+            }
+        }
+
+        return curr; // Return the kth lexicographical smallest number
+    }
+
+private:
+    // Helper function to calculate how many numbers start with prefix n1
+    // and are less than or equal to n, going up to prefix n2
+    long long calcSteps(long long n, long long n1, long long n2) {
+        long long steps = 0; // Initialize step count
+        
+        // Count how many numbers fall under the current prefix range
+        while (n1 <= n) {
+            // Count numbers in the range [n1, min(n + 1, n2))
+            steps += min(n + 1, n2) - n1;
+            n1 *= 10; // Move to the next level (first child)
+            n2 *= 10; // Move to the next level (next sibling)
+        }
+        
+        return steps; // Return total count of valid numbers under this prefix
+    }
+};
