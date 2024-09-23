@@ -1,0 +1,68 @@
+// Represents a node in the Trie data structure
+class TrieNode {
+public:
+    // Indicates whether the node represents a complete word
+    bool isWord;
+    
+    // Children of the node, where each index corresponds to a letter in the alphabet
+    vector<TrieNode*> children;
+
+    // Constructor to initialize the node with default values
+    TrieNode() : isWord(false), children(26, nullptr) {}
+};
+
+// Solution class to find the minimum extra characters required
+class Solution {
+public:
+    // Function to find the minimum extra characters required
+    int minExtraChar(string s, vector<string>& dictionary) {
+        // Create the root node of the Trie
+        TrieNode* root = new TrieNode();
+        
+        // Insert each word in the dictionary into the Trie
+        for (const string& word : dictionary) {
+            TrieNode* node = root;
+            for (char c : word) {
+                // If the child node for the current character does not exist, create it
+                if (!node->children[c - 'a']) {
+                    node->children[c - 'a'] = new TrieNode();
+                }
+                // Move to the child node
+                node = node->children[c - 'a'];
+            }
+            // Mark the end of the word
+            node->isWord = true;
+        }
+
+        // Create a dynamic programming table to store the minimum extra characters required
+        vector<int> dp(s.size() + 1, s.size());
+        // Base case: 0 extra characters required for an empty string
+        dp[0] = 0;
+        
+        // Fill the dynamic programming table
+        for (int i = 1; i <= s.size(); i++) {
+            // Try to find a word in the dictionary that matches the current substring
+            for (int j = 0; j < i; j++) {
+                TrieNode* node = root;
+                bool found = true;
+                for (int k = j; k < i; k++) {
+                    // If the current character does not match any child node, break
+                    if (!node->children[s[k] - 'a']) {
+                        found = false;
+                        break;
+                    }
+                    // Move to the child node
+                    node = node->children[s[k] - 'a'];
+                }
+                // If a matching word is found, update the dynamic programming table
+                if (found && node->isWord) {
+                    dp[i] = min(dp[i], dp[j]);
+                }
+            }
+            // If no matching word is found, increment the extra characters required
+            dp[i] = min(dp[i], dp[i - 1] + 1);
+        }
+        // Return the minimum extra characters required for the entire string
+        return dp[s.size()];
+    }
+};
