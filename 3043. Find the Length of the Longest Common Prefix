@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int longestCommonPrefix(vector<int>& arr1, vector<int>& arr2) {
+        // Map to store prefixes and their counts
+        unordered_map<string, int> prefixMap;
+        
+        // Step 1: Build the prefix map for arr1
+        for (int num : arr1) {
+            // Convert the integer to string
+            string strNum = to_string(num);
+            string prefix = "";
+            // Generate all prefixes of the current number
+            for (char ch : strNum) {
+                prefix += ch; // Append current character to prefix
+                prefixMap[prefix]++; // Store the prefix in the map
+            }
+        }
+        
+        int maxLength = 0; // Variable to track the maximum length of common prefixes
+        
+        // Step 2: Check for common prefixes in arr2
+        for (int num : arr2) {
+            // Convert the integer to string
+            string strNum = to_string(num);
+            string prefix = "";
+            // Generate prefixes for the current number
+            for (char ch : strNum) {
+                prefix += ch; // Append current character to prefix
+                // Check if the current prefix exists in the prefix map
+                if (prefixMap.find(prefix) != prefixMap.end()) {
+                    // Update maxLength if the current prefix is longer
+                    maxLength = max(maxLength, static_cast<int>(prefix.length()));
+                }
+            }
+        }
+        
+        return maxLength; // Return the length of the longest common prefix found
+    }
+};
