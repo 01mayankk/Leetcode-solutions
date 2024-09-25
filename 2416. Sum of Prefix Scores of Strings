@@ -1,0 +1,75 @@
+// Class representing a node in the Trie
+class TrieNode {
+public:
+    TrieNode* children[26]; // Array of pointers for 26 lowercase English letters
+    int count; // Count of words that pass through this node
+
+    // Constructor initializes count and sets all children to nullptr
+    TrieNode() : count(0) {
+        fill(children, children + 26, nullptr); // Initialize all children to nullptr
+    }
+};
+
+// Class representing the Trie structure
+class Trie {
+public:
+    TrieNode* root; // Root node of the Trie
+
+    // Constructor initializes the root node
+    Trie() {
+        root = new TrieNode();
+    }
+
+    // Insert a word into the Trie and update counts for prefixes
+    void insert(const string& word) {
+        TrieNode* node = root; // Start from the root
+        for (char c : word) {
+            int index = c - 'a'; // Calculate index (0-25) for the character
+            if (!node->children[index]) { // If the child does not exist, create a new node
+                node->children[index] = new TrieNode();
+            }
+            node = node->children[index]; // Move to the child node
+            node->count++; // Increment the count for this prefix
+        }
+    }
+
+    // Get the total score for all prefixes of a word
+    int getTotalPrefixScore(const string& word) {
+        TrieNode* node = root; // Start from the root
+        int totalScore = 0; // Initialize total score for this word
+
+        for (char c : word) {
+            int index = c - 'a'; // Calculate index for the character
+            if (node->children[index]) { // If the child exists, proceed
+                node = node->children[index]; // Move to the child node
+                totalScore += node->count; // Add the count of words with this prefix to total score
+            } else {
+                break; // No more prefixes to consider if child does not exist
+            }
+        }
+        return totalScore; // Return the total score for this word
+    }
+};
+
+// Class containing the solution method
+class Solution {
+public:
+    vector<int> sumPrefixScores(vector<string>& words) {
+        Trie trie; // Create a new instance of Trie
+
+        // Insert all words into the trie to build it
+        for (const string& word : words) {
+            trie.insert(word);
+        }
+
+        vector<int> answer; // Vector to store results
+        
+        // Calculate the total score for each word based on its prefixes
+        for (const string& word : words) {
+            int totalScore = trie.getTotalPrefixScore(word); // Get score for current word
+            answer.push_back(totalScore); // Add score to results vector
+        }
+
+        return answer; // Return the final scores for all words
+    }
+};
