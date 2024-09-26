@@ -1,0 +1,38 @@
+class MyCalendar {
+private:
+    // Vector to store events as pairs of start and end times
+    vector<pair<int, int>> events;
+
+public:
+    MyCalendar() {}
+
+    // Function to book an event with a start and end time
+    bool book(int start, int end) {
+        // Find the position to insert the new event using binary search
+        auto it = lower_bound(events.begin(), events.end(), make_pair(start, end));
+
+        // Check for overlap with the previous event (if it exists)
+        if (it != events.begin()) {
+            auto prev = it - 1;
+            // If the new event starts before the previous event ends, there's an overlap
+            if (start < prev->second) {
+                return false;
+            }
+        }
+
+        // Check for overlap with the next event (if it exists)
+        if (it != events.end() && end > it->first) {
+            return false; // Overlap with the next event
+        }
+
+        // Insert the new event in the correct position to keep events sorted
+        events.insert(it, make_pair(start, end));
+        return true; 
+    }
+};
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * MyCalendar* obj = new MyCalendar();
+ * bool param_1 = obj->book(start, end);
+ */
