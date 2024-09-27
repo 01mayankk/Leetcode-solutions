@@ -1,0 +1,63 @@
+// Class representing an event with a start and end time
+class Event {
+    int start; // Start time of the event
+    int end;   // End time of the event
+
+    // Constructor to initialize an Event object
+    public Event(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }  
+}
+
+// Class to manage calendar bookings
+class MyCalendarTwo {
+    List<Event> overLapBookings; // List to store events that cause double bookings
+    List<Event> bookings;         // List to store all booked events
+
+    // Constructor initializes the lists for bookings and overlapping bookings
+    public MyCalendarTwo() {
+        overLapBookings = new ArrayList<>();
+        bookings = new ArrayList<>();
+    }
+    
+    // Method to book a new event in the calendar
+    public boolean book(int start, int end) {
+        // Check against existing overlapping bookings
+        for (Event e : overLapBookings) {
+            if (isOverlap(e, start, end)) {
+                return false;  // If there's an overlap with a double booked event, reject the booking
+            }  
+        } 
+
+        // Check against regular bookings to find any overlaps
+        for (Event e : bookings) {
+            if (isOverlap(e, start, end)) {
+                // If there's an overlap with a regular booking, record the overlapping interval
+                overLapBookings.add(getOverlapEvent(e, start, end));
+            }    
+        }  
+
+        // If no triple booking occurs, add the new event to the bookings list
+        bookings.add(new Event(start, end));
+        return true;  // Booking successful
+    }
+
+    // Helper method to check if two events overlap
+    public boolean isOverlap(Event e, int start, int end) {
+        // Check if there is a non-empty intersection between the two intervals
+        return Math.max(e.start, start) < Math.min(e.end, end); 
+    }
+
+    // Helper method to get the overlapping interval between an existing event and a new event
+    public Event getOverlapEvent(Event e, int start, int end) {
+        // Create a new Event representing the overlapping time period
+        return new Event(Math.max(e.start, start), Math.min(e.end, end));  
+    }
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo obj = new MyCalendarTwo();
+ * boolean param_1 = obj.book(start,end);
+ */
