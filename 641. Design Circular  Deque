@@ -1,0 +1,82 @@
+class MyCircularDeque {
+    vector<int> deque; // Vector to store elements of the deque
+    int front;              // Index of the front element
+    int rear;               // Index where a new element will be added at the back
+    int size;               // Current number of elements in the deque
+    int capacity;           // Maximum capacity of the deque
+
+public:
+    // Constructor to initialize the deque with maximum size k
+    MyCircularDeque(int k) : capacity(k), size(0), front(0), rear(0) {
+        deque.resize(k); // Resize the vector to hold k elements
+    }
+
+    // Adds an item at the front of Deque. Returns true if successful, false otherwise.
+    bool insertFront(int value) {
+        if (isFull()) return false; // Check if the deque is full
+        front = (front - 1 + capacity) % capacity; // Move front pointer backward
+        deque[front] = value; // Insert value at the front
+        size++; // Increment size
+        return true; // Operation successful
+    }
+
+    // Adds an item at the rear of Deque. Returns true if successful, false otherwise.
+    bool insertLast(int value) {
+        if (isFull()) return false; // Check if the deque is full
+        deque[rear] = value; // Insert value at the rear
+        rear = (rear + 1) % capacity; // Move rear pointer forward
+        size++; // Increment size
+        return true; // Operation successful
+    }
+
+    // Deletes an item from the front of Deque. Returns true if successful, false otherwise.
+    bool deleteFront() {
+        if (isEmpty()) return false; // Check if the deque is empty
+        front = (front + 1) % capacity; // Move front pointer forward to remove element
+        size--; // Decrement size
+        return true; // Operation successful
+    }
+
+    // Deletes an item from the rear of Deque. Returns true if successful, false otherwise.
+    bool deleteLast() {
+        if (isEmpty()) return false; // Check if the deque is empty
+        rear = (rear - 1 + capacity) % capacity; // Move rear pointer backward to remove element
+        size--; // Decrement size
+        return true; // Operation successful
+    }
+
+    // Returns the front item from the Deque. Returns -1 if empty.
+    int getFront() {
+        if (isEmpty()) return -1; // If empty, return -1
+        return deque[front]; // Return value at front index
+    }
+
+    // Returns the last item from Deque. Returns -1 if empty.
+    int getRear() {
+        if (isEmpty()) return -1; // If empty, return -1
+        return deque[(rear - 1 + capacity) % capacity]; // Return value at rear index (adjusted)
+    }
+
+    // Returns true if the deque is empty, false otherwise.
+    bool isEmpty() {
+        return size == 0; // Check if size is zero
+    }
+
+    // Returns true if the deque is full, false otherwise.
+    bool isFull() {
+        return size == capacity; // Check if size equals capacity
+    }
+};
+
+/**
+ * Your MyCircularDeque object will be instantiated and called as such:
+ * MyCircularDeque* obj = new MyCircularDeque(k);      // Create a new circular deque with maximum size k.
+ * bool param_1 = obj->insertFront(value);            // Insert an element at the front.
+ * bool param_2 = obj->insertLast(value);             // Insert an element at the rear.
+ * bool param_3 = obj->deleteFront();                  // Remove an element from the front.
+ * bool param_4 = obj->deleteLast();                   // Remove an element from the rear.
+ * int param_5 = obj->getFront();                       // Get the front element.
+ * int param_6 = obj->getRear();                        // Get the last element.
+ * bool param_7 = obj->isEmpty();                       // Check if the deque is empty.
+ * bool param_8 = obj->isFull();                        // Check if the deque is full.
+ */
