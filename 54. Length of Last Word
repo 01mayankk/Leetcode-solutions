@@ -1,0 +1,15 @@
+#include <string>
+
+class Solution {
+public:
+    int lengthOfLastWord(std::string s) {
+        size_t end = s.find_last_not_of(' '); // Step 1: Find last non-space character
+        if (end == std::string::npos) {
+            return 0; // Edge case: All spaces
+        }
+
+        size_t start = s.find_last_of(' ', end); // Step 2: Find last space before the last word
+
+        return end - start; // Step 3: Calculate the length of the last word
+    }
+};
