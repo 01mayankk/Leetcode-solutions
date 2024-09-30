@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        // Handle the special case where dividend is INT_MIN and divisor is -1,
+        // which would cause an overflow.
+        if (dividend == INT_MIN && divisor == -1) return INT_MAX;
+        
+        // Calculate the sign of the result by checking if the signs of dividend and divisor are different.
+        int sign = (dividend < 0) ^ (divisor < 0) ? -1 : 1;
+        
+        // Get the absolute values of dividend and divisor to avoid overflow.
+        long long dvd = labs(dividend);
+        long long dvs = labs(divisor);
+        
+        int res = 0;
+        
+        // Use a while loop to calculate the result.
+        while (dvd >= dvs) {
+            int shift = 0;
+            
+            // Find the largest power of dvs that is less than or equal to dvd.
+            while (dvd >= (dvs << shift)) {
+                shift++;
+            }
+            
+            // Add the corresponding value to the result.
+            res += 1 << (shift - 1);
+            
+            // Subtract the largest power of dvs from dvd.
+            dvd -= dvs << (shift - 1);
+        }
+        
+        // Return the result with the correct sign.
+        return sign == 1 ? res : static_cast<int>(-static_cast<unsigned int>(res));
+    }
+};
