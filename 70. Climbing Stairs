@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int climbStairs(int n) 
+    {
+        // Calculate the square root of 5, used in the formula
+        double sqrt5 = sqrt(5);
+
+        // Calculate the golden ratio (phi), which is (1 + sqrt(5)) / 2
+        double phi = (1 + sqrt5) / 2;
+
+        // Calculate the conjugate of the golden ratio (psi), which is (1 - sqrt(5)) / 2
+        // Note: psi is not used in the formula but is part of the closed-form expression
+        double psi = (1 - sqrt5) / 2;
+        
+        // Use Binet's formula to calculate the nth Fibonacci number,
+        // which corresponds to the number of ways to climb n stairs.
+        // The formula is: round((phi^(n + 1) - psi^(n + 1)) / sqrt(5)).
+        // Since psi is a small negative number, its contribution diminishes with larger n.
+        return (int)round(pow(phi, n + 1) / sqrt5);
+    }
+};
