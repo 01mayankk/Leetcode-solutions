@@ -1,0 +1,42 @@
+class CustomStack {
+public:
+    int n; // Maximum size of the stack
+    stack<int> stack; // Main stack to hold the integers
+    vector<int> inc; // Vector to track incremental values for each element
+
+    // Constructor to initialize the stack with a maximum size n
+    CustomStack(int n) {
+        this->n = n;
+    }
+
+    // Pushes an element x onto the stack if it doesn't exceed the size limit
+    void push(int x) {
+        if (stack.size() < n) { // Check if there's space in the stack
+            stack.push(x); // Push the element onto the stack
+            inc.push_back(0); // Initialize increment value for this element to 0
+        }
+    }
+
+    // Pops the top element from the stack, applying any increment if necessary
+    int pop() {
+        if (stack.empty()) return -1; // Return -1 if the stack is empty
+
+        // Apply the increment from the current top element to the one below it, if exists
+        if (inc.size() > 1) inc[inc.size() - 2] += inc.back(); 
+
+        // Get the value of the top element plus its increment
+        int res = stack.top() + inc.back(); 
+        stack.pop(); // Remove the top element from the stack
+        inc.pop_back(); // Remove the corresponding increment value
+        return res; // Return the adjusted value
+    }
+
+    // Increments the bottom k elements of the stack by val
+    void increment(int k, int val) {
+        if (!stack.empty()) { // Only proceed if the stack is not empty
+            // Calculate the index to apply the increment, ensuring it doesn't exceed the size of inc
+            int idx = min(k, (int)inc.size()) - 1; 
+            inc[idx] += val; // Increment the appropriate index in the inc vector
+        }
+    }
+};
