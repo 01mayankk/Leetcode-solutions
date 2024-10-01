@@ -1,0 +1,27 @@
+class Solution {
+public:
+    bool canArrange(vector<int>& arr, int k) {
+        // Create a frequency array to store the count of remainders
+        vector<int> freq(k, 0);
+        
+        // Iterate through the array and calculate the remainder of each element
+        for (int num : arr) {
+            // Calculate the remainder of the current element
+            int remainder = ((num % k) + k) % k;
+            // Increment the count of the remainder in the frequency array
+            freq[remainder]++;
+        }
+   
+        // Check if the count of 0 is odd
+        if (freq[0] % 2 != 0) return false; 
+        
+        // Check if the counts of complementary remainders are equal
+        for (int i = 1; i <= k / 2; i++) {
+            // If the counts are not equal, return false
+            if (freq[i] != freq[k - i]) return false; 
+        }
+        
+        // If all checks pass, return true
+        return true;
+    }
+};
