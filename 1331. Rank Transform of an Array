@@ -1,0 +1,38 @@
+class Solution {
+public:
+    // This function takes a vector of integers as input and returns a new vector with the rank of each element
+    vector<int> arrayRankTransform(vector<int>& arr ) {
+        // Create a copy of the input vector
+        vector<int>a=arr;
+        
+        // Sort the copied vector in ascending order
+        sort(a.begin(),a.end());
+        
+        // Create an unordered map to store the rank of each element
+        unordered_map<int,int>mp;
+        
+        // Initialize variables to keep track of the current index and rank
+        int i=0,n=arr.size(),rank=1;
+        
+        // Iterate through the sorted vector
+        while(i<n){
+            // If the current element is the same as the previous one, do nothing
+            if(i==0){}
+            // If the current element is different from the previous one, increment the rank
+            else if(a[i]==a[i-1]){}
+            else rank++;
+            
+            // Store the rank of the current element in the map
+            mp[a[i]]=rank;
+            i++;
+        }
+        
+        // Iterate through the original vector and replace each element with its rank
+        for(auto &x:arr){
+            x=mp[x];
+        }
+        
+        // Return the modified vector
+        return arr;
+    }
+};
