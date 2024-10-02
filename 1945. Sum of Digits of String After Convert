@@ -1,0 +1,41 @@
+class Solution {
+public:
+    // This function takes a string s and an integer k as input and returns the result of the k-th operation
+    int getLucky(string& s, int k) {
+        // Initialize a variable to store the sum of the alphanumeric values
+        int num=0;
+        
+        // Iterate through each character in the input string
+        for (char c: s){
+            // Convert the character to its alphanumeric value (a=1, b=2, ..., z=26)
+            int x=c-'a'+1;
+            
+            // Calculate the sum of the digits of the alphanumeric value
+            auto [q, r]=div(x, 10);
+            num+=q+r;
+        }
+   
+        // If k is 1, return the sum
+        if (k==1) return num;
+        
+        // Decrement k by 1
+        k--;
+        
+        // Perform the operation k times
+        for(int x=num; x>=10 && k>0; k--){
+            // Initialize a variable to store the new sum
+            for(num=0; x>0; ){
+                // Calculate the sum of the digits of the current number
+                auto [q, r]=div(x, 10);
+                num+=r;
+                x=q;
+            }
+    
+            // Update the current number for the next iteration
+            x=num;
+        }
+        
+        // Return the final sum
+        return num;
+    }
+};
