@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        // Initialize an empty string to store the result
+        string result = "";
+        
+        // Initialize two pointers to the end of the input strings
+        int i = a.size() - 1, j = b.size() - 1;
+        
+        // Initialize a carry variable to handle the case where the sum of two bits is greater than 1
+        int carry = 0;
+        
+        // Continue iterating until we have processed all bits in both strings and there is no carry
+        while (i >= 0 || j >= 0 || carry) {
+            // Calculate the sum of the current bits and the carry
+            int sum = carry;
+            if (i >= 0) sum += a[i--] - '0'; // Subtract '0' to convert the character to an integer
+            if (j >= 0) sum += b[j--] - '0'; // Subtract '0' to convert the character to an integer
+            
+            // Update the carry
+            carry = sum / 2;
+            
+            // Append the least significant bit of the sum to the result string
+            result.push_back('0' + sum % 2);
+        }
+        
+        // Reverse the result string to get the correct order of the binary digits
+        reverse(result.begin(), result.end());
+        
+        // Return the result
+        return result;
+    }
+};
