@@ -1,0 +1,12 @@
+# Read from the file file.txt and output all valid phone numbers to stdout.
+# Use grep to search for patterns in the file.
+# The -E option enables extended regular expressions.
+grep -E \
+  # The pattern to match valid phone numbers.
+  # ^ matches the start of the line.
+  # (\([0-9]{3}\) |[0-9]{3}-) matches either a 3-digit number enclosed in parentheses or a 3-digit number followed by a hyphen.
+  # [0-9]{3}-[0-9]{4} matches a 3-digit number followed by a hyphen and a 4-digit number.
+  # $ matches the end of the line.
+  '^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$' \
+  # The input file.
+  file.txt
