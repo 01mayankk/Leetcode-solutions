@@ -1,0 +1,41 @@
+class Solution {
+public:
+    int minSubarray(vector<int>& nums, int p) {
+        // Calculate the total sum of the array
+        long totalSum = 0;
+        for (int num : nums) {
+            totalSum += num;
+        }
+
+        // Find the remainder when the total sum is divided by p
+        int rem = totalSum % p;
+        if (rem == 0) return 0; // If the remainder is 0, no subarray needs to be removed
+
+        // Create a hashmap to store the modulus of the prefix sum at each index
+        unordered_map<int, int> prefixMod;
+        prefixMod[0] = -1;  // Initialize for handling full prefix
+        long prefixSum = 0;
+        int minLength = nums.size();
+
+        // Iterate over the array
+        for (int i = 0; i < nums.size(); ++i) {
+            // Calculate the prefix sum
+            prefixSum += nums[i];
+            // Calculate the current modulus
+            int currentMod = prefixSum % p;
+            // Calculate the target modulus (which is the modulus of the total sum minus the remainder)
+            int targetMod = (currentMod - rem + p) % p;
+
+            // If the target modulus is in the hashmap, update the minimum length
+            if (prefixMod.find(targetMod) != prefixMod.end()) {
+                minLength = min(minLength, i - prefixMod[targetMod]);
+            }
+
+            // Store the current modulus in the hashmap
+            prefixMod[currentMod] = i;
+        }
+
+        // Return the minimum length or -1 if it's impossible to remove a subarray to make the sum divisible by p
+        return minLength == nums.size() ? -1 : minLength;
+    }
+};
