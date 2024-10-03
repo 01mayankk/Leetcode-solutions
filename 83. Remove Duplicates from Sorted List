@@ -1,0 +1,22 @@
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        // Initialize a pointer to the head of the linked list
+        ListNode* current = head;
+        
+        // Continue iterating until we reach the end of the linked list
+        while (current && current->next) {
+            // Check if the current node has the same value as the next node
+            if (current->val == current->next->val) {
+                // If they are equal, remove the next node by updating the next pointer
+                current->next = current->next->next;
+            } else {
+                // If they are not equal, move the current pointer to the next node
+                current = current->next;
+            }
+        }
+        
+        // Return the head of the modified linked list
+        return head;
+    }
+};
