@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        unordered_map<int,int> mp; // Map to store the last index of each number.
+        int n = nums.size();        // Get the size of the array `nums`.
+        
+        // Loop through the array using index `i`.
+        for(int i=0; i<n; i++)
+        {
+            // Check if the current number already exists in the map (i.e., it's been seen before).
+            if(mp.count(nums[i]))
+            {
+                // If the number is already in the map, check the difference in indices.
+                if(abs(i - mp[nums[i]]) <= k)
+                    return true; // If the distance between indices is less than or equal to `k`, return true.
+            }
+            
+            // Store the index of the current number (i.e., update the last seen index for this number).
+            mp[nums[i]] = i;
+        }
+        
+        return false; // If no such pair is found, return false.
+    }
+};
