@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();  // Step 1: Get the size of the array `nums`
+        
+        // Step 2: Create a new array `v` of size `n+1` initialized to `-1`.
+        // The reason we create `n+1` is to include the full range [0, n], which has `n+1` numbers.
+        vector<int> v(n + 1, -1);  // Array of size `n+1` with all elements initialized to `-1`
+        
+        // Step 3: Fill the array `v` with the elements from `nums`.
+        // If `nums[i]` is present in the range [0, n], we set `v[nums[i]]` to `nums[i]`
+        for (int i = 0; i < nums.size(); i++) {
+            v[nums[i]] = nums[i];  // Place the number in its corresponding index in the array `v`
+        }
+        
+        // Step 4: Find the first index `i` in the array `v` where `v[i] == -1`.
+        // This indicates that the number `i` is missing from the original array `nums`.
+        for (int i = 0; i < v.size(); i++) {
+            if (v[i] == -1) {
+                return i;  // Return the index `i` as the missing number
+            }
+        }
+        
+        return 0;  // If no missing number is found (this line is technically redundant)
+    }
+};
