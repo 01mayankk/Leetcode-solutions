@@ -1,0 +1,46 @@
+class Solution {
+public:
+    // Function to divide players into two teams and calculate the chemical sum
+    static long long dividePlayers(vector<int>& skill) {
+        const int n = skill.size();     // Get the number of players
+        const int n_2 = n / 2;          // Half of the players (as we're forming two teams)
+
+        // Calculate the total sum of skills of all players
+        long long sum = accumulate(skill.begin(), skill.end(), 0LL);
+
+        // Check if the total sum is divisible by n/2, which is the sum for each team
+        // If not divisible, return -1 since it is impossible to divide into two equal-sum teams
+        if (sum % n_2 != 0) return -1;
+
+        // Calculate the target team skill (sum of skills for each team)
+        int team_skill = sum / n_2;
+
+        // Sort the skill array to easily form balanced teams by pairing the smallest and largest elements
+        sort(skill.begin(), skill.end());
+
+        long long chemi = 0;  // Variable to store the total chemical sum
+
+        // Loop through the first half of the players
+        for (int i = 0; i < n_2; i++) {
+            long long l = skill[i];       // Left player (from the start of the sorted array)
+            long long r = skill[n - 1 - i]; // Right player (from the end of the sorted array)
+
+            // Check if the sum of the current pair of players equals the target team skill
+            if (l + r != team_skill) return -1;  // If not, it is impossible to form valid teams, so return -1
+
+            // Calculate the chemical sum by multiplying the left and right players' skills
+            chemi += l * r;
+        }
+
+        // Return the total chemical sum after pairing all players
+        return chemi;
+    }
+};
+
+// Initialize input/output settings for fast I/O
+auto init = []() {
+    ios::sync_with_stdio(false);  // Disable sync with C-style I/O for faster input/output
+    cin.tie(nullptr);             // Untie cin from cout to speed up I/O
+    cout.tie(nullptr);            // Untie cout from cin
+    return 'c';                   // Return a dummy character just for initialization
+}();
