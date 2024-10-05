@@ -1,0 +1,51 @@
+class Solution {
+public:
+    // Helper function to count the frequency of characters in a given substring (s[l...r]) of string 's'.
+    static inline array<int, 26> count(string& s, int l, int r) {
+        array<int, 26> freq = {0};  // Initialize a frequency array of size 26 (for 'a' to 'z')
+        for (int i = l; i <= r; i++)
+            freq[s[i] - 'a']++;  // Increment the frequency of each character in the range [l, r]
+        return freq;  // Return the frequency array
+    }
+
+    // Main function to check if a permutation of s1 exists as a substring in s2.
+    static bool checkInclusion(string& s1, string& s2) {
+        const int n1 = s1.size();  // Length of string s1
+        const int n2 = s2.size();  // Length of string s2
+        
+        // If s2 is shorter than s1, it's impossible for s2 to contain a permutation of s1.
+        if (n2 < n1) return 0;
+        
+        // Get the frequency of characters in s1.
+        auto freq1 = count(s1, 0, n1 - 1);
+        
+        // Get the frequency of characters in the first window of s2 (i.e., s2[0...n1-1]).
+        auto freq2 = count(s2, 0, n1 - 1);
+        
+        // If the frequency arrays of s1 and the first window of s2 are equal, return true (match found).
+        if (freq1 == freq2) return 1;
+        
+        // Sliding window approach: move the window one character at a time over s2
+        for (int l = 1, r = n1; r < n2; r++, l++) {
+            // Update the frequency of characters for the current window of size n1:
+            // Remove the leftmost character of the previous window (s2[l-1])
+            freq2[s2[l - 1] - 'a']--;
+            // Add the next character in the window (s2[r])
+            freq2[s2[r] - 'a']++;
+            
+            // If the frequencies of the current window match those of s1, return true.
+            if (freq2 == freq1) return 1;
+        }
+        
+        // If no match is found, return false.
+        return 0;
+    }
+};
+
+// This block sets up fast I/O for competitive programming (to speed up reading/writing of data).
+auto init = []() {
+    ios::sync_with_stdio(false);  // Disable synchronization with C-style I/O (for faster input/output)
+    cin.tie(nullptr);  // Untie cin from cout (again for faster I/O)
+    cout.tie(nullptr);  // Same as above for cout
+    return 'c';  // Return a dummy value (it can be ignored)
+}();
