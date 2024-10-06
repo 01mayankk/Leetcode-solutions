@@ -1,0 +1,44 @@
+class Solution {
+public:
+    // Helper function to convert a space-separated string into a vector of strings (words)
+    inline static vector<string> toStringVec(string& s) {
+        stringstream ss(s);  // Use stringstream to split the string into words
+        vector<string> ans;  // Resulting vector to store words
+        string w;  // Temporary variable to hold each word
+        while (ss >> w)  // Extract words one by one
+            ans.push_back(w);  // Add each word to the result vector
+        ss.clear();  // Clear the stringstream (reset its state)
+        return ans;  // Return the vector of words
+    }
+
+    // Main function to check if two sentences are similar
+    static bool areSentencesSimilar(string sentence1, string sentence2) {
+        // Convert both sentences to vectors of words
+        auto s1 = toStringVec(sentence1), s2 = toStringVec(sentence2);
+
+        // Get the lengths of both sentence word vectors
+        int n1 = s1.size(), n2 = s2.size();
+        
+        // Ensure that s1 is the smaller (or equal size) vector for easier comparison
+        if (n1 > n2) {
+            swap(n1, n2);  // Swap sizes if sentence1 is longer
+            swap(s1, s2);  // Swap sentence1 and sentence2 to match the sizes
+        }
+
+        // Initialize pointers for the left side (starting from the beginning of both sentences)
+        int l = 0;  
+        // Initialize pointers for the right side (starting from the end of both sentences)
+        int r2 = n2 - 1, r1 = n1 - 1;  
+
+        // Compare words from the left until a mismatch is found (i.e., from the start of both sentences)
+        for (; l < n1 && s1[l] == s2[l]; l++);
+        
+        // Compare words from the right until a mismatch is found (i.e., from the end of both sentences)
+        for (; r1 >= 0 && s1[r1] == s2[r2]; r2--, r1--);
+
+        // If the right pointer of sentence1 (r1) is less than the left pointer (l), it means that
+        // all the elements in the middle of sentence1 and sentence2 are matching.
+        // Hence, the sentences are similar.
+        return r1 < l;
+    }
+};
