@@ -1,0 +1,36 @@
+class Solution {
+public:
+    // Function to find the minimum length of the string after removing adjacent 'AB' or 'CD' pairs
+    static int minLength(string& s) {
+        const int n = s.size();  // Get the size of the string
+        
+        // If the string has fewer than 2 characters, it cannot have any pairs to remove
+        if (n < 2) return n;
+        
+        int sz = 1;  // `sz` will track the length of the remaining characters in the stack
+        
+        // Traverse the string starting from the second character
+        for (int i = 1; i < n; i++) {
+            s[sz] = s[i];  // Copy current character to the position `sz`
+            
+            // Check if the last character in the stack (`sz-1`) and the current character
+            // form a removable pair ('AB' or 'CD'). If so, pop the last character (reduce `sz`)
+            if (sz > 0 && ((s[sz - 1] == 'A' && s[i] == 'B') || (s[sz - 1] == 'C' && s[i] == 'D'))) {
+                sz--;  // Pop the last character, effectively removing the pair
+            } else {
+                sz++;  // Otherwise, keep adding characters to the stack (increment `sz`)
+            }
+        }
+
+        // The remaining length of the "stack" is the length of the string after removals
+        return sz;
+    }
+};
+
+// Code block to optimize I/O operations
+auto init = []() {
+    ios::sync_with_stdio(false);  // Disable synchronization with C standard streams for faster I/O
+    cin.tie(nullptr);  // Untie cin from cout for faster input
+    cout.tie(nullptr);  // Untie cout from cin for faster output
+    return 'c';  // Return a dummy value to make sure this initialization runs
+}();
