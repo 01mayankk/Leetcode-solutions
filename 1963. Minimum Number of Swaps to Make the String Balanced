@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int minSwaps(string s) {
+        int imbalance = 0;   // Tracks the imbalance between opening and closing brackets
+
+        // Traverse each character in the string
+        for (const char& ch : s) {
+            if (ch == ']') {  // If a closing bracket is encountered
+                if (imbalance == 0) {
+                    // If no unmatched opening bracket is available, 
+                    // we need to "swap" to fix the imbalance.
+                    imbalance++;  // Mark this as a new imbalance, adding a virtual opening bracket
+                } else {
+                    // If there is an unmatched opening bracket available, balance it out
+                    imbalance--;  // Reduce the imbalance by matching it with an opening bracket
+                }
+            } else {
+                // If an opening bracket is encountered, increase the imbalance
+                imbalance++;  // Increase the imbalance since we have one more unmatched opening bracket
+            }
+        }
+
+        // At the end, imbalance represents the number of unmatched brackets.
+        // Every swap can fix two unmatched brackets (one opening and one closing), so
+        // the number of swaps required is half the total imbalance, rounded up.
+        return (imbalance + 1) / 2;  // Divide by 2 to find the number of swaps needed
+    }
+};
