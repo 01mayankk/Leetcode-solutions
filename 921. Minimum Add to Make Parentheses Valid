@@ -1,0 +1,27 @@
+class Solution {
+public:
+    // Function to return the minimum number of parentheses to be added to make the string valid
+    int minAddToMakeValid(string s) {
+        int open = 0;      // Variable to track the number of unmatched '(' parentheses
+        int mismatch = 0;  // Variable to track the number of unmatched ')' parentheses
+        
+        // Iterate over each character in the string
+        for (int i = 0; i < s.length(); i++) {
+            // If the current character is an open parenthesis, increment open counter
+            if (s[i] == '(')
+                open++;
+            else {  // If the current character is a closing parenthesis ')'
+                // Check if there is a matching open parenthesis for the current ')'
+                if (open > 0)
+                    open--;  // A match found, decrement the open counter
+                else
+                    mismatch++;  // No matching open parenthesis, increment mismatch counter
+            }
+        }
+        
+        // The result is the total number of unmatched parentheses:
+        // open tracks unmatched '(' and mismatch tracks unmatched ')'.
+        // So, return their sum to get the minimum number of parentheses to be added.
+        return open + mismatch;
+    }
+};
