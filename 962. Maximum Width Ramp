@@ -1,0 +1,32 @@
+class Solution {
+public:
+    // Function to find the maximum width of a ramp
+    int maxWidthRamp(vector<int>& v) {
+        int n = v.size();  // Get the number of elements in the vector
+        vector<pair<int, int>> vc(n);  // Vector to store pairs (value, index)
+        
+        // Populate 'vc' with the value and index of each element in 'v'
+        for (int i = 0; i < n; ++i) {
+            vc[i] = {v[i], i};  // Store value v[i] and its index i
+        }
+        
+        // Sort 'vc' based on the values (first element of each pair)
+        // Sorting is done in ascending order of values
+        sort(vc.begin(), vc.end());
+        
+        int mn = 1e5;  // Initialize 'mn' to a large value (acts as a "minimum index")
+        int ans = 0;   // Variable to store the maximum width of the ramp
+        
+        // Traverse through the sorted vector 'vc'
+        for (auto it : vc) {
+            // Calculate the width of the ramp as the difference between the index of the current element
+            // and the minimum index seen so far (stored in 'mn')
+            ans = max(ans, it.second - mn);
+            
+            // Update the minimum index ('mn') to be the smallest index encountered so far
+            mn = min(mn, it.second);
+        }
+        
+        return ans;  // Return the maximum width found
+    }
+};
