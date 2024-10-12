@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int minGroups(vector<vector<int>>& intervals) {
+        // Create two separate vectors to store start and end times of intervals
+        vector<int> start_times, end_times;
+
+        // Iterate through each interval and extract start and end times
+        for (const auto& interval : intervals) {
+            start_times.push_back(interval[0]);
+            end_times.push_back(interval[1]);
+        }
+
+        // Sort start and end times in ascending order
+        sort(start_times.begin(), start_times.end());
+        sort(end_times.begin(), end_times.end());
+
+        // Initialize pointers and group count
+        int end_ptr = 0, group_count = 0;
+
+        // Iterate through start times and check if they overlap with end times
+        for (int start : start_times) {
+            // If start time is greater than current end time, increment end pointer
+            if (start > end_times[end_ptr]) {
+                end_ptr++;
+            } 
+            // Otherwise, increment group count (new group is needed)
+            else {
+                group_count++;
+            }
+        }
+
+        // Return the minimum number of groups required
+        return group_count;
+    }
+};
