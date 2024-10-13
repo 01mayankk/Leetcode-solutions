@@ -1,0 +1,65 @@
+class Solution {
+public:
+    // Define a type alias for a pair of integers
+    using int2 = pair<int, int>;
+
+    // Comparator function to sort pairs based on the range and first element
+    static inline bool less(int2& x, int2& y) {
+        auto [a, b] = x; // Unpack the first pair
+        auto [c, d] = y; // Unpack the second pair
+        
+        // Compare the lengths of the ranges first
+        if (b - a == d - c) return a < c; // If lengths are equal, sort by the starting element
+        return b - a < d - c; // Otherwise, sort by the length of the range
+    }
+
+    // Function to find the smallest range that includes at least one number from each list
+    static vector<int> smallestRange(vector<vector<int>>& nums) {
+        const int n = nums.size(); // Number of lists
+        vector<int2> A; // Vector to hold pairs of (value, list index)
+        
+        // Populate the vector A with all numbers and their corresponding list index
+        for (int i = 0; i < n; i++) {
+            for (int x : nums[i]) {
+                A.emplace_back(x, i); // Add each number with its list index to A
+            }
+        }
+        
+        // Sort the vector A based on the custom comparator
+        sort(A.begin(), A.end());
+        
+        int az = A.size(); // Size of the vector A
+        int cnt = 0; // Counter for how many lists have been represented
+        vector<int> freq(n, 0); // Frequency array to count occurrences from each list
+        int2 min_range = {0, INT_MAX}; // Initialize the minimum range with maximum possible values
+        
+        // Two-pointer technique to find the smallest range
+        for (int l = 0, r = 0; r < az; r++) {
+            int fR = ++freq[A[r].second]; // Increment frequency for the current number's list
+            if (fR == 1) cnt++; // If it's the first occurrence from this list, increment the count
+            
+            // While all lists are represented in the current range
+            while (cnt == n) {
+                int2 range = {A[l].first, A[r].first}; // Current range from left to right pointers
+                
+                // Update the minimum range if the current range is smaller
+                if (less(range, min_range)) min_range = range;
+                
+                int fL = --freq[A[l].second]; // Decrement frequency for the leftmost number's list
+                if (fL == 0) cnt--; // If no more occurrences from this list, decrement the count
+                l++; // Move the left pointer to the right
+            }
+        }
+        
+        // Return the smallest range found
+        return {min_range.first, min_range.second};
+    }
+};
+
+// Initialization for faster input/output
+auto init = []() { 
+    ios::sync_with_stdio(0); // Disable synchronization with C I/O
+    cin.tie(0); // Untie cin from cout
+    cout.tie(0); // Untie cout from cin
+    return 'c'; // Return a character to satisfy the lambda requirement
+}();
