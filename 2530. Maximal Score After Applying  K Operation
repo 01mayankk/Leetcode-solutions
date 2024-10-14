@@ -1,0 +1,45 @@
+class Solution {
+public:
+    // Function to calculate the maximum score that can be obtained from the given array
+    static long long maxKelements(vector<int>& nums, int k) {
+        // Create a priority queue and initialize it with the elements of the input array
+        priority_queue<int> pq(nums.begin(), nums.end());
+        
+        // Initialize the score to 0
+        long long score = 0;
+        
+        // Iterate k times
+        for (int i = 0; i < k; i++) {
+            // Get the maximum element from the priority queue
+            int x = pq.top();
+            
+            // Add the maximum element to the score
+            score += x;
+            
+            // If the maximum element is 1, add the remaining iterations to the score and break
+            if (x == 1) {
+                score += (k - 1 - i);
+                break;
+            }
+            
+            // Remove the maximum element from the priority queue
+            pq.pop();
+            
+            // Calculate the new element by dividing the maximum element by 3 and rounding up
+            // Add 2 to the maximum element before dividing to ensure rounding up
+            pq.push((x + 2) / 3);
+        }
+        
+        // Return the calculated score
+        return score;
+    }
+};
+
+// Initialize the input/output streams for faster input/output operations
+auto init = []()
+{ 
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    return 'c';
+}();
