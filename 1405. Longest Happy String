@@ -1,0 +1,52 @@
+class Solution {
+public:
+    // Alias for pair<int, char> to simplify the code
+    using int2 = pair<int, char>;
+
+    // Function to find the longest diverse string
+    string longestDiverseString(int a, int b, int c) {
+        string ans;  // Resultant string
+        // Initialize an array of pairs (frequency, character)
+        int2 x[3] = {{a, 'a'}, {b, 'b'}, {c, 'c'}};
+        
+        int z = -1;  // Used to track which character is last used in the string
+        while (1) {  // Infinite loop until the string is constructed
+            // nth_element sorts the last 3 elements of the array (we're sorting the most frequent character first)
+            nth_element(x + (z + 1), x + 1, x + 3);
+            
+            // References to the first, second, and third elements (most frequent to least frequent)
+            auto& [f2, c2] = x[2];  // f2 = frequency of the most frequent character, c2 = character
+            auto& [f1, c1] = x[1];  // f1 = frequency of the second most frequent character, c1 = character
+            int& f0 = x[0].first;   // f0 = frequency of the least frequent character (or no character left)
+            
+            if (f0 == 0) z = 0;  // If there's no remaining character, start from the lowest frequency character
+
+            if (f2 == 0) break;  // If the most frequent character is used up, end the loop
+
+            // Get the current length of the resultant string
+            int len = ans.size();
+            
+            // Case when the last two characters are the same as the most frequent one
+            if (len >= 2 && ans[len - 1] == c2 && ans[len - 2] == c2) {
+                // If we can't use the most frequent character, fallback to the second most frequent character
+                if (f1 == 0) break;  // If second most frequent character is also exhausted, break
+                ans += c1;           // Add the second most frequent character
+                f1--;                // Decrement its frequency
+            } 
+            else {
+                // Otherwise, add the most frequent character to the result
+                ans += c2;
+                f2--;  // Decrease the frequency of the most frequent character
+            }
+        }
+        return ans;  // Return the final result string
+    }
+};
+
+// Initialize function to setup I/O optimizations (not used in the actual solution logic)
+auto init = []() {
+    ios::sync_with_stdio(0);  // Disable syncing with C++ streams
+    cin.tie(0);               // Untie cin and cout to improve I/O performance
+    cout.tie(0);              // Untie cout from cin
+    return 'c';  // Just a dummy return (doesn't affect the program)
+}();
