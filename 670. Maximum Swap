@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int maximumSwap(int num) {
+        // Convert the number to a string for easier manipulation of digits
+        string numStr = to_string(num);
+        int n = numStr.size();
+        
+        // Create an array to store the last occurrence index of each digit (0-9)
+        vector<int> last(10, -1);
+        for (int i = 0; i < n; ++i) {
+            // Store the index of the last occurrence of each digit in the string
+            last[numStr[i] - '0'] = i;
+        }
+        
+        // Traverse the digits of the number from left to right
+        for (int i = 0; i < n; ++i) {
+            // For each digit, check if a larger digit exists later in the string
+            for (int d = 9; d > numStr[i] - '0'; --d) {
+                // If a larger digit exists later, swap the current digit with the larger one
+                if (last[d] > i) {
+                    swap(numStr[i], numStr[last[d]]);
+                    // Convert the modified string back to an integer and return the result
+                    return stoi(numStr);
+                }
+            }
+        }
+        
+        // If no swap is made, return the original number
+        return num;
+    }
+};
