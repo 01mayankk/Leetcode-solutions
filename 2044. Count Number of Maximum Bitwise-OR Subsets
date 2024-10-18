@@ -1,0 +1,23 @@
+from collections import Counter
+from typing import List
+
+class Solution:
+    def countMaxOrSubsets(self, nums: List[int]) -> int:
+        # Initialize a Counter to keep track of the number of subsets that yield each OR value
+        dp = Counter([0])
+        
+        # Variable to keep track of the maximum OR value found
+        max_or = 0
+        
+        # Iterate through each number in the input list
+        for num in nums:
+            # Create a list of current items in dp to avoid modifying the dictionary while iterating
+            for val, count in list(dp.items()):
+                # Update the dp counter for the new OR value formed by including the current number
+                dp[val | num] += count
+            
+            # Update the maximum OR value encountered so far
+            max_or |= num
+
+        # Return the count of subsets that yield the maximum OR value
+        return dp[max_or]
