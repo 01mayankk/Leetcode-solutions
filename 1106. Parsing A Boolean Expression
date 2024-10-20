@@ -1,0 +1,52 @@
+class Solution {
+public:
+    // Function to parse a boolean expression and return its result
+    bool parseBoolExpr(string expression) {
+        stack<char> st; // Stack to hold operators and boolean values
+
+        // Iterate through each character in the expression
+        for (char currChar : expression) {
+            // Skip commas and opening parentheses
+            if (currChar == ',' || currChar == '(')
+                continue;  
+            
+            // Push boolean literals ('t' for true, 'f' for false) and operators onto the stack
+            if (currChar == 't' || currChar == 'f' || 
+                currChar == '!' || currChar == '&' || currChar == '|') {
+                st.push(currChar);
+            }
+            // When a closing parenthesis is encountered
+            else if (currChar == ')') {
+                bool hasTrue = false;   // Flag to check if there's any true value
+                bool hasFalse = false;  // Flag to check if there's any false value
+
+                // Pop values until we find an operator
+                while (st.top() != '!' && st.top() != '&' && st.top() != '|') {
+                    char topValue = st.top(); // Get the top value from the stack
+                    st.pop(); // Remove the top value from the stack
+                    // Update flags based on the popped value
+                    if (topValue == 't') hasTrue = true;
+                    if (topValue == 'f') hasFalse = true;
+                }
+                
+                // Get the operator and remove it from the stack
+                char op = st.top();
+                st.pop();
+                
+                // Evaluate based on the operator
+                if (op == '!') {
+                    // NOT operator: if there's a true value, result is false, otherwise true
+                    st.push(hasTrue ? 'f' : 't');
+                } else if (op == '&') {
+                    // AND operator: if there's any false value, result is false, otherwise true
+                    st.push(hasFalse ? 'f' : 't');
+                } else {
+                    // OR operator: if there's any true value, result is true, otherwise false
+                    st.push(hasTrue ? 't' : 'f');
+                }
+            }
+        }
+        // Return the final result: true if the top of the stack is 't', false otherwise
+        return st.top() == 't';
+    }
+};
