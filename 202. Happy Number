@@ -1,0 +1,36 @@
+#include <vector>
+#include <unordered_set>
+#include <cmath>
+
+class Solution {
+public:
+    // Function to determine if a number is a happy number
+    bool isHappy(int n) {
+        // Set to track previously seen sums to detect cycles
+        std::unordered_set<int> seen;
+
+        // Loop until we either find 1 (happy number) or see a repeat (not happy)
+        while (n != 1 && seen.find(n) == seen.end()) {
+            // Record the current number
+            seen.insert(n);
+            // Calculate the next number in the sequence
+            n = getNext(n);
+        }
+        
+        // Return true if we reached 1 (happy number), false otherwise
+        return n == 1;
+    }
+
+private:
+    // Helper function to calculate the sum of the squares of the digits of a number
+    int getNext(int number) {
+        int sum = 0; // Initialize sum
+        // Loop to process each digit
+        while (number > 0) {
+            int digit = number % 10; // Get the last digit
+            sum += digit * digit; // Add the square of the digit to the sum
+            number /= 10; // Remove the last digit
+        }
+        return sum; // Return the computed sum
+    }
+};
