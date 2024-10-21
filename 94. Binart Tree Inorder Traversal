@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> result;  // Vector to store the inorder traversal result
+
+    vector<int> inorderTraversal(TreeNode* root) {
+        if (root != nullptr) {
+            inorderTraversal(root->left);  // Recursively traverse the left subtree
+
+            // Process the current node (add its value to the result)
+            result.push_back(root->val);
+
+            inorderTraversal(root->right);  // Recursively traverse the right subtree
+        }
+
+        return result;  // Return the final inorder traversal result
+    }
+};
