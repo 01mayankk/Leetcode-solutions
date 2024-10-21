@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> result;  // Vector to store the postorder traversal result
+
+    vector<int> postorderTraversal(TreeNode* root) {
+        if (root != nullptr) {
+            postorderTraversal(root->left);  // Recursively traverse the left subtree
+
+            postorderTraversal(root->right);  // Recursively traverse the right subtree
+
+            result.push_back(root->val);  // Visit the current node (root) after visiting its children
+        }
+
+        return result;  // Return the final postorder traversal result
+    }
+};
