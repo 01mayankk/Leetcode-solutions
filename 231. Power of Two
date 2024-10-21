@@ -1,0 +1,14 @@
+class Solution {
+public:
+    // Function to check if a number is a power of two
+    bool isPowerOfTwo(int n) {
+        // Check if n is greater than 0 and if it has only one bit set
+        return n > 0 && !(n & (n - 1));
+        // Explanation:
+        // - n > 0 ensures that n is a positive number.
+        // - (n & (n - 1)) checks if n has only one bit set in its binary representation.
+        //   If n is a power of two, it will have exactly one bit set (e.g., 1, 2, 4, 8, ...).
+        //   The expression (n & (n - 1)) will be 0 if n is a power of two.
+        //   Therefore, if both conditions are true, n is a power of two.
+    }
+};
