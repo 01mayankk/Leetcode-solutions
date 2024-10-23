@@ -1,0 +1,56 @@
+class Solution {
+public:
+    // Main function to replace values in the tree
+    TreeNode* replaceValueInTree(TreeNode* root) {
+        // Set the value of the root node to 0
+        root->val = 0;
+        // Start the depth-first search with the root node
+        dfs(vector<TreeNode*>{root});
+        // Return the modified root node
+        return root;
+    }
+
+private:
+    // Helper function to perform depth-first search
+    void dfs(vector<TreeNode*> arr) {
+        // Base case: if the array is empty, return
+        if (arr.empty()) return;
+
+        // Variable to store the sum of all children nodes' values
+        int sum = 0;
+
+        // Calculate the total sum of all child nodes' values
+        for (auto node : arr) {
+            if (!node) continue; // Skip null nodes
+            // Add the left child's value to the sum if it exists
+            if (node->left) sum += node->left->val;
+            // Add the right child's value to the sum if it exists
+            if (node->right) sum += node->right->val;
+        }
+
+        // Prepare to store the child nodes for the next level of the tree
+        vector<TreeNode*> childArr;
+        
+        // Update the values of the child nodes based on the calculated sum
+        for (auto node : arr) {
+            int curSum = 0; // Current node's children sum
+            // Calculate the sum of the current node's children
+            if (node->left) curSum += node->left->val;
+            if (node->right) curSum += node->right->val;
+
+            // Update the left child's value if it exists
+            if (node->left) {
+                node->left->val = sum - curSum; // Set to sum of siblings
+                childArr.push_back(node->left); // Add to child array for next level
+            }
+            // Update the right child's value if it exists
+            if (node->right) {
+                node->right->val = sum - curSum; // Set to sum of siblings
+                childArr.push_back(node->right); // Add to child array for next level
+            }
+        }
+
+        // Recursively call dfs on the next level of child nodes
+        dfs(childArr);
+    }
+};
