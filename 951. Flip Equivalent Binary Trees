@@ -1,0 +1,22 @@
+class Solution {
+public:
+    // Main function to check if two binary trees are flip equivalent
+    bool flipEquiv(TreeNode* root1, TreeNode* root2) {
+        // Call the checker function to determine equivalence
+        return checker(root1, root2);
+    }
+
+private:
+    // Helper function to recursively check if two nodes are flip equivalent
+    bool checker(TreeNode* node1, TreeNode* node2) {
+        // If both nodes are null, they are equivalent
+        if (!node1 && !node2) return true;
+        
+        // If one of the nodes is null or their values are different, they are not equivalent
+        if (!node1 || !node2 || node1->val != node2->val) return false;
+
+        // Check for equivalence by considering both left-right and right-left flips
+        return (checker(node1->left, node2->left) || checker(node1->left, node2->right)) &&
+               (checker(node1->right, node2->right) || checker(node1->right, node2->left));
+    }
+};
