@@ -1,0 +1,36 @@
+class Solution {
+public:
+    // Function to remove all elements with a given value from the linked list
+    ListNode* removeElements(ListNode* head, int val) {
+        // Remove leading nodes that have the target value
+        while (head != nullptr && head->val == val) {
+            head = head->next; // Move the head pointer to the next node
+        }
+
+        // If the list becomes empty after removing leading nodes, return null
+        if (head == nullptr)
+            return head;
+
+        // Initialize two pointers: p for the last node that doesn't have the target value,
+        // and q for the current node being checked
+        ListNode* p = head; // Start with the new head
+        ListNode* q = head->next; // Start with the next node
+
+        // Iterate through the linked list
+        while (q != nullptr) {
+            // If the current node has the target value, skip it
+            if (q->val == val) {
+                p->next = q->next; // Link the previous node to the next node
+                q = p->next; // Move q to the next node
+            } else {
+                // If the current node does not have the target value,
+                // move both pointers forward
+                p = p->next; 
+                q = p->next; // Move q to the next node
+            }
+        }
+
+        // Return the modified list starting from the new head
+        return head;
+    }
+};
