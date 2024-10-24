@@ -1,0 +1,33 @@
+class Solution {
+public:
+    // Function to check if a binary tree is balanced
+    bool isBalanced(TreeNode* root) {
+        // Base case: an empty tree is balanced
+        if (root == NULL)  return true;
+        
+        // If the height calculation returns -1, the tree is not balanced
+        if (Height(root) == -1)  return false;
+        
+        // If the height calculation returns a valid height, the tree is balanced
+        return true;
+    }
+    
+    // Helper function to calculate the height of a tree
+    // Returns -1 if the tree is not balanced
+    int Height(TreeNode* root) {
+        // Base case: an empty tree has a height of 0
+        if (root == NULL)  return 0;
+        
+        // Recursively calculate the height of the left subtree
+        int leftHeight = Height(root->left);
+        
+        // Recursively calculate the height of the right subtree
+        int rightHeight = Height(root->right);
+        
+        // If either subtree is not balanced or the height difference is more than 1, return -1
+        if (leftHeight == -1 || rightHeight == -1 || abs(leftHeight - rightHeight) > 1)  return -1;
+        
+        // Return the maximum height of the subtrees plus 1 (for the current node)
+        return max(leftHeight, rightHeight) + 1;
+    }
+};
