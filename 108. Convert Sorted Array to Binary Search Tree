@@ -1,0 +1,32 @@
+class Solution {
+public:
+    // Helper function to recursively build the BST from the sorted array
+    TreeNode* add(vector<int>& nums, int start, int end) {
+        // If the start index exceeds the end index, return nullptr (base case)
+        if (start > end) return nullptr;
+
+        // Find the middle index to maintain balance
+        int mid = start + (end - start) / 2;
+
+        // Create a new TreeNode with the middle element
+        TreeNode* root = new TreeNode{nums[mid], nullptr, nullptr};
+
+        // Recursively build the left subtree using the left half of the array
+        root->left = add(nums, start, mid - 1);
+        
+        // Recursively build the right subtree using the right half of the array
+        root->right = add(nums, mid + 1, end);
+
+        // Return the root of the subtree
+        return root;
+    }
+
+    // Function to convert a sorted array to a height-balanced BST
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        // Start building the BST from the entire array
+        TreeNode* root = add(nums, 0, nums.size() - 1);
+
+        // Return the root of the constructed BST
+        return root;
+    }
+};
