@@ -1,0 +1,28 @@
+class Solution {
+public:
+    // Helper function to recursively calculate the depth of the tree
+    int solve(TreeNode* root) {
+        // Base case: if the current node is null, return 0 (no depth)
+        if (root == NULL) {
+            return 0;
+        }  
+        
+        // Recursively calculate the depth of the left and right subtrees
+        // Add 1 for the current node
+        int l = solve(root->left) + 1;  // Depth of the left subtree
+        int r = solve(root->right) + 1; // Depth of the right subtree
+
+        // Return the maximum depth between the left and right subtrees
+        return max(l, r);
+    }
+
+    // Function to return the maximum depth of the binary tree
+    int maxDepth(TreeNode* root) {
+        // If the tree is empty, return 0
+        if (root == NULL) {
+            return 0;
+        }
+        // Call the helper function to calculate the maximum depth
+        return solve(root);
+    }
+};
