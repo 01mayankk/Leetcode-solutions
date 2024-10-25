@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<string> removeSubfolders(vector<string>& folder) {
+        // Sort the folder paths based on their lengths.
+        // This ensures that we check shorter paths first, which helps in identifying subfolders.
+        sort(folder.begin(), folder.end(), [](const string &a, const string &b) {
+            return a.size() < b.size();
+        });
+
+        // Use an unordered set to store the valid folder paths that are not subfolders.
+        unordered_set<string> set;
+
+        // Iterate through each folder path in the sorted list.
+        for (const auto &dir : folder) {
+            string parentDir; // To store the parent directory path.
+            bool isSubfolder = false; // Flag to check if the current folder is a subfolder.
+
+            // Check each character in the folder path to find potential parent directories.
+            for (size_t i = 1; i < dir.size(); i++) {
+                // When we encounter a '/', it indicates a potential parent directory.
+                if (dir[i] == '/') {
+                    // Extract the parent directory path up to the current '/'.
+                    parentDir = dir.substr(0, i);
+                    // Check if this parent directory is already in the set.
+                    if (set.count(parentDir)) {
+                        isSubfolder = true; // Mark as a subfolder if found in the set.
+                        break; // No need to check further, exit the loop.
+                    }
+                }
+            }
+
+            // If the current folder is not a subfolder, add it to the set.
+            if (!isSubfolder) {
+                set.insert(dir);
+            }
+        }
+
+        // Convert the set of valid folder paths back to a vector and return it.
+        return vector<string>(set.begin(), set.end());
+    }
+};
