@@ -1,0 +1,61 @@
+class Solution {
+public:
+    
+    // Array to store the maximum height of the tree after the removal of each node
+    int maxHeightAfterRemoval[100001];
+    // Variable to keep track of the current maximum height during traversal
+    int currentMaxHeight = 0;
+
+    // Main function to process the tree and answer the queries
+    vector<int> treeQueries(TreeNode* root, vector<int>& queries) {
+        // First traversal from left to right to calculate heights
+        traverseLeftToRight(root, 0);
+        // Reset current maximum height before the second traversal
+        currentMaxHeight = 0;  
+        // Second traversal from right to left to update heights
+        traverseRightToLeft(root, 0);
+
+        // Prepare the results for each query
+        int queryCount = queries.size();
+        vector<int> queryResults(queryCount);
+        for (int i = 0; i < queryCount; i++) {
+            // Store the maximum height after removal of the queried node
+            queryResults[i] = maxHeightAfterRemoval[queries[i]];
+        }
+
+        return queryResults; // Return the results for all queries
+    }
+
+private:
+    
+    // Helper function to traverse the tree from left to right
+    void traverseLeftToRight(TreeNode* node, int currentHeight) {
+        if (node == nullptr) return; // Base case: if the node is null, return
+
+        // Store the current maximum height for the node being visited
+        maxHeightAfterRemoval[node->val] = currentMaxHeight;
+
+        // Update the current maximum height with the height of the current node
+        currentMaxHeight = max(currentMaxHeight, currentHeight);
+
+        // Recursively traverse the left and right children, increasing the height
+        traverseLeftToRight(node->left, currentHeight + 1);
+        traverseLeftToRight(node->right, currentHeight + 1);
+    }
+
+    // Helper function to traverse the tree from right to left
+    void traverseRightToLeft(TreeNode* node, int currentHeight) {
+        if (node == nullptr) return; // Base case: if the node is null, return
+
+        // Update the maximum height after potential removal of the current node
+        maxHeightAfterRemoval[node->val] =
+            max(maxHeightAfterRemoval[node->val], currentMaxHeight);
+
+        // Update the current maximum height with the height of the current node
+        currentMaxHeight = max(currentHeight, currentMaxHeight);
+
+        // Recursively traverse the right and left children, increasing the height
+        traverseRightToLeft(node->right, currentHeight + 1);
+        traverseRightToLeft(node->left, currentHeight + 1);
+    }
+};
