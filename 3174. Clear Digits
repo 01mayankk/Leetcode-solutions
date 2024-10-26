@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string clearDigits(string s) {
+        if(s.size() <= 1) return s; // If the string is empty or has only one character, return it as is.
+        
+        vector<char> v; // Create a vector to hold characters from the string.
+        
+        for(int i = 0; i < s.size(); i++) {
+            v.push_back(s[i]); // Copy each character from the string to the vector.
+        }
+        
+        for(int i = 1; i < v.size(); i++) {
+            int left = i - 1; // Initialize a pointer to the character on the left of the current character.
+            if(isdigit(v[i])) { // Check if the current character is a digit.
+                while(v[left] == ' ' || isdigit(v[left])) { // Move left until a non-space and non-digit character is found.
+                    left--;
+                }
+                if(left >= 0 && !isdigit(v[left])) { // If a valid character is found on the left that is not a digit.
+                    v[left] = ' '; // Replace that character with a space.
+                    v[i] = ' '; // Replace the digit with a space.
+                }
+            }
+        }
+        
+        string ag = ""; // Initialize an empty string to hold the final result.
+        for(int i = 0; i < v.size(); i++) {
+            if(v[i] != ' ') ag += v[i]; // Append non-space characters to the result string.
+        }
+        
+        return ag; // Return the final string with digits cleared and adjacent characters replaced.
+    }
+};
