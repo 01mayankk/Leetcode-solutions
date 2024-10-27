@@ -1,0 +1,36 @@
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        // If the list is empty or has only one node, it is a palindrome
+        if(!head->next) return true;
+
+        ListNode *slow = head; // Pointer to traverse the first half of the list
+        ListNode *fast = head; // Pointer to traverse the list at double speed
+        ListNode *dummy = NULL; // Pointer to reverse the first half of the list
+        ListNode *temp = NULL; // Temporary pointer for node manipulation
+
+        // Use the fast and slow pointers to find the midpoint of the list
+        while(fast && fast->next){
+            fast = fast->next->next; // Move fast pointer two steps
+            temp = slow->next;       // Save the next node of slow
+            slow->next = dummy;      // Reverse the link for the first half
+            dummy = slow;            // Move dummy pointer to the current slow
+            slow = temp;             // Move slow pointer to the next node
+        }
+
+        // If the list has an odd number of nodes, skip the middle node
+        if(fast && !fast->next) slow = slow->next;
+
+        // Compare the reversed first half with the second half of the list
+        while(slow){
+            // If values do not match, it is not a palindrome
+            if(slow->val != dummy->val) return false;
+
+            slow = slow->next;      // Move to the next node in the second half
+            dummy = dummy->next;    // Move to the next node in the reversed first half
+        }
+
+        // If all values matched, it is a palindrome
+        return true;
+    }
+};
