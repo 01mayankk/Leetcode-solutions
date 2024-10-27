@@ -1,0 +1,20 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int zeroes = 0; // Counter to keep track of the number of zeros encountered
+
+        // Iterate through the array
+        for (int i = 0; i < nums.length; i++) {
+            // Check if the current element is zero
+            if (nums[i] == 0) {
+                zeroes++; // Increment the zero counter
+            } 
+            // If the current element is not zero and there have been zeros encountered
+            else if (zeroes > 0) {
+                // Swap the current element with the last zero found
+                int temp = nums[i]; // Store the current non-zero element
+                nums[i] = 0; // Set the current position to zero
+                nums[i - zeroes] = temp; // Move the non-zero element to its new position
+            }
+        }
+    }
+}
