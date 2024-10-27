@@ -1,0 +1,28 @@
+class Solution {
+public:
+    // Function to add digits of a number until a single digit is obtained
+    int addDigits(int num) {
+        int sum = 0; // Initialize sum to store the sum of digits
+        int digit = 0; // Variable to hold the current digit
+
+        // Loop until there are no more digits left in num
+        while(num > 0) {
+            // Get the last digit of num
+            digit = num % 10;
+            // Add the digit to the sum
+            sum += digit;
+            // Remove the last digit from num
+            num /= 10;
+
+            // If we have processed all digits and the sum is greater than 9,
+            // we need to continue summing the digits of the sum
+            if(num == 0 && sum > 9) {
+                num = sum; // Set num to the current sum to process its digits
+                sum = 0; // Reset sum for the new iteration
+            }
+        }
+
+        // Return the final single-digit result
+        return sum;
+    }
+};
