@@ -1,0 +1,33 @@
+class Solution {
+public:
+    // Main function to check if there is a path with the given sum
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        vector<int> currpath; // Vector to store the current path (not strictly necessary for the solution)
+        return dfs(root, targetSum, currpath); // Call the depth-first search function
+    }
+
+    // Helper function to perform DFS on the tree
+    bool dfs(TreeNode* root, int targetSum, vector<int>& currpath) {
+        // Base case: if the current node is null, return false
+        if (!root) return false;
+
+        // Add the current node's value to the path
+        currpath.push_back(root->val);
+
+        // Check if the current node is a leaf node and if the path sum equals targetSum
+        // A leaf node is defined as a node with no children
+        if (!root->left && !root->right && targetSum == root->val) {
+            return true; // Found a valid path that sums up to targetSum
+        }
+
+        // Recursively check the left and right subtrees, reducing targetSum by the current node's value
+        bool left = dfs(root->left, targetSum - root->val, currpath);
+        bool right = dfs(root->right, targetSum - root->val, currpath);
+
+        // Backtrack: remove the current node from the path after exploring both subtrees
+        currpath.pop_back();
+
+        // Return true if either the left or right subtree has a valid path
+        return left || right;
+    }
+};
