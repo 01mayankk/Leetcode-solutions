@@ -1,0 +1,39 @@
+#include <queue> // Include the queue library for BFS
+
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        // If the root is NULL, the depth of the tree is 0
+        if (root == NULL) return 0;
+
+        // Use a queue to perform Breadth-First Search (BFS)
+        // The queue will store pairs of (node, current depth)
+        queue<std::pair<TreeNode*, int>> q; 
+        q.push({root, 1}); // Start with the root node at depth 1
+
+        // Continue the BFS until there are no more nodes to process
+        while (!q.empty()) {
+            // Get the front node and its corresponding depth
+            auto [node, depth] = q.front();
+            q.pop(); // Remove the front node from the queue
+
+            // Check if we have reached a leaf node
+            // A leaf node is defined as a node with no children
+            if (node->left == NULL && node->right == NULL) {
+                return depth; // Return the depth of the first leaf node found
+            }
+
+            // If the left child exists, add it to the queue with incremented depth
+            if (node->left) {
+                q.push({node->left, depth + 1});
+            }
+            // If the right child exists, add it to the queue with incremented depth
+            if (node->right) {
+                q.push({node->right, depth + 1});
+            }
+        }
+
+        // This line should never be reached if the tree is valid
+        return 0; 
+    }
+};
