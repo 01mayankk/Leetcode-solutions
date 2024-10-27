@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int countSquares(vector<vector<int>>& matrix) {
+        // Get the number of rows and columns in the matrix
+        int rowSize = matrix.size();
+        int colSize = matrix[0].size();
+
+        // Iterate through the matrix starting from (1, 1)
+        // because we need to check the top, left, and top-left neighbors
+        for (int i = 1; i < rowSize; i++) {
+            for (int j = 1; j < colSize; j++) {
+                // Only proceed if the current cell is 1
+                if (matrix[i][j] == 1) {
+                    // Update the current cell to be the size of the largest square
+                    // that can be formed with (i, j) as the bottom-right corner
+                    matrix[i][j] += min(matrix[i - 1][j], // above
+                                        min(matrix[i][j - 1], // left
+                                            matrix[i - 1][j - 1])); // top-left
+                }
+            }
+        }
+
+        // Initialize a variable to count the total number of square submatrices
+        int total = 0;
+        
+        // Sum up all the values in the matrix
+        // Each value at (i, j) represents the number of square submatrices
+        // with (i, j) as the bottom-right corner
+        for (int i = 0; i < rowSize; i++) {
+            for (int j = 0; j < colSize; j++) {
+                total += matrix[i][j];
+            }
+        }
+
+        // Return the total count of square submatrices
+        return total;
+    }
+};
