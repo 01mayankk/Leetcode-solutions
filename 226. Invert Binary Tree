@@ -1,0 +1,26 @@
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        // Invert the entire tree recursively
+        return helper(root);
+    }
+
+    TreeNode* helper(TreeNode* root) {
+        // Base case: If the node is null, return null
+        if (root == NULL) {
+            return NULL;
+        }
+
+        // Swap the left and right children
+        TreeNode* temp = root->right;
+        root->right = root->left;
+        root->left = temp;
+
+        // Recursively invert the left and right subtrees
+        invertTree(root->left);
+        invertTree(root->right);
+
+        // Return the inverted root node
+        return root;
+    }
+};
