@@ -1,0 +1,52 @@
+class Solution {
+public:
+    int longestSquareStreak(std::vector<int>& nums) {
+        // Create a bitset to track which numbers exist in the input array
+        bitset<N> hasX = 0; 
+        int M = 0; // Variable to track the maximum number in the array
+        
+        // Populate the bitset and find the maximum number
+        for (int x : nums) {
+            hasX[x] = 1; // Mark the presence of x
+            M = max(M, x); // Update M to be the largest number found
+        }
+        
+        int maxStreak = 0; // Variable to keep track of the longest streak found
+        int Msqrt = sqrt(M); // Compute the integer square root of M
+        
+        // Iterate through each number from 2 to the integer square root of M
+        for (long long x = 2; x <= Msqrt; x++) {
+            // If x is not present in the set, skip it
+            if (hasX[x] == 0) continue;
+            
+            int streak = 1; // Initialize the current streak count
+            
+            // Square the current number and check for its presence in the bitset
+            for (long long z = x * x; z <= M; z *= z) {
+                if (hasX[z]) { // If z is in the set
+                    streak++; // Increase the streak count
+                    hasX[z] = 0; // Remove z from the set to prevent recounting
+                } else {
+                    break; // Stop if z is not found
+                }
+            }
+            
+            // Update the maximum streak found
+            maxStreak = max(maxStreak, streak);
+            
+            // Early exit if we found a streak of 5
+            if (maxStreak == 5) break;
+        }
+        
+        // Return the result: if maxStreak is less than 2, return -1
+        return maxStreak < 2 ? -1 : maxStreak;
+    }
+};
+
+// Initialization of input/output settings for faster execution
+auto init = []() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    return 'c';
+}();
