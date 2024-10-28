@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<string> ans; // Vector to store the binary tree paths
+
+    void treePath(TreeNode* root, string s) {
+        // Base case: If the node is null, return
+        if (!root) {
+            return;
+        }
+
+        // Append the current node's value to the path string
+        s += to_string(root->val);
+
+        // If it's a leaf node (no children), add the path to the answer vector
+        if (!root->left && !root->right) {
+            ans.push_back(s);
+            return;
+        }
+
+        // If it's not a leaf node, append "->" and recursively traverse its children
+        s += "->";
+        treePath(root->left, s);
+        treePath(root->right, s);
+    }
+
+    vector<string> binaryTreePaths(TreeNode* root) {
+        // Initialize the path string and call the recursive function
+        treePath(root, "");
+        return ans;
+    }
+};
