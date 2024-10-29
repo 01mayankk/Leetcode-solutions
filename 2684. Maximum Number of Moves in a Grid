@@ -1,0 +1,66 @@
+class Solution {
+public:
+    // dp will store the maximum moves possible starting from each cell
+    vector<vector<int>> dp;
+    int n, m; // n is the number of rows, m is the number of columns
+
+    // Recursive function to find the maximum moves starting from cell (i, j)
+    int f(int i, int j, int prev, vector<vector<int>>& grid) {
+        // Base case: check if the current position is out of bounds
+        if (i < 0 || j < 0 || i >= n || j >= m) return 0;
+
+        // Get the current cell value
+        int x = grid[i][j];
+
+        // If the current cell value is not greater than the previous cell value, return 0
+        if (x <= prev) return 0;
+
+        // If already calculated, return the stored result
+        if (dp[i][j] != -1) return dp[i][j];
+
+        // Start with the move count of 1 (for the current cell) and explore the possible moves
+        int max_move = 1 + f(i - 1, j + 1, x, grid); // Move diagonally up-right
+
+        // Explore the next column (j + 1) from the current row (i) and the row below (i + 1)
+        for (int i0 = i; i0 <= i + 1; i0++) {
+            // If we have already moved the maximum possible in this column, break
+            if (max_move == m - j) break;
+
+            // Update max_move by checking the next column from the new row
+            max_move = max(max_move, 1 + f(i0, j + 1, x, grid));
+        }
+
+        // Store the result in dp and return it
+        return dp[i][j] = max_move;
+    }
+
+    // Function to calculate the maximum moves possible starting from any cell in the first column
+    int maxMoves(vector<vector<int>>& grid) {
+        n = grid.size(); // Number of rows in the grid
+        m = grid[0].size(); // Number of columns in the grid
+
+        // Initialize the dp array with -1 (indicating unvisited cells)
+        dp.assign(n, vector<int>(m, -1));
+        int ans = 0; // Variable to track the maximum moves found
+
+        // Iterate over each row in the first column to start the moves
+        for (int i = 0; i < n; i++) {
+            // If we have already found the maximum possible moves, break
+            if (ans == m) break;
+
+            // Update ans with the maximum moves from the current starting cell
+            ans = max(ans, f(i, 0, -1, grid));
+        }
+
+        // Return the maximum moves found, subtracting 1 since we count moves
+        return ans - 1;
+    }
+};
+
+// Initialization for fast I/O
+auto init = []() { 
+    ios::sync_with_stdio(0); // Disable synchronization with C I/O for faster input/output
+    cin.tie(0); // Untie cin from cout
+    cout.tie(0); // Untie cout from cin
+    return 'c'; // Return a dummy character
+}();
