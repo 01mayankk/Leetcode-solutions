@@ -1,0 +1,63 @@
+class Solution {
+public:
+    // Function to compute the length of the longest increasing subsequence (LIS)
+    vector<int> lisLength(vector<int>& v) {
+        // Initialize a vector to store the current LIS
+        // Start with the first element of the input vector
+        vector<int> lis = {v[0]};
+        
+        // Vector to store the length of the LIS ending at each index
+        // Initialize all lengths to 1, as the minimum LIS at any index is 1 (the element itself)
+        vector<int> lisLen(v.size(), 1);
+
+        // Iterate through the input vector starting from the second element
+        for(int i = 1 ; i < v.size() ; i++) {
+            // If the current element is greater than the last element in the current LIS
+            if(v[i] > lis.back()) {
+                // Append the current element to the LIS as it extends the sequence
+                lis.push_back(v[i]); // Extend the LIS
+            } else {
+                // If the current element is not greater, find the position to replace
+                // This is done using binary search to maintain the smallest possible tail
+                // 'lower_bound' finds the first element in 'lis' that is not less than 'v[i]'
+                int index = lower_bound(lis.begin(), lis.end(), v[i]) - lis.begin();
+                lis[index] = v[i]; // Replace it to maintain the smallest possible tail
+            }
+            // Update the length of LIS at the current index
+            lisLen[i] = lis.size(); // Store the current length of LIS
+        }
+        // Return the lengths of LIS ending at each index
+        return lisLen; 
+    }
+
+    // Function to calculate the minimum number of removals to form a mountain array
+    int minimumMountainRemovals(vector<int>& nums) {
+        int n = nums.size(); // Get the size of the input array
+        
+        // Calculate the LIS for the original array
+        vector<int> lis = lisLength(nums);
+        
+        // Reverse the array to calculate the longest decreasing subsequence (LDS)
+        reverse(nums.begin(), nums.end());
+        vector<int> lds = lisLength(nums); // Calculate LIS on the reversed array
+        reverse(lds.begin(), lds.end()); // Reverse the LDS lengths to match original indices
+        
+        // Initialize removals to a large number (infinity)
+        int removals = INT_MAX; 
+        
+        // Iterate through the array to find the minimum removals needed
+        for(int i = 0 ; i < n ; i++) {
+            // Check if both LIS and LDS lengths are greater than 1
+            // This ensures that there is at least one peak in the mountain
+            if(lis[i] > 1 && lds[i] > 1) {
+                // Calculate the number of removals needed to form a mountain
+                // Total elements - (LIS length + LDS length - 1)
+                // We subtract 1 because the peak element is counted in both LIS and LDS
+                removals = min(removals, n + 1 - lis[i] - lds[i]);
+            }
+        }
+        
+        // Return the minimum number of removals required to form a mountain array
+        return removals; 
+    }
+};
