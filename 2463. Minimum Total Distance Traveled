@@ -1,0 +1,53 @@
+class Solution {
+public:
+    long long minimumTotalDistance(vector<int>& robot, vector<vector<int>>& factory) {
+        // Sort the robot positions and factory positions
+        sort(robot.begin(), robot.end());
+        sort(factory.begin(), factory.end());
+        
+        int m = robot.size(), n = factory.size();
+        
+        // Create a DP table where dp[i][j] represents the minimum distance
+        // to assign the first i robots to the first j factories
+        vector<vector<long long>> dp(m + 1, vector<long long>(n + 1));
+        
+        // Initialize the last column (no factories available)
+        for (int i = 0; i < m; i++) {
+            dp[i][n] = LLONG_MAX; // If there are robots but no factories, distance is infinite
+        }
+        
+        // Iterate over factories in reverse order
+        for (int j = n - 1; j >= 0; j--) {
+            long long prefix = 0; // To store the accumulated distance
+            deque<pair<int, long long>> qq; // Deque to maintain the optimal solutions
+            
+            // Push the initial state for the last factory
+            qq.push_back({m, 0});
+            
+            // Iterate over robots in reverse order
+            for (int i = m - 1; i >= 0; i--) {
+                // Calculate the distance from the current robot to the current factory
+                prefix += abs(robot[i] - factory[j][0]);
+                
+                // Remove robots that cannot be assigned to the current factory
+                while (!qq.empty() && qq.front().first > i + factory[j][1]) {
+                    qq.pop_front();
+                }
+                
+                // Maintain the deque to only keep optimal values
+                while (!qq.empty() && qq.back().second >= dp[i][j + 1] - prefix) {
+                    qq.pop_back();
+                }
+                
+                // Add the current robot and its optimal distance to the deque
+                qq.push_back({i, dp[i][j + 1] - prefix});
+                
+                // The minimum distance for assigning the first i robots to the first j factories
+                dp[i][j] = qq.front().second + prefix;
+            }
+        }
+        
+        // The result is the minimum distance to assign all robots to all factories
+        return dp[0][0];
+    }
+};
