@@ -1,0 +1,39 @@
+class Solution {
+public:
+    string makeFancyString(string s) {
+        // Initialize an empty string to store the result
+        string ans = "";
+        
+        // Add the first character of the input string to the result
+        ans.push_back(s[0]);
+        
+        // Get the size of the input string
+        int n = s.size();
+        
+        // Initialize a counter to track consecutive characters
+        int cnt = 1; 
+        
+        // Iterate through the input string starting from the second character
+        for(int i = 1; i < n; i++) {
+            // Check if the current character is the same as the last character in ans
+            if(s[i] == ans.back()) {
+                // Increment the counter for consecutive characters
+                cnt++;
+                
+                // If the count is less than 3, add the current character to ans
+                if(cnt < 3) {
+                    ans.push_back(s[i]);
+                }
+            } else {
+                // If the current character is different, reset the counter
+                cnt = 1;
+                
+                // Add the current character to ans
+                ans.push_back(s[i]);
+            }
+        }
+        
+        // Return the modified string
+        return ans;
+    }
+};
