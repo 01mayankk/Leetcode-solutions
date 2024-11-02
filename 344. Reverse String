@@ -1,0 +1,10 @@
+class Solution {
+public:
+    // Function to reverse a string represented as a vector of characters
+    void reverseString(std::vector<char>& s) {
+        // Use the std::reverse function to reverse the elements in the vector 's'
+        // s.begin() points to the start of the vector
+        // s.end() points to one past the last element of the vector
+        std::reverse(s.begin(), s.end());
+    }
+};
