@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool isCircularSentence(string sentence) {
+        // Get the length of the sentence
+        int n = sentence.size();
+
+        // First check: Compare the first and last character of the sentence
+        // For a circular sentence, the first and last characters must match
+        if(sentence[0] != sentence[n-1]) return false;
+
+        // Iterate through the sentence, starting from index 1 to n-2
+        // We don't need to check the first and last characters again
+        for(int i = 1; i < n - 1; i++) {
+            // When we find a space character
+            if(sentence[i] == ' ') {
+                // Check if the character before the space (last char of the current word)
+                // matches the character after the space (first char of the next word)
+                if(sentence[i - 1] != sentence[i + 1]) return false;
+            }
+        }
+
+        // If we made it through all checks without returning false,
+        // the sentence is circular
+        return true;
+    }
+};
