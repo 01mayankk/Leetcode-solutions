@@ -1,0 +1,27 @@
+class Solution {
+public:
+    // Function to determine if a given integer n is a power of three
+    bool isPowerOfThree(int n) {
+        // If n is less than or equal to zero, it cannot be a power of three
+        if (n <= 0) return false;
+
+        // Initialize num to 1, which represents 3^0
+        int num = 1;
+
+        // Loop to check powers of three until num exceeds INT_MAX / 3
+        // This prevents overflow in the next multiplication
+        while (num < INT_MAX / 3) {
+            // If the current power of three equals n, return true
+            if (num == n) return true;
+
+            // Multiply num by 3 to get the next power of three
+            num *= 3;
+        }
+
+        // After exiting the loop, check if the last computed power equals n
+        if (num == n) return true;
+
+        // If no power of three matched n, return false
+        return false;
+    }
+};
