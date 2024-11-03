@@ -1,0 +1,17 @@
+class Solution {
+public:
+    // Function to determine if one string (goal) is a rotation of another string (s)
+    bool rotateString(string s, string goal) {
+        // Check if the lengths of the two strings are different
+        // If they are, goal cannot be a rotation of s
+        if (s.length() != goal.length()) {
+            return false; // Return false if lengths are not equal
+        }
+        
+        // Concatenate string s with itself
+        // This allows us to check for all possible rotations of s
+        // For example, if s = "abc", then s + s = "abcabc"
+        // Any rotation of "abc" will appear as a substring in "abcabc"
+        return (s + s).find(goal) != string::npos; // Check if goal is a substring of s + s
+    }
+};
