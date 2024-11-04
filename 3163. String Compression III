@@ -1,0 +1,30 @@
+class Solution {
+public:
+    // Function to compress a string based on the frequency of characters
+    string compressedString(string word) {
+        string comp = ""; // Initialize an empty string to hold the compressed result
+        int cnt = 1; // Initialize a counter to count occurrences of a character
+        int n = word.size(); // Get the size of the input string
+        char ch = word[0]; // Store the first character to compare with others
+
+        // Loop through the string starting from the second character
+        for(int i = 1; i < n; i++) {
+            // If the current character is the same as the previous one and the count is less than 9
+            if(word[i] == ch && cnt < 9) {
+                cnt++; // Increment the count of the current character
+            } else {
+                // If the character changes, append the count and the character to the compressed string
+                comp.push_back(cnt + '0'); // Convert the count to a character and add to the result
+                comp.push_back(ch); // Add the previous character to the result
+                ch = word[i]; // Update the character to the current one
+                cnt = 1; // Reset the count for the new character
+            }
+        }
+
+        // After the loop, we need to add the last character and its count
+        comp.push_back(cnt + '0'); // Append the count of the last character
+        comp.push_back(ch); // Append the last character itself
+
+        return comp; // Return the compressed string
+    }
+};
