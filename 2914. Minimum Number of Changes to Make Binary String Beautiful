@@ -1,0 +1,19 @@
+class Solution {
+public:
+    // Function to calculate the minimum number of changes needed
+    // to make adjacent characters in the string 's' the same.
+    int minChanges(string s) {
+        int count = 0; // Initialize a counter to track the number of changes
+        
+        // Iterate through the string, checking pairs of characters
+        for (int i = 0; i < s.size() - 1; i += 2) {
+            // Check if the current character is different from the next one
+            if (s[i] != s[i + 1]) {
+                count++; // Increment the count if they are different
+            }
+        }
+        
+        // Return the total number of changes needed
+        return count;
+    }
+};
