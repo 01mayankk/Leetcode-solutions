@@ -1,0 +1,27 @@
+class Solution {
+public:
+    // Function to find the largest combination of candidates based on their bitwise representation
+    static int largestCombination(vector<int>& candidates) {
+        // Variable to keep track of the maximum size of combinations found
+        int max_set = 0;
+
+        // Loop through each bit position from 0 to 23 (assuming 24 bits are sufficient for the input range)
+        for (char b = 0; b < 24; b++) {
+            // Initialize a counter for the number of candidates that have the current bit set
+            int b_bit_set = 0;
+
+            // Loop through each candidate in the input vector
+            for (unsigned x : candidates) {
+                // Check if the b-th bit of the candidate x is set (1)
+                // If it is set, increment the b_bit_set counter
+                b_bit_set += (x >> b & 1);
+            }
+
+            // Update the maximum set size found so far
+            max_set = max(max_set, b_bit_set);
+        }
+
+        // Return the size of the largest combination found
+        return max_set;
+    }
+};
