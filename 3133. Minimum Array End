@@ -1,0 +1,28 @@
+class Solution {
+public:
+    // Function to find the minimum end value after performing operations
+    long minEnd(int n, int x) {
+        long result = x;          // Initialize result with the value of x
+        long remaining = n - 1;  // Calculate how many bits we need to consider (n-1)
+        long position = 1;        // Start with the least significant bit (LSB) position
+        
+        // Loop while there are remaining bits to process
+        while (remaining) {
+            // Check if the current bit in x (at 'position') is not set
+            if (!(x & position)) {
+                // If the current bit is not set in x, we can set it in result
+                // We check if the least significant bit of remaining is 1
+                // If it is, we set the current position in result
+                result |= (remaining & 1) * position;
+                
+                // Right shift remaining to process the next bit
+                remaining >>= 1;
+            }
+            // Move to the next bit position (left shift)
+            position <<= 1;
+        }
+        
+        // Return the modified result
+        return result;
+    }
+};
