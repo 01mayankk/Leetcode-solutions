@@ -1,0 +1,52 @@
+class Solution {
+public:
+    // Function to find the minimum length of a contiguous subarray whose bitwise OR is at least k
+    int minimumSubarrayLength(vector<int>& nums, int k) {
+        int n = nums.size(); // Get the size of the input array
+        vector<int> bitCount(32, 0); // Array to count occurrences of each bit position (0-31)
+        int currentOR = 0; // Variable to store the current bitwise OR of the subarray
+        int left = 0; // Left pointer for the sliding window
+        int minLength = INT_MAX; // Initialize minimum length to a large value
+        
+        // Iterate with the right pointer over the array
+        for (int right = 0; right < n; right++) {
+            // Update the current OR with the new number at the right pointer
+            currentOR |= nums[right];
+            
+            // Update the bitCount array for the current number
+            for (int bit = 0; bit < 32; bit++) {
+                // Check if the current number has the bit set
+                if (nums[right] & (1 << bit)) {
+                    bitCount[bit]++; // Increment the count for that bit
+                }
+            }
+            
+            // While the current OR is greater than or equal to k
+            while (left <= right && currentOR >= k) {
+                // Update the minimum length of the subarray found
+                minLength = min(minLength, right - left + 1);
+                
+                // Prepare to update the current OR by removing the leftmost element
+                int updatedOR = 0; // Variable to store the updated OR after removing nums[left]
+                
+                // Update the bitCount and the OR for the leftmost element
+                for (int bit = 0; bit < 32; bit++) {
+                    // Check if the leftmost number has the bit set
+                    if (nums[left] & (1 << bit)) {
+                        bitCount[bit]--; // Decrement the count for that bit
+                    }
+                    // If the count for that bit is still greater than 0, it means it's still present in the window
+                    if (bitCount[bit] > 0) {
+                        updatedOR |= (1 << bit); // Update the OR with that bit
+                    }
+                }
+                // Update the current OR to the new value after removing the leftmost element
+                currentOR = updatedOR;
+                left++; // Move the left pointer to the right
+            }
+        }
+        
+        // If minLength was never updated, return -1, otherwise return the minimum length found
+        return minLength == INT_MAX ? -1 : minLength;
+    }
+};
