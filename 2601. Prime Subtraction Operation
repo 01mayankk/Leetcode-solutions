@@ -1,0 +1,63 @@
+class Solution {
+public:
+    // Function to determine if we can perform prime subtractions on the array
+    bool primeSubOperation(vector<int>& nums) {
+        // Get the maximum element in the nums array to create the sieve
+        int maxElement = getMaxElement(nums);
+        
+        // Create a boolean vector (sieve) to identify prime numbers up to maxElement
+        vector<bool> sieve(maxElement + 1, true);
+        sieve[1] = false; // 1 is not a prime number
+        
+        // Use the Sieve of Eratosthenes to mark non-prime numbers
+        for (int i = 2; i <= sqrt(maxElement + 1); i++) {
+            if (sieve[i]) { // If i is prime
+                // Mark all multiples of i as non-prime
+                for (int j = i * i; j <= maxElement; j += i) {
+                    sieve[j] = false;
+                }
+            }
+        }
+        
+        // Initialize the current value to track the allowed subtractions
+        int currValue = 1;
+        int i = 0; // Index for traversing the nums array
+        
+        // Loop through each number in the nums array
+        while (i < nums.size()) {
+            // Calculate the difference between the current number and the allowed current value
+            int difference = nums[i] - currValue;
+            
+            // If the difference is negative, it's not possible to perform the operation
+            if (difference < 0) {
+                return false;
+            }
+            
+            // Check if the difference is a prime number or if it's zero
+            if (sieve[difference] == true || difference == 0) {
+                // If it is, we can proceed to the next number in the array
+                i++;
+                // Increment the current value for the next iteration
+                currValue++;
+            } else {
+                // If the difference is not a prime number, just increment the current value
+                currValue++;
+            }
+        }
+        // If we successfully processed all numbers, return true
+        return true;
+    }
+    
+private:
+    // Helper function to find the maximum element in the nums array
+    int getMaxElement(vector<int>& nums) {
+        int max = -1; // Initialize max to a very low value
+        for (int num : nums) {
+            // Update max if the current number is greater
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max; // Return the maximum value found
+    }
+};
