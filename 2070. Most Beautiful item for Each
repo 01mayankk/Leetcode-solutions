@@ -1,0 +1,46 @@
+class Solution {
+public:
+    vector<int> maximumBeauty(vector<vector<int>>& items, vector<int>& queries) {
+        // Initialize a variable to hold the maximum price (set to INT_MAX initially)
+        int maxI = INT_MAX;
+        // Create a result vector to hold the maximum beauty values corresponding to prices
+        // Start with a dummy entry to handle cases easily
+        vector<vector<int>> res = {{0, 0, maxI}}; // {price, beauty, max price}
+
+        // Sort the items based on price (first element of each item)
+        sort(items.begin(), items.end());
+
+        // Iterate through each item to build the result vector
+        for (const auto& item : items) {
+            int price = item[0];   // Extract the price of the current item
+            int beauty = item[1];  // Extract the beauty of the current item
+            
+            // If the current item's beauty is greater than the last recorded beauty
+            if (beauty > res.back()[1]) {
+                // Update the last entry's price to the current item's price
+                res.back()[2] = price;
+                // Add a new entry to the result vector with the current price and beauty
+                res.push_back({price, beauty, maxI});
+            }
+        }
+
+        // Initialize a vector to hold the answers for each query
+        vector<int> ans;
+
+        // For each query, find the maximum beauty that can be bought within the given price
+        for (int x : queries) {
+            // Iterate through the result vector in reverse to find the first item that fits the budget
+            for (int i = res.size() - 1; i >= 0; i--) {
+                // Check if the price of the item is less than or equal to the current query price
+                if (res[i][0] <= x) {
+                    // If found, add the beauty of that item to the answer vector
+                    ans.push_back(res[i][1]);
+                    break; // Break after finding the first suitable item
+                }
+            }
+        }
+
+        // Return the list of maximum beauties for each query
+        return ans;
+    }
+};
