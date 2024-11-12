@@ -1,0 +1,32 @@
+class Solution {
+public:
+    // Function to find the first bad version in a range of versions
+    int firstBadVersion(int n) {
+        // Initialize the start and end indices for binary search
+        int s = 0;          // Start index
+        int e = n - 1;      // End index (n-1 because versions are 0-indexed)
+
+        // Calculate the middle index
+        int m = s + (e - s) / 2;
+
+        // Perform binary search
+        while (s <= e) {
+            // Check if the current middle version is a bad version
+            if (isBadVersion(m)) {
+                // If it is a bad version, move the end index to m - 1
+                // This means the first bad version is either m or to the left of m
+                e = m - 1;
+            } else {
+                // If it is not a bad version, move the start index to m + 1
+                // This means the first bad version must be to the right of m
+                s = m + 1;
+            }
+            // Recalculate the middle index after updating start or end
+            m = s + (e - s) / 2;
+        }
+
+        // At the end of the loop, s will be pointing to the first bad version
+        // Since the loop exits when s > e, we need to return s
+        return s;
+    }
+};
