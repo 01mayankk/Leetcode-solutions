@@ -1,0 +1,62 @@
+class Solution {
+public:
+    // Function to check if a given pattern matches the words in a string
+    bool wordPattern(string pattern, string s) {
+        // Maps to store the relationship between characters in the pattern and words in the string
+        unordered_map<char, string> mS;  // Maps characters in pattern to words
+        unordered_map<string, char> mT;   // Maps words to characters in pattern
+        
+        int i = 0;  // Index for pattern
+        int j = 0;  // Index for string s
+        int m = pattern.length();  // Length of the pattern
+        int n = s.length();        // Length of the string s
+        
+        // Loop until we reach the end of either the pattern or the string
+        while (i < m && j < n) {
+            string str;  // To hold the current word from the string
+            
+            // Extract the next word from the string s
+            while (j < n && s[j] != ' ') {
+                str.push_back(s[j]);  // Build the word character by character
+                j++;
+            }
+            
+            // If the current character in the pattern has not been mapped yet
+            if (mS.find(pattern[i]) == mS.end() && i < m) {
+                mS[pattern[i]] = str;  // Map the pattern character to the current word
+            }
+            // If the current character is already mapped but to a different word
+            else if (mS.find(pattern[i]) != mS.end() && mS[pattern[i]] != str) {
+                return false;  // The mapping is inconsistent, return false
+            }
+            
+            // If the current word has not been mapped yet
+            if (mT.find(str) == mT.end()) {
+                mT[str] = pattern[i];  // Map the current word to the pattern character
+            }
+            // If the current word is already mapped but to a different pattern character
+            else if (mT.find(str) != mT.end() && mT[str] != pattern[i]) {
+                return false;  // The mapping is inconsistent, return false
+            }
+            
+            // Move to the next character in the pattern and the next character in the string
+            i++;
+            j++;
+            
+            // Move past the space in the string, if any
+            while (j < n && s[j] == ' ') {
+                j++;
+            }
+        }
+        
+        // After the loop, check if we have processed all characters in the pattern and string
+        if (i != m) {
+            return false;  // Not all pattern characters were used
+        }
+        if (j != n) {
+            return false;  // Not all characters in the string were processed
+        }
+        
+        return true;  // The pattern matches the string
+    }
+};
