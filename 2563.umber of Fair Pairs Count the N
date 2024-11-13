@@ -1,0 +1,34 @@
+class Solution {
+public:
+    // Function to count the number of fair pairs in the given array
+    long long countFairPairs(vector<int>& nums, int lower, int upper) {
+        // Sort the input array to facilitate the two-pointer technique
+        sort(nums.begin(), nums.end());
+        
+        // Count pairs with sum <= upper and subtract pairs with sum < lower
+        return countPairs(nums, upper) - countPairs(nums, lower - 1);
+    }
+    
+private:
+    // Helper function to count pairs with a sum greater than a given target
+    long long countPairs(vector<int>& nums, int target) {
+        long long count = 0; // Initialize the count of valid pairs
+        int left = 0;        // Left pointer starting from the beginning of the array
+        int right = nums.size() - 1; // Right pointer starting from the end of the array
+        
+        // Use two-pointer technique to find pairs
+        while (left < right) {
+            // If the sum of the current pair is greater than the target
+            if (nums[left] + nums[right] > target) {
+                // Move the right pointer left to decrease the sum
+                right--;
+            } else {
+                // If the sum is less than or equal to the target,
+                // all pairs (left, left+1), (left, left+2), ..., (left, right) are valid
+                count += right - left; // Count all valid pairs with the current left
+                left++; // Move the left pointer right to check the next potential pair
+            }
+        }
+        return count; // Return the total count of valid pairs
+    }
+};
