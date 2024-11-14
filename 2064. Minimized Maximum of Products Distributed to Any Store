@@ -1,0 +1,37 @@
+class Solution {
+public:
+    // Function to check if it's possible to distribute quantities such that
+    // no store receives more than 'mid' items
+    bool isPossible(int n, vector<int>& quantities, int mid) {
+        int stores = 0; // Counter for the number of stores needed
+        for (auto x : quantities) {
+            // Calculate how many stores are needed for the current quantity
+            stores += x / mid; // Full stores that can be filled with 'mid' items
+            if (x % mid) stores++; // If there's a remainder, we need one more store
+            if (stores > n) return 0; // If we exceed the number of stores, return false
+        }
+        return stores <= n; // Return true if we can fit within the available stores
+    }
+
+    // Main function to find the minimized maximum quantity that can be assigned to any store
+    int minimizedMaximum(int n, vector<int>& quantities) {
+        // Initialize search boundaries
+        int s = 1; // Minimum possible quantity per store
+        int e = *max_element(quantities.begin(), quantities.end()); // Maximum possible quantity
+        int ans = -1; // Variable to store the result
+
+        // Binary search to find the minimized maximum quantity
+        while (s <= e) {
+            int mid = s + (e - s) / 2; // Calculate the middle point
+
+            // Check if it's possible to distribute quantities with 'mid' as the maximum
+            if (isPossible(n, quantities, mid)) {
+                ans = mid; // If possible, store this as a potential answer
+                e = mid - 1; // Try to find a smaller maximum
+            } else {
+                s = mid + 1; // If not possible, increase the minimum limit
+            }
+        }
+        return ans; // Return the minimized maximum quantity
+    }
+};
