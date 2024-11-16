@@ -1,0 +1,47 @@
+class Solution {
+public:
+    // Function to find the results array based on the conditions specified
+    vector<int> resultsArray(vector<int>& nums, int k) {
+        const int n = nums.size(); // Get the size of the input array
+        if (n == 1) return nums; // If there's only one element, return it as is
+        
+        vector<int> ans(n - k + 1, -1); // Initialize the result array with -1s
+        int len = 1; // Variable to track the length of the current consecutive sequence
+        
+        // Check the first k elements to see if they form a consecutive sequence
+        for (int r = 1; r < k; r++) {
+            // If the current number is consecutive to the previous one
+            if (nums[r] == nums[r - 1] + 1) 
+                len++; // Increment the length of the sequence
+            else 
+                len = 1; // Reset the length if not consecutive
+        }
+        
+        // If the length of the sequence is equal to k, store the last number in the result
+        if (len == k) 
+            ans[0] = nums[k - 1];
+
+        // Sliding window approach to check the rest of the array
+        for (int l = 1, r = k; r < n; l++, r++) {
+            // Check if the current number is consecutive to the previous one
+            if (nums[r] == nums[r - 1] + 1) 
+                len++; // Increment the length of the sequence
+            else 
+                len = 1; // Reset the length if not consecutive
+            
+            // If the length is at least k, store the current number in the result
+            if (len >= k) 
+                ans[l] = nums[r];
+        }
+        
+        return ans; // Return the results array
+    }
+};
+
+// Initialization for faster input/output
+auto init = []() {
+    ios::sync_with_stdio(false); // Disable synchronization with C I/O
+    cin.tie(nullptr); // Untie cin from cout
+    cout.tie(nullptr); // Untie cout from cin
+    return 'c'; // Return a character to satisfy the lambda's return type
+}();
