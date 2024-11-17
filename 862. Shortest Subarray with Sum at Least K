@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int shortestSubarray(vector<int>& nums, int k) {
+        int n = nums.size(); // Get the size of the input array
+        vector<long> prefix(n + 1, 0); // Create a prefix sum array initialized to 0
+
+        // Step 1: Compute prefix sums
+        for (int i = 0; i < n; ++i) {
+            prefix[i + 1] = prefix[i] + nums[i]; // Calculate prefix sums
+        }
+
+        deque<int> dq; // Monotonic queue to store indices of the prefix sums
+        int minLength = INT_MAX; // Initialize minimum length to a large value
+
+        // Step 2: Process prefix sums
+        for (int i = 0; i <= n; ++i) {
+            // Check if there is a valid subarray ending at index i
+            while (!dq.empty() && prefix[i] - prefix[dq.front()] >= k) {
+                // Update minimum length if the condition is satisfied
+                minLength = min(minLength, i - dq.front());
+                dq.pop_front(); // Remove the front index as we have found a valid subarray
+            }
+
+            // Maintain monotonicity of the deque (increasing order of prefix sums)
+            while (!dq.empty() && prefix[i] <= prefix[dq.back()]) {
+                dq.pop_back(); // Remove indices from the back if current prefix is less than or equal
+            }
+
+            // Add the current index to the deque
+            dq.push_back(i);
+        }
+
+        // If minLength was not updated, return -1; otherwise return minLength
+        return minLength == INT_MAX ? -1 : minLength;
+    }
+};
