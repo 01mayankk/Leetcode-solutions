@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<int> decrypt(vector<int>& code, int k) {
+        int n = code.size(); // Get the size of the code array
+        vector<int> ans(n, 0); // Initialize the answer vector with zeros
+
+        // If k is 0, return the answer vector (all zeros)
+        if (k == 0) return ans;
+
+        // If k is positive
+        if (k > 0) {
+            // Calculate the initial window sum of the first k elements (from index 1 to k)
+            int wsum = accumulate(code.begin() + 1, code.begin() + k + 1, 0);
+            ans[0] = wsum; // Store the result in the first position of the answer vector
+            
+            // Sliding window to calculate the sums for the remaining positions
+            for (int l = 1, r = k + 1; l < n; r++, l++) {
+                // Update the window sum by removing the leftmost element and adding the new rightmost element
+                wsum += -code[l] + code[r % n];
+                ans[l] = wsum; // Store the current window sum in the answer vector
+            }
+            return ans; // Return the filled answer vector
+        }
+
+        // If k is negative, convert it to positive for easier handling
+        k = -k;
+        
+        // Calculate the initial window sum of the last k elements
+        int wsum = accumulate(code.end() - k, code.end(), 0);
+        ans[0] = wsum; // Store the result in the first position of the answer vector
+        
+        // Sliding window to calculate the sums for the remaining positions
+        for (int r = 0, l = n - k; r < n - 1; r++, l++) {
+            // Update the window sum by removing the leftmost element and adding the new rightmost element
+            wsum += -code[l % n] + code[r];
+            ans[r + 1] = wsum; // Store the current window sum in the answer vector
+        }
+        
+        return ans; // Return the filled answer vector
+    }
+};
