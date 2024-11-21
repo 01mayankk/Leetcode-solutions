@@ -1,0 +1,38 @@
+class Solution {
+public:
+    long long maximumSubarraySum(vector<int>& nums, int k) {
+        int n = nums.size(); // Get the size of the input array
+        unordered_set<int> elements; // To keep track of unique elements in the current window
+        long long current_sum = 0; // Sum of the current subarray
+        long long max_sum = 0; // Maximum sum found for valid subarrays of size k
+        int begin = 0; // Start index of the sliding window
+        
+        // Iterate over the array using 'end' as the end index of the sliding window
+        for (int end = 0; end < n; end++) {
+            // If the current element is not in the set, we can include it
+            if (elements.find(nums[end]) == elements.end()) {
+                current_sum += nums[end]; // Add the current element to the current sum
+                elements.insert(nums[end]); // Add the current element to the set
+                
+                // Check if we have reached a window of size k
+                if (end - begin + 1 == k) {
+                    max_sum = max(max_sum, current_sum); // Update the maximum sum if needed
+                    current_sum -= nums[begin]; // Remove the element going out of the window from the sum
+                    elements.erase(nums[begin]); // Remove the element going out of the window from the set
+                    begin++; // Move the start index of the window to the right
+                }
+            } else {
+                // If the current element is a duplicate, we need to shrink the window from the left
+                while (nums[begin] != nums[end]) {
+                    current_sum -= nums[begin]; // Subtract the element at the beginning of the window from the sum
+                    elements.erase(nums[begin]); // Remove it from the set
+                    begin++; // Move the start index to the right
+                }
+                // Move the start index one more step to skip the duplicate
+                begin++;
+            }
+        }
+        
+        return max_sum; // Return the maximum sum found for valid subarrays of size k
+    }
+};
