@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int takeCharacters(string s, int k) {
+        // Create a vector to count occurrences of 'a', 'b', and 'c'
+        vector<int> count(3, 0);
+        
+        // Count the occurrences of each character in the string
+        for (char c : s) {
+            count[c - 'a']++; // Increment the count for the corresponding character
+        }
+        
+        // Check if any character count is less than k
+        if (*min_element(count.begin(), count.end()) < k) {
+            return -1; // If any character has less than k occurrences, return -1
+        }
+        
+        int res = INT_MAX; // Initialize the result to maximum integer value
+        int l = 0; // Left pointer for the sliding window
+        
+        // Iterate with the right pointer over the string
+        for (int r = 0; r < s.length(); r++) {
+            // Decrease the count of the current character at the right pointer
+            count[s[r] - 'a']--;
+            
+            // While the minimum count of any character is less than k
+            while (*min_element(count.begin(), count.end()) < k) {
+                // Increase the count of the character at the left pointer
+                count[s[l] - 'a']++;
+                l++; // Move the left pointer to the right
+            }
+            
+            // Calculate the length of the current valid window and update the result
+            res = min(res, static_cast<int>(s.length()) - (r - l + 1));
+        }
+        
+        return res; // Return the minimum number of characters to remove
+    }
+};
