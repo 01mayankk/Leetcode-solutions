@@ -1,0 +1,43 @@
+class Solution {
+public:
+    // Function to rotate the box 90 degrees clockwise
+    static vector<vector<char>> rotateTheBox(vector<vector<char>>& box) {
+        // Get the number of rows (r) and columns (c) in the original box
+        const int r = box.size(), c = box[0].size();
+        
+        // Create a new 2D vector (rotate) to hold the rotated box
+        // The dimensions are switched: rows become columns and vice versa
+        vector<vector<char>> rotate(c, vector<char>(r, '.'));
+        
+        // Iterate over each row of the original box
+        for (int i = 0; i < r; i++) {
+            // Initialize the 'bottom' pointer to the last row in the rotated box for placement
+            int bottom = c - 1;
+            
+            // Iterate from the last column to the first column of the current row
+            for (int j = c - 1; j >= 0; j--) {
+                // If we encounter a block ('#'), we place it in the rotated box
+                if (box[i][j] == '#') {
+                    rotate[bottom][r - 1 - i] = '#'; // Place the block in the correct position
+                    bottom--; // Move the bottom pointer up for the next block
+                }
+                // If we encounter a wall ('*'), we place it in the rotated box
+                else if (box[i][j] == '*') {
+                    rotate[j][r - 1 - i] = '*'; // Place the wall in the correct position
+                    bottom = j - 1; // Update the bottom pointer to be above the wall
+                }
+            }
+        }
+        
+        // Return the newly rotated box
+        return rotate;
+    }
+};
+
+// The following is a lambda function to optimize input/output operations
+auto init = []() { 
+    ios::sync_with_stdio(0); // Disable synchronization with C I/O for faster input/output
+    cin.tie(0); // Untie cin from cout for faster input
+    cout.tie(0); // Untie cout from cin for faster output
+    return 'c'; // Return a character to satisfy the lambda function's requirement
+}();
