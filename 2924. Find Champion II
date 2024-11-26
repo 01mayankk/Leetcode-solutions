@@ -1,0 +1,30 @@
+class Solution {
+public:
+    // Function to find the champion (the player who has not lost any match)
+    int findChampion(int n, vector<vector<int>>& edges) {
+        // Create a bitset to track which players have losses
+        bitset<100> losses; 
+        
+        // Iterate through each edge (match result)
+        for (const auto& edge : edges) {
+            // Mark the player who lost the match (edge[1]) in the bitset
+            losses.set(edge[1]);
+        }
+        
+        int champion = -1; // Variable to store the potential champion's index
+        
+        // Check each player from 0 to n-1
+        for (int i = 0; i < n; i++) {
+            // If the player has not lost any match
+            if (!losses[i]) {
+                // If we already found a champion, return -1 (there can only be one champion)
+                if (champion != -1) return -1;
+                // Set the current player as the potential champion
+                champion = i;
+            }
+        }
+        
+        // Return the index of the champion, or -1 if no champion was found
+        return champion;
+    }
+};
