@@ -1,0 +1,29 @@
+class Solution {
+public:
+    // Function to generate Pascal's Triangle with a specified number of rows
+    vector<vector<int>> generate(int numRows) {
+        // Create a 2D vector to hold the triangle with 'numRows' rows
+        vector<vector<int>> triangle(numRows);
+
+        // Loop through each row from 0 to numRows - 1
+        for (int i = 0; i < numRows; i++) {
+            // Resize the current row to hold (i + 1) elements
+            triangle[i].resize(i + 1);
+            
+            // Set the first element of the row to 1 (C(i, 0))
+            triangle[i][0] = 1; 
+            // Set the last element of the row to 1 (C(i, i))
+            triangle[i][i] = 1; 
+
+            // Loop to calculate the inner elements of the row
+            // This starts from index 1 and goes to index (i - 1)
+            for (int j = 1; j < i; j++) {
+                // Each inner element is the sum of the two elements directly above it
+                triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+            }
+        }
+
+        // Return the completed Pascal's Triangle
+        return triangle;
+    }
+};
