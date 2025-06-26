@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        // Initialize min as the first element
+        int min = nums[0];
+
+        int left = 0;
+        int right = nums.size() - 1;
+        int mid;
+
+        // Binary search loop
+        while (left <= right) {
+            // Calculate mid safely to avoid overflow
+            mid = left + (right - left) / 2;
+
+            // If mid element is less than current min, update min
+            if (nums[mid] < min) {
+                min = nums[mid];
+                // Since a smaller value was found, search the left half
+                right = mid - 1;
+            } else {
+                // Otherwise, continue searching the right half
+                left = mid + 1;
+            }
+        }
+
+        // Return the smallest element found
+        return min;
+    }
+};
