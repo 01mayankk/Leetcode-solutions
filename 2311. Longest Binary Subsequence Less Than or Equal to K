@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int longestSubsequence(string s, int k) {
+        int n = s.size();
+        int zeros = 0, ones = 0;
+        long long value = 0, pow = 1;
+
+        // Count the number of '0's in the string (they have no value, so always safe to include)
+        for (char c : s) {
+            if (c == '0') zeros++;
+        }
+
+        // Traverse from the end (least significant bit) to the start
+        for (int i = n - 1; i >= 0; i--) {
+            if (s[i] == '1') {
+                // Check if including this '1' keeps the binary value within k
+                if (value + pow > k) {
+                    continue; // Skip if it would exceed k
+                }
+                value += pow; // Include this '1' in the value
+                ones++;       // Count this '1' as part of the valid subsequence
+            }
+            pow <<= 1; // Move to the next power of 2 (bit position)
+            
+            // Optimization: break early if next power exceeds k (no further '1' can be added)
+            if (pow > k) break;
+        }
+
+        // Total length of longest subsequence is valid '1's + all '0's
+        return zeros + ones;
+    }
+};
