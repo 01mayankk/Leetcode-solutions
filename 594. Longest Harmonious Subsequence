@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        // Step 1: Sort the array to bring similar numbers together
+        sort(nums.begin(), nums.end());
+
+        int j = 0;              // Start of the sliding window
+        int maxLength = 0;      // To track the length of the longest harmonious subsequence
+
+        // Step 2: Traverse the array with a sliding window
+        for (int i = 0; i < nums.size(); ++i) {
+            // Shrink the window from the left if the difference exceeds 1
+            while (nums[i] - nums[j] > 1) {
+                ++j;
+            }
+
+            // If the difference between nums[i] and nums[j] is exactly 1,
+            // it's a harmonious subsequence. Update maxLength.
+            if (nums[i] - nums[j] == 1) {
+                maxLength = max(maxLength, i - j + 1);
+            }
+        }
+
+        // Step 3: Return the length of the longest harmonious subsequence
+        return maxLength;
+    }
+};
