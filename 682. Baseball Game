@@ -1,33 +1,39 @@
 class Solution {
 public:
     int calPoints(vector<string>& operations) {
-        stack<int> s;
+        stack<int> s; // Stack to store valid scores
 
+        // Iterate through each operation
         for (const string& op : operations) {
+
             if (op == "+") {
+                // "+" means add the sum of the last two valid scores
                 if (s.size() >= 2) {
-                    int top1 = s.top(); s.pop();
-                    int top2 = s.top();
-                    s.push(top1);
-                    s.push(top1 + top2);
+                    int top1 = s.top(); s.pop();  // Last score
+                    int top2 = s.top();           // Second last score
+                    s.push(top1);                 // Restore the last score
+                    s.push(top1 + top2);          // Push their sum as new valid score
                 }
             }
             else if (op == "D") {
+                // "D" means double the last valid score
                 if (!s.empty()) {
                     s.push(2 * s.top());
                 }
             }
             else if (op == "C") {
+                // "C" means invalidate the last valid score
                 if (!s.empty()) {
                     s.pop();
                 }
             }
             else {
-                
+                // It's a number → convert string to int and push
                 s.push(stoi(op));
             }
         }
 
+        // Calculate the sum of all valid scores
         int sum = 0;
         while (!s.empty()) {
             sum += s.top();
