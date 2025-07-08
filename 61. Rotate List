@@ -11,10 +11,11 @@
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
-        
-    if (!head || !head->next || k == 0) return head;
 
-        // Step 1: Count length
+        // Base case: empty list, single node, or no rotation needed
+        if (!head || !head->next || k == 0) return head;
+
+        // Step 1: Count the length of the list and find the tail node
         int len = 1;
         ListNode* tail = head;
         while (tail->next) {
@@ -22,22 +23,24 @@ public:
             len++;
         }
 
-        // Step 2: Connect tail to head to make it circular
+        // Step 2: Make the list circular by connecting the tail to the head
         tail->next = head;
 
-        // Step 3: Find new tail at position (len - k % len)
+        // Step 3: Normalize k to be within the list length
         k = k % len;
-        int stepsToNewTail = len - k;
+        int stepsToNewTail = len - k; // Position of new tail node
 
+        // Step 4: Move to the new tail node
         ListNode* newTail = tail;
         while (stepsToNewTail--) {
             newTail = newTail->next;
         }
 
-        // Step 4: Set new head and break the circle
+        // Step 5: Set the new head and break the circular link
         ListNode* newHead = newTail->next;
         newTail->next = nullptr;
 
+        // Return the rotated list's head
         return newHead;
     }
 };
