@@ -1,0 +1,49 @@
+class Solution {
+public:
+    int shipWithinDays(vector<int>& weights, int days) {
+
+        // Step 1: Find the minimum possible capacity (largest weight)
+        // and maximum possible capacity (sum of all weights)
+        int min_weight = weights[0];
+        int sum = 0;
+
+        for (int i = 0; i < weights.size(); i++) {
+            if (min_weight < weights[i]) {
+                min_weight = weights[i];  // we can't have a capacity less than the heaviest package
+            }
+            sum += weights[i];  // total weight (maximum capacity if we deliver all in one day)
+        }
+
+        int left = min_weight; // Lower bound of binary search (min capacity needed)
+        int right = sum;       // Upper bound of binary search (max capacity possible)
+        int ans = 0;           // To store the minimum valid capacity found
+
+        // Step 2: Binary search for the minimum capacity
+        while (left <= right) {
+            int mid = left + (right - left) / 2;  // Mid capacity to test
+            int s = 0;      // Current day's weight sum
+            int day = 1;    // Start with day 1
+
+            // Step 3: Simulate shipping with current capacity `mid`
+            for (int elem : weights) {
+                if ((s + elem) <= mid) {
+                    s += elem;  // Add weight to current day's load
+                } else {
+                    day++;      // Move to next day
+                    s = elem;   // Start new day's load with current package
+                }
+            }
+
+            // Step 4: Adjust binary search bounds based on days used
+            if (day <= days) {
+                ans = mid;          // This capacity works; try for a smaller one
+                right = mid - 1;
+            } else {
+                left = mid + 1;     // Not enough capacity; increase it
+            }
+        }
+
+        // Step 5: Return the minimum capacity found to ship within D days
+        return ans;
+    }
+};
