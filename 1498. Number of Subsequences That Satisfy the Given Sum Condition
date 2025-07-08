@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int numSubseq(vector<int>& nums, int target) {
+        int n = nums.size();
+        int count = 0;
+        int left = 0, right = n - 1;
+        int mod = 1e9 + 7;
+
+        // Step 1: Sort the array so we can use two pointers and easily identify min/max
+        ranges::sort(nums);  // C++20 style sort; use sort(nums.begin(), nums.end()); if using older C++
+
+        // Step 2: Precompute powers of 2 up to n to calculate number of subsequences
+        // pows[i] = 2^i % mod, representing number of subsequences between indices
+        vector<int> pows(n, 1);
+        for (int i = 1; i < n; i++) {
+            pows[i] = (pows[i - 1] * 2) % mod;
+        }
+
+        // Step 3: Use two pointers to find valid subsequences
+        while (left <= right) {
+            // If the sum of the smallest (nums[left]) and largest (nums[right]) elements
+            // is greater than the target, reduce the window by moving right pointer left
+            if (nums[left] + nums[right] > target) {
+                right--;
+            }
+            else {
+                // Valid pair found: all combinations of elements between left and right are valid
+                // There are 2^(right - left) subsequences possible
+                count = (count + pows[right - left]) % mod;
+
+                // Move the left pointer to explore other combinations
+                left++;
+            }
+        }
+
+        // Step 4: Return the total count of valid subsequences
+        return count;
+    }
+};
