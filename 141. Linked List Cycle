@@ -1,18 +1,30 @@
 class Solution {
 public:
     bool hasCycle(ListNode* head) {
+        // Base case: empty list or only one node can't form a cycle
         if (head == NULL || head->next == NULL) {
             return false;
         }
+
+        // Initialize two pointers: slow moves one step, fast moves two steps
         ListNode* slow = head;
         ListNode* fast = head->next;
+
+        // Continue loop until the two pointers meet or fast reaches end
         while (fast != slow) {
+            // If fast reaches the end, no cycle exists
             if (fast->next == NULL || fast->next->next == NULL) {
                 return false;
             }
+
+            // Move slow by 1 step
             slow = slow->next;
+
+            // Move fast by 2 steps
             fast = fast->next->next;
         }
+
+        // If fast == slow, a cycle exists
         return true;
     }
 };
