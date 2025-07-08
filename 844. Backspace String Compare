@@ -4,22 +4,27 @@ public:
         
         string s1, s2;
 
+        // Process the first string `s` to simulate backspaces
         for(char i : s)
         {
+            // If current character is '#' and the string is not empty, remove last character
             if(i == '#' && !s1.empty())
             {
                 s1.pop_back();
             }
             else
             {
+                // If '#' and string is already empty, do nothing (skip)
                 if(i == '#')
                 {
                     continue;
                 }
+                // If it's a normal character, append to processed string
                 s1.push_back(i);
             }
         }
 
+        // Process the second string `t` similarly
         for(char j : t)
         {
             if(j == '#' && !s2.empty())
@@ -36,7 +41,8 @@ public:
             }
         }
 
-        if( s1 == s2)
+        // Compare the final processed versions of both strings
+        if(s1 == s2)
         {
             return true;
         }
