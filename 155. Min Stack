@@ -1,0 +1,37 @@
+class MinStack {
+    stack<int> s1;       // Main stack to store all elements
+    stack<int> minStack; // Auxiliary stack to store minimum elements
+public:
+    MinStack() {
+        // Constructor initializes empty stacks
+    }
+
+    void push(int val) {
+        s1.push(val); // Push value to main stack
+
+        // If minStack is empty or val is smaller than or equal to current minimum,
+        // push it onto minStack as well
+        if (minStack.empty() || val <= minStack.top()) {
+            minStack.push(val);
+        }
+    }
+
+    void pop() {
+        // If the element being popped is the current minimum,
+        // pop it from minStack as well
+        if (s1.top() == minStack.top()) {
+            minStack.pop();
+        }
+        s1.pop(); // Pop from main stack
+    }
+
+    int top() {
+        // Return the top of the main stack
+        return s1.top();
+    }
+
+    int getMin() {
+        // Return the current minimum from minStack
+        return minStack.top();
+    }
+};
