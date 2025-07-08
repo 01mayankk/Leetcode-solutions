@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        string result;  // This acts like a stack to store the final characters
+
+        // Iterate through each character in the input string
+        for (char ch : s) {
+            // If result is not empty and the last character is the same as current
+            if (!result.empty() && result.back() == ch) {
+                result.pop_back();  // Remove the last character (duplicate pair)
+            } else {
+                result.push_back(ch);  // No duplicate, add current character
+            }
+        }
+
+        // Return the final string after removing all adjacent duplicates
+        return result;
+    }
+};
