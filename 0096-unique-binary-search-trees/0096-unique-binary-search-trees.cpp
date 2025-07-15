@@ -32,3 +32,6 @@ public:
         return total;
     }
 };
+
+
+//above method is done using recursion 
