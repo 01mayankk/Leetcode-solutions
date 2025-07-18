@@ -3,10 +3,14 @@ public:
     int longestConsecutive(vector<int>& nums) {
 
         int currentstreak = 1;
-        int longeststreak = 1;
+        int longeststreak = 0;
         int current;
         unordered_set<int>sequence(nums.begin(), nums.end());
 
+        if(sequence.empty())
+        {
+            return {};
+        }
         for(int num : sequence)
         {
             currentstreak = 0;
