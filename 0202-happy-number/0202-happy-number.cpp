@@ -4,7 +4,7 @@ public:
         
         unordered_set<int> seen;
 
-        while (n != 1 && seen.find(n) == seen.end()) {
+        while (n != 1 && !seen.count(n)) {
             seen.insert(n);
             n = getNext(n);
         }
