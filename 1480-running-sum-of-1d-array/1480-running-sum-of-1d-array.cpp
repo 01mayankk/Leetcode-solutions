@@ -3,14 +3,14 @@ public:
     vector<int> runningSum(vector<int>& nums) {
 
         vector<int>result;
-        vector<int>ans;
+        result.push_back(nums[0]);
 
-        for(int i = 0; i < nums.size(); i++ )
+        for(int i = 1; i < nums.size(); i++ )
         {
-            ans.push_back(nums[i]);
-            result.push_back(accumulate(ans.begin(), ans.end(), 0));
+            result.push_back(nums[i]+result[i-1]);
         }
 
+        
         return result;
     }
 };
