@@ -5,7 +5,7 @@
 ---
 
 ## 📘 About  
-This repository contains my solutions to problems from [LeetCode](https://leetcode.com).  
+This repository contains my solutions to problems from [LeetCode](https://leetcode.com/u/01mayank/).  
 Each directory is named according to the problem number and title (e.g., `0001-two-sum`, `0014-longest-common-prefix`, etc.).  
 All code is written in C++ and submitted regularly as part of my daily coding routine.
 
