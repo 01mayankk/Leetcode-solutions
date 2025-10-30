@@ -20,7 +20,7 @@ All code is written in C++ and submitted regularly as part of my daily coding ro
 ---
 
 ## 📂 Repository Structure  
-Leetcode-solutions/
+```Leetcode-solutions/
 ├── 0001-two-sum/
 │ ├── two_sum.cpp
 │ └── README.md ← optional notes for that problem
@@ -32,6 +32,7 @@ Leetcode-solutions/
 │ └── ...
 ├── …
 └── README.md ← this file
+```
 
 
 - **Folder naming convention**: `XXXX-problem-title` where `XXXX` is the zero-padded LeetCode problem number.  
