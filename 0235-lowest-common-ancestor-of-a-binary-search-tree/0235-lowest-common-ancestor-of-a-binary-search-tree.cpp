@@ -11,18 +11,19 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        // Base case
-        if (root == nullptr) return nullptr;
+        while (root) {
+            // If both nodes are smaller, move to the left subtree
+            if (root->val > p->val && root->val > q->val)
+                root = root->left;
 
-        // If both p and q are smaller than root, LCA lies in left subtree
-        if (root->val > p->val && root->val > q->val)
-            return lowestCommonAncestor(root->left, p, q);
+            // If both nodes are larger, move to the right subtree
+            else if (root->val < p->val && root->val < q->val)
+                root = root->right;
 
-        // If both p and q are greater than root, LCA lies in right subtree
-        if (root->val < p->val && root->val < q->val)
-            return lowestCommonAncestor(root->right, p, q);
-
-        // If root is between p and q, it’s the LCA
-        return root;
+            // Otherwise, this is the split point → LCA found
+            else
+                return root;
+        }
+        return nullptr;
     }
 };
