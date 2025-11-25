@@ -2,33 +2,42 @@ class Solution {
 public:
     int maxArea(vector<int>& height) {
         
-        int left = 0;                       // left pointer at start
-        int right = height.size() - 1;      // right pointer at end
-        int maxWater = 0;                   // store the maximum area
-        
-        // Two-pointer approach
-        while (left < right) {
+        // Tracks the maximum water area found so far
+        int maxWater = INT_MIN;
 
-            // Width between the two lines
+        // Two pointers: start at both ends
+        int left = 0;
+        int right = height.size() - 1;
+
+        // Move pointers inward
+        while (left < right)
+        {
+            // Width of the container = distance between pointers
             int width = right - left;
 
-            // Height of the container is limited by the shorter line
-            int h = min(height[left], height[right]);
+            // Height of the container = shorter of the two lines
+            int shortLine = min(height[left], height[right]);
 
-            // Calculate area
-            int currArea = h * width;
+            // Current container area
+            int currArea = shortLine * width;
 
             // Update maximum area
-            maxWater = max(maxWater, currArea);
+            maxWater = max(currArea, maxWater);
 
-            // Move the pointer at the shorter line
-            if (height[left] < height[right]) {
-                left++;     // try to find a taller line on the left
-            } else {
-                right--;    // try to find a taller line on the right
+            // Move the pointer at the shorter height
+            // Reason: only the shorter side limits the area.
+            // Moving the taller side cannot increase height or area.
+            if (height[left] < height[right])
+            {
+                left++;   // try to find a taller line on the left
+            }
+            else
+            {
+                right--;  // try to find a taller line on the right
             }
         }
 
+        // Return the maximum area found
         return maxWater;
     }
 };
