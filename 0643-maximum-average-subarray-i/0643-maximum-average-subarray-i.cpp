@@ -1,4 +1,4 @@
-// class Solution {
+// class Solution { // This one is also correct and will pass every test case but it will be slower then the code below as it has complet else if and it has to get sum and increase winodow size at every possible otterationa and then decrease after the operation perform in condition
 // public:
 //     double findMaxAverage(vector<int>& nums, int k) {
         
