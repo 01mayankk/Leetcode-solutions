@@ -1,23 +1,29 @@
 class Solution {
 public:
-    vector<vector<int>> subsets(vector<int>& nums) {
 
-        
-        vector<vector<int>>result;
-        vector<int>current;
-        backtrack(0, nums, current, result);
-        return result;
+    // Recursive function to generate all subsets
+    void getSubset(int start, vector<int>& nums, vector<int>& current, vector<vector<int>>& result)
+    {
+        // Store the current subset (even if empty)
+        result.push_back(current);
+
+        // Loop through remaining elements to choose each one
+        for(int i = start; i < nums.size(); i++)
+        {
+            current.push_back(nums[i]);            // Include nums[i] in subset
+            getSubset(i + 1, nums, current, result); // Recurse for next elements
+
+            current.pop_back();                    // Backtrack: remove last element
+        }
     }
 
-    void backtrack(int index, vector<int>&nums, vector<int>&current, vector<vector<int>>&result)
-    {
-        result.push_back(current);
-        int size = nums.size();
-        for(int i = index; i < size; i++)
-            {
-                current.push_back(nums[i]);
-                backtrack(i+1, nums, current, result);
-                current.pop_back();
-            }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        
+        vector<vector<int>> result;     // Final list of all subsets
+        vector<int> current;            // Temporary list to build subsets
+
+        getSubset(0, nums, current, result); // Start generating from index 0
+
+        return result;                  // Return all generated subsets
     }
 };
