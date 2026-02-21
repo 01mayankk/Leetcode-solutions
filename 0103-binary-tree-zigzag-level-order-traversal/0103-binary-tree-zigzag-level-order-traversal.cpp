@@ -11,42 +11,73 @@
  */
 class Solution {
 public:
-
-        vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         
-        vector<vector<int>> ans; 
-        if (!root) return ans;
+        // This will store the final zigzag traversal
+        vector<vector<int>> result;
 
-        int count = 0;
+        // Base case: if tree is empty, return empty result
+        if(root == nullptr)
+        {
+            return {};
+        }
+
+        // Queue for performing BFS (level order traversal)
         queue<TreeNode*> q;
-        q.push(root);
+        q.push(root);  // Start by pushing root node
 
-        while (!q.empty()) {
-            int size = q.size(); 
-            vector<int> level;   
+        // Flag to decide traversal direction
+        // true  -> left to right
+        // false -> right to left
+        bool leftToRight = true;
 
-            while (size--) {
+        // Continue until all nodes are processed
+        while(!q.empty())
+        {
+            // Number of nodes in the current level
+            int len = q.size();
+
+            // This vector will store current level values
+            vector<int> ans;
+
+            // Process all nodes of this level
+            while(len--)
+            {
+                // Get front node of queue
                 TreeNode* temp = q.front();
-                q.pop();
-                level.push_back(temp->val);
+                q.pop();  // Remove it from queue
 
-                if (temp->left) {
+                // Store node value
+                ans.push_back(temp->val);
+
+                // Push left child into queue (if exists)
+                if(temp->left)
+                {
                     q.push(temp->left);
                 }
-                if (temp->right) {
+
+                // Push right child into queue (if exists)
+                if(temp->right)
+                {
                     q.push(temp->right);
                 }
             }
 
-            if(count % 2 != 0)
+            // If direction is right-to-left,
+            // reverse the current level before adding to result
+            if(!leftToRight)
             {
-                reverse(level.begin(), level.end());
+                reverse(ans.begin(), ans.end());
             }
 
-            ans.push_back(level); 
-            count++;
+            // Store current level in final result
+            result.push_back(ans);
+
+            // Toggle direction for next level
+            leftToRight = !leftToRight;
         }
 
-        return ans;
+        // Return final zigzag traversal
+        return result;
     }
 };
