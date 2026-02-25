@@ -1,18 +1,22 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        priority_queue<int> max;
-        for(int i : nums)
-        {
-            max.push(i);
-        }
         
-        for( int i = 0; i < k - 1; i++)
-        {
-            
-            max.pop();
+        // Max Heap (by default priority_queue in C++ is max heap)
+        priority_queue<int> pq;
+
+        // Step 1: Push all elements into max heap
+        for(int num : nums) {
+            pq.push(num);   // push element directly
         }
 
-        return max.top();
+        // Step 2: Remove the largest element (k-1) times
+        // because the kth largest will be on top after removing k-1 elements
+        for(int i = 0; i < k - 1; i++) {
+            pq.pop();
+        }
+
+        // Step 3: The top element is kth largest
+        return pq.top();
     }
 };
