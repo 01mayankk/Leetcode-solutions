@@ -1,38 +1,44 @@
 class Solution {
 public:
-    void bfs(vector<bool>& visited, const vector<vector<int>>& isConnected, int start) {
-    queue<int> q;
-    q.push(start);
-
-    while (!q.empty()) {
-        int node = q.front();
-        q.pop();
-
-        for (int i = 0; i < isConnected.size(); i++) {
-            if (isConnected[node][i] == 1 && !visited[i]) {
-                visited[i] = true;
-                q.push(i);
+    
+    // DFS function to explore all cities connected to the current city
+    void dfs(int city, vector<vector<int>>& isConnected, vector<int>& visited) {
+        
+        // Mark the current city as visited
+        visited[city] = 1;
+        
+        // Traverse all possible neighboring cities
+        for(int neighbor = 0; neighbor < isConnected.size(); neighbor++) {
+            
+            // If there is a direct connection AND the neighbor is not visited
+            if(isConnected[city][neighbor] == 1 && !visited[neighbor]) {
+                
+                // Recursively visit the neighbor
+                dfs(neighbor, isConnected, visited);
             }
         }
     }
-}
-
+    
     int findCircleNum(vector<vector<int>>& isConnected) {
         
-        int count = 0;
-        int size = isConnected.size();
-        vector<bool>visited(size+1, false);
-
-        for(int i = 0; i < size; i++)
-        {
-            if(visited[i] != true)
-            {
-                visited[i] = true;
-                count++;
-                bfs(visited, isConnected, i);
+        int n = isConnected.size();          // Number of cities
+        vector<int> visited(n, 0);           // Visited array to track explored cities
+        int provinces = 0;                   // Counter for provinces
+        
+        // Iterate through each city
+        for(int i = 0; i < n; i++) {
+            
+            // If the city is not visited, it means we found a new province
+            if(!visited[i]) {
+                
+                // Perform DFS to mark all cities in this province
+                dfs(i, isConnected, visited);
+                
+                // Increase province count
+                provinces++;
             }
         }
-
-        return count;
+        
+        return provinces;    // Return total number of provinces
     }
 };
