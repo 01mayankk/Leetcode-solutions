@@ -134,4 +134,8 @@ Keeps solving, keep growing.
 | ------- | ------- |
 | [3129-find-all-possible-stable-binary-arrays-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3129-find-all-possible-stable-binary-arrays-i/) | Medium |
 | [3130-find-all-possible-stable-binary-arrays-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/3130-find-all-possible-stable-binary-arrays-ii/) | Hard |
+## Bit Manipulation
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1009-complement-of-base-10-integer](https://github.com/01mayankk/Leetcode-solutions/tree/main/1009-complement-of-base-10-integer/) | Easy |
 <!---LeetCode Topics End-->
