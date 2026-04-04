@@ -83,6 +83,7 @@ Keeps solving, keep growing.
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0031-next-permutation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0031-next-permutation/) | Medium |
 | [1536-minimum-swaps-to-arrange-a-binary-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1536-minimum-swaps-to-arrange-a-binary-grid/) | Medium |
 | [1582-special-positions-in-a-binary-matrix](https://github.com/01mayankk/Leetcode-solutions/tree/main/1582-special-positions-in-a-binary-matrix/) | Easy |
 | [1594-maximum-non-negative-product-in-a-matrix](https://github.com/01mayankk/Leetcode-solutions/tree/main/1594-maximum-non-negative-product-in-a-matrix/) | Medium |
@@ -249,6 +250,7 @@ Keeps solving, keep growing.
 ## Two Pointers
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0031-next-permutation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0031-next-permutation/) | Medium |
 | [2149-rearrange-array-elements-by-sign](https://github.com/01mayankk/Leetcode-solutions/tree/main/2149-rearrange-array-elements-by-sign/) | Medium |
 | [3643-flip-square-submatrix-vertically](https://github.com/01mayankk/Leetcode-solutions/tree/main/3643-flip-square-submatrix-vertically/) | Easy |
 ## Enumeration
