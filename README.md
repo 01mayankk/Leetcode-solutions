@@ -83,6 +83,7 @@ Keeps solving, keep growing.
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0015-3sum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0015-3sum/) | Medium |
 | [0031-next-permutation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0031-next-permutation/) | Medium |
 | [0239-sliding-window-maximum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0239-sliding-window-maximum/) | Hard |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
@@ -263,6 +264,7 @@ Keeps solving, keep growing.
 ## Sorting
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0015-3sum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0015-3sum/) | Medium |
 | [1727-largest-submatrix-with-rearrangements](https://github.com/01mayankk/Leetcode-solutions/tree/main/1727-largest-submatrix-with-rearrangements/) | Medium |
 | [1878-get-biggest-three-rhombus-sums-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1878-get-biggest-three-rhombus-sums-in-a-grid/) | Medium |
 | [2463-minimum-total-distance-traveled](https://github.com/01mayankk/Leetcode-solutions/tree/main/2463-minimum-total-distance-traveled/) | Hard |
@@ -273,6 +275,7 @@ Keeps solving, keep growing.
 ## Two Pointers
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0015-3sum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0015-3sum/) | Medium |
 | [0031-next-permutation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0031-next-permutation/) | Medium |
 | [2149-rearrange-array-elements-by-sign](https://github.com/01mayankk/Leetcode-solutions/tree/main/2149-rearrange-array-elements-by-sign/) | Medium |
 | [3643-flip-square-submatrix-vertically](https://github.com/01mayankk/Leetcode-solutions/tree/main/3643-flip-square-submatrix-vertically/) | Easy |
