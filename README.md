@@ -87,6 +87,7 @@ Keeps solving, keep growing.
 | [0031-next-permutation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0031-next-permutation/) | Medium |
 | [0239-sliding-window-maximum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0239-sliding-window-maximum/) | Hard |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
+| [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1536-minimum-swaps-to-arrange-a-binary-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1536-minimum-swaps-to-arrange-a-binary-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 | [1582-special-positions-in-a-binary-matrix](https://github.com/01mayankk/Leetcode-solutions/tree/main/1582-special-positions-in-a-binary-matrix/) | Easy |
@@ -137,6 +138,7 @@ Keeps solving, keep growing.
 ## Matrix
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1536-minimum-swaps-to-arrange-a-binary-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1536-minimum-swaps-to-arrange-a-binary-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 | [1582-special-positions-in-a-binary-matrix](https://github.com/01mayankk/Leetcode-solutions/tree/main/1582-special-positions-in-a-binary-matrix/) | Easy |
@@ -249,6 +251,7 @@ Keeps solving, keep growing.
 ## Union-Find
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 | [1722-minimize-hamming-distance-after-swap-operations](https://github.com/01mayankk/Leetcode-solutions/tree/main/1722-minimize-hamming-distance-after-swap-operations/) | Medium |
 | [2573-find-the-string-with-lcp](https://github.com/01mayankk/Leetcode-solutions/tree/main/2573-find-the-string-with-lcp/) | Hard |
@@ -335,6 +338,7 @@ Keeps solving, keep growing.
 ## Depth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 | [1722-minimize-hamming-distance-after-swap-operations](https://github.com/01mayankk/Leetcode-solutions/tree/main/1722-minimize-hamming-distance-after-swap-operations/) | Medium |
 ## Trie
@@ -352,5 +356,6 @@ Keeps solving, keep growing.
 ## Breadth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 <!---LeetCode Topics End-->
