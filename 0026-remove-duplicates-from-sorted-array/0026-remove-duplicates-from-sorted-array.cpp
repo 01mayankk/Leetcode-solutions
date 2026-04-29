@@ -2,12 +2,19 @@ class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         
-        set<int>sorted(nums.begin(), nums.end());
+        int n = nums.size();
+        if(n == 0) return 0;
 
-        vector<int>v(sorted.begin(), sorted.end());
-        nums = v;
-        return nums.size();
+        int index = 1; // first element is always unique
 
-        
+        for(int i = 1; i < n; i++)
+        {
+            if(nums[i] != nums[i - 1])
+            {
+                nums[index++] = nums[i]; // place next unique
+            }
+        }
+
+        return index;
     }
 };
