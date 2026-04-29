@@ -90,6 +90,7 @@ Keeps solving, keep growing.
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/0080-remove-duplicates-from-sorted-array-ii/) | Medium |
 | [0088-merge-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0088-merge-sorted-array/) | Easy |
 | [0169-majority-element](https://github.com/01mayankk/Leetcode-solutions/tree/main/0169-majority-element/) | Easy |
+| [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
 | [0239-sliding-window-maximum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0239-sliding-window-maximum/) | Hard |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
@@ -279,6 +280,7 @@ Keeps solving, keep growing.
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
 | [1622-fancy-sequence](https://github.com/01mayankk/Leetcode-solutions/tree/main/1622-fancy-sequence/) | Hard |
 | [1878-get-biggest-three-rhombus-sums-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1878-get-biggest-three-rhombus-sums-in-a-grid/) | Medium |
 | [2033-minimum-operations-to-make-a-uni-value-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/2033-minimum-operations-to-make-a-uni-value-grid/) | Medium |
@@ -326,6 +328,7 @@ Keeps solving, keep growing.
 | [0031-next-permutation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0031-next-permutation/) | Medium |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/0080-remove-duplicates-from-sorted-array-ii/) | Medium |
 | [0088-merge-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0088-merge-sorted-array/) | Easy |
+| [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
 | [1855-maximum-distance-between-a-pair-of-values](https://github.com/01mayankk/Leetcode-solutions/tree/main/1855-maximum-distance-between-a-pair-of-values/) | Medium |
 | [2149-rearrange-array-elements-by-sign](https://github.com/01mayankk/Leetcode-solutions/tree/main/2149-rearrange-array-elements-by-sign/) | Medium |
 | [3643-flip-square-submatrix-vertically](https://github.com/01mayankk/Leetcode-solutions/tree/main/3643-flip-square-submatrix-vertically/) | Easy |
