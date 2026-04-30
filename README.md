@@ -367,6 +367,7 @@ Keeps solving, keep growing.
 ## Depth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0637-average-of-levels-in-binary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0637-average-of-levels-in-binary-tree/) | Easy |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 | [1722-minimize-hamming-distance-after-swap-operations](https://github.com/01mayankk/Leetcode-solutions/tree/main/1722-minimize-hamming-distance-after-swap-operations/) | Medium |
@@ -386,6 +387,15 @@ Keeps solving, keep growing.
 ## Breadth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0637-average-of-levels-in-binary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0637-average-of-levels-in-binary-tree/) | Easy |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
+## Tree
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0637-average-of-levels-in-binary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0637-average-of-levels-in-binary-tree/) | Easy |
+## Binary Tree
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0637-average-of-levels-in-binary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0637-average-of-levels-in-binary-tree/) | Easy |
 <!---LeetCode Topics End-->
