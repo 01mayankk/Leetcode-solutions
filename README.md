@@ -184,6 +184,7 @@ Keeps solving, keep growing.
 ## String
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0125-valid-palindrome](https://github.com/01mayankk/Leetcode-solutions/tree/main/0125-valid-palindrome/) | Easy |
 | [0205-isomorphic-strings](https://github.com/01mayankk/Leetcode-solutions/tree/main/0205-isomorphic-strings/) | Easy |
 | [0383-ransom-note](https://github.com/01mayankk/Leetcode-solutions/tree/main/0383-ransom-note/) | Easy |
 | [0796-rotate-string](https://github.com/01mayankk/Leetcode-solutions/tree/main/0796-rotate-string/) | Easy |
@@ -362,6 +363,7 @@ Keeps solving, keep growing.
 | [0061-rotate-list](https://github.com/01mayankk/Leetcode-solutions/tree/main/0061-rotate-list/) | Medium |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/0080-remove-duplicates-from-sorted-array-ii/) | Medium |
 | [0088-merge-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0088-merge-sorted-array/) | Easy |
+| [0125-valid-palindrome](https://github.com/01mayankk/Leetcode-solutions/tree/main/0125-valid-palindrome/) | Easy |
 | [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
 | [1855-maximum-distance-between-a-pair-of-values](https://github.com/01mayankk/Leetcode-solutions/tree/main/1855-maximum-distance-between-a-pair-of-values/) | Medium |
 | [1861-rotating-the-box](https://github.com/01mayankk/Leetcode-solutions/tree/main/1861-rotating-the-box/) | Medium |
