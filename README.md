@@ -94,6 +94,7 @@ Keeps solving, keep growing.
 | [0088-merge-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0088-merge-sorted-array/) | Easy |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/01mayankk/Leetcode-solutions/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/0122-best-time-to-buy-and-sell-stock-ii/) | Medium |
+| [0167-two-sum-ii-input-array-is-sorted](https://github.com/01mayankk/Leetcode-solutions/tree/main/0167-two-sum-ii-input-array-is-sorted/) | Medium |
 | [0169-majority-element](https://github.com/01mayankk/Leetcode-solutions/tree/main/0169-majority-element/) | Easy |
 | [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
 | [0239-sliding-window-maximum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0239-sliding-window-maximum/) | Hard |
@@ -285,6 +286,7 @@ Keeps solving, keep growing.
 ## Binary Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0167-two-sum-ii-input-array-is-sorted](https://github.com/01mayankk/Leetcode-solutions/tree/main/0167-two-sum-ii-input-array-is-sorted/) | Medium |
 | [1855-maximum-distance-between-a-pair-of-values](https://github.com/01mayankk/Leetcode-solutions/tree/main/1855-maximum-distance-between-a-pair-of-values/) | Medium |
 | [3296-minimum-number-of-seconds-to-make-mountain-height-zero](https://github.com/01mayankk/Leetcode-solutions/tree/main/3296-minimum-number-of-seconds-to-make-mountain-height-zero/) | Medium |
 | [3464-maximize-the-distance-between-points-on-a-square](https://github.com/01mayankk/Leetcode-solutions/tree/main/3464-maximize-the-distance-between-points-on-a-square/) | Hard |
@@ -364,6 +366,7 @@ Keeps solving, keep growing.
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/0080-remove-duplicates-from-sorted-array-ii/) | Medium |
 | [0088-merge-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0088-merge-sorted-array/) | Easy |
 | [0125-valid-palindrome](https://github.com/01mayankk/Leetcode-solutions/tree/main/0125-valid-palindrome/) | Easy |
+| [0167-two-sum-ii-input-array-is-sorted](https://github.com/01mayankk/Leetcode-solutions/tree/main/0167-two-sum-ii-input-array-is-sorted/) | Medium |
 | [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
 | [1855-maximum-distance-between-a-pair-of-values](https://github.com/01mayankk/Leetcode-solutions/tree/main/1855-maximum-distance-between-a-pair-of-values/) | Medium |
 | [1861-rotating-the-box](https://github.com/01mayankk/Leetcode-solutions/tree/main/1861-rotating-the-box/) | Medium |
