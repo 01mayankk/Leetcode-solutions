@@ -1,47 +1,74 @@
+// class Solution {
+// public:
+//     vector<int> separateDigits(vector<int>& nums) {
+        
+//         // Vector to store final separated digits
+//         vector<int> ans;
+
+//         // Traverse each number in the array
+//         for(int i = 0; i < nums.size(); i++)
+//         {
+//             // If number has more than 1 digit
+//             if(nums[i] > 9)
+//             {
+//                 int copy = nums[i];
+
+//                 // Stack is used to maintain correct digit order
+//                 stack<int> st;
+
+//                 // Extract digits from right to left
+//                 while(copy > 0)
+//                 {
+//                     int digit = copy % 10; // Get last digit
+
+//                     st.push(digit); // Store digit in stack
+
+//                     copy /= 10; // Remove last digit
+//                 }
+
+//                 // Pop digits from stack to get original order
+//                 while(!st.empty())
+//                 {
+//                     ans.push_back(st.top());
+
+//                     st.pop();
+//                 }
+//             }
+//             else
+//             {
+//                 // Single digit numbers are added directly
+//                 ans.push_back(nums[i]);
+//             }
+//         }
+
+//         // Return final separated digit array
+//         return ans;
+//     }
+// };
+
+
 class Solution {
 public:
     vector<int> separateDigits(vector<int>& nums) {
-        
+
         // Vector to store final separated digits
         vector<int> ans;
 
-        // Traverse each number in the array
-        for(int i = 0; i < nums.size(); i++)
+        // Traverse each number in nums
+        for(int num : nums)
         {
-            // If number has more than 1 digit
-            if(nums[i] > 9)
+            // Convert integer to string
+            string s = to_string(num);
+
+            // Traverse each character (digit) in string
+            for(char ch : s)
             {
-                int copy = nums[i];
-
-                // Stack is used to maintain correct digit order
-                stack<int> st;
-
-                // Extract digits from right to left
-                while(copy > 0)
-                {
-                    int digit = copy % 10; // Get last digit
-
-                    st.push(digit); // Store digit in stack
-
-                    copy /= 10; // Remove last digit
-                }
-
-                // Pop digits from stack to get original order
-                while(!st.empty())
-                {
-                    ans.push_back(st.top());
-
-                    st.pop();
-                }
-            }
-            else
-            {
-                // Single digit numbers are added directly
-                ans.push_back(nums[i]);
+                // Convert character to integer and store in ans
+                ans.push_back(ch - '0');
             }
         }
 
-        // Return final separated digit array
+        // Return final digit array
         return ans;
     }
 };
