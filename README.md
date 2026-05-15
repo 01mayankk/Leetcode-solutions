@@ -100,6 +100,7 @@ Keeps solving, keep growing.
 | [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
 | [0239-sliding-window-maximum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0239-sliding-window-maximum/) | Hard |
 | [0396-rotate-function](https://github.com/01mayankk/Leetcode-solutions/tree/main/0396-rotate-function/) | Medium |
+| [0661-image-smoother](https://github.com/01mayankk/Leetcode-solutions/tree/main/0661-image-smoother/) | Easy |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1536-minimum-swaps-to-arrange-a-binary-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1536-minimum-swaps-to-arrange-a-binary-grid/) | Medium |
@@ -168,6 +169,7 @@ Keeps solving, keep growing.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0048-rotate-image](https://github.com/01mayankk/Leetcode-solutions/tree/main/0048-rotate-image/) | Medium |
+| [0661-image-smoother](https://github.com/01mayankk/Leetcode-solutions/tree/main/0661-image-smoother/) | Easy |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1536-minimum-swaps-to-arrange-a-binary-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1536-minimum-swaps-to-arrange-a-binary-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
