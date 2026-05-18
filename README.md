@@ -104,6 +104,7 @@ Keeps solving, keep growing.
 | [0661-image-smoother](https://github.com/01mayankk/Leetcode-solutions/tree/main/0661-image-smoother/) | Easy |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
 | [1306-jump-game-iii](https://github.com/01mayankk/Leetcode-solutions/tree/main/1306-jump-game-iii/) | Medium |
+| [1345-jump-game-iv](https://github.com/01mayankk/Leetcode-solutions/tree/main/1345-jump-game-iv/) | Hard |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1536-minimum-swaps-to-arrange-a-binary-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1536-minimum-swaps-to-arrange-a-binary-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
@@ -268,6 +269,7 @@ Keeps solving, keep growing.
 | [0205-isomorphic-strings](https://github.com/01mayankk/Leetcode-solutions/tree/main/0205-isomorphic-strings/) | Easy |
 | [0383-ransom-note](https://github.com/01mayankk/Leetcode-solutions/tree/main/0383-ransom-note/) | Easy |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
+| [1345-jump-game-iv](https://github.com/01mayankk/Leetcode-solutions/tree/main/1345-jump-game-iv/) | Hard |
 | [1674-minimum-moves-to-make-array-complementary](https://github.com/01mayankk/Leetcode-solutions/tree/main/1674-minimum-moves-to-make-array-complementary/) | Medium |
 | [1980-find-unique-binary-string](https://github.com/01mayankk/Leetcode-solutions/tree/main/1980-find-unique-binary-string/) | Medium |
 | [2615-sum-of-distances](https://github.com/01mayankk/Leetcode-solutions/tree/main/2615-sum-of-distances/) | Medium |
@@ -451,6 +453,7 @@ Keeps solving, keep growing.
 | ------- | ------- |
 | [0637-average-of-levels-in-binary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0637-average-of-levels-in-binary-tree/) | Easy |
 | [1306-jump-game-iii](https://github.com/01mayankk/Leetcode-solutions/tree/main/1306-jump-game-iii/) | Medium |
+| [1345-jump-game-iv](https://github.com/01mayankk/Leetcode-solutions/tree/main/1345-jump-game-iv/) | Hard |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 | [3629-minimum-jumps-to-reach-end-via-prime-teleportation](https://github.com/01mayankk/Leetcode-solutions/tree/main/3629-minimum-jumps-to-reach-end-via-prime-teleportation/) | Medium |
