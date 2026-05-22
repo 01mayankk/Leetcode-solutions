@@ -87,6 +87,7 @@ Keeps solving, keep growing.
 | [0026-remove-duplicates-from-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0026-remove-duplicates-from-sorted-array/) | Easy |
 | [0027-remove-element](https://github.com/01mayankk/Leetcode-solutions/tree/main/0027-remove-element/) | Easy |
 | [0031-next-permutation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0031-next-permutation/) | Medium |
+| [0033-search-in-rotated-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0033-search-in-rotated-sorted-array/) | Medium |
 | [0048-rotate-image](https://github.com/01mayankk/Leetcode-solutions/tree/main/0048-rotate-image/) | Medium |
 | [0053-maximum-subarray](https://github.com/01mayankk/Leetcode-solutions/tree/main/0053-maximum-subarray/) | Medium |
 | [0055-jump-game](https://github.com/01mayankk/Leetcode-solutions/tree/main/0055-jump-game/) | Medium |
@@ -315,6 +316,7 @@ Keeps solving, keep growing.
 ## Binary Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0033-search-in-rotated-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0033-search-in-rotated-sorted-array/) | Medium |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0153-find-minimum-in-rotated-sorted-array/) | Medium |
 | [0154-find-minimum-in-rotated-sorted-array-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/0154-find-minimum-in-rotated-sorted-array-ii/) | Hard |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/01mayankk/Leetcode-solutions/tree/main/0167-two-sum-ii-input-array-is-sorted/) | Medium |
