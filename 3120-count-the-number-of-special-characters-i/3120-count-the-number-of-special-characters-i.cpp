@@ -1,31 +1,40 @@
 class Solution {
 public:
     int numberOfSpecialChars(string word) {
-        unordered_set<char> s;
-        // Tracks lowercase characters that have already been counted as "special"
-        vector<bool> counted(26, false); 
-        int count = 0;
         
-        for (char ch : word) {
-            if (islower(ch)) {
-                char upperVersion = toupper(ch);
-                // If we found its uppercase partner and haven't counted this letter yet
-                if (s.find(upperVersion) != s.end() && !counted[ch - 'a']) {
-                    count++;
-                    counted[ch - 'a'] = true;
-                }
-            } else if (isupper(ch)) {
-                char lowerVersion = tolower(ch);
-                // If we found its lowercase partner and haven't counted this letter yet
-                if (s.find(lowerVersion) != s.end() && !counted[lowerVersion - 'a']) {
-                    count++;
-                    counted[lowerVersion - 'a'] = true;
-                }
-            }
+        // Store lowercase letters
+        unordered_set<char> lower;
+        
+        // Store uppercase letters
+        unordered_set<char> upper;
+
+        // Traverse the string
+        for(char ch : word) {
             
-            s.insert(ch);
+            // If character is lowercase
+            if(islower(ch)) {
+                lower.insert(ch);
+            }
+            // If character is uppercase
+            else {
+                upper.insert(ch);
+            }
         }
-        
+
+        int count = 0;
+
+        // Check for every lowercase letter
+        for(char ch : lower) {
+            
+            // Convert lowercase to uppercase
+            char upperChar = toupper(ch);
+
+            // If uppercase version exists
+            if(upper.count(upperChar)) {
+                count++;
+            }
+        }
+
         return count;
     }
 };
