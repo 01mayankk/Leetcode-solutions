@@ -102,6 +102,7 @@ Keeps solving, keep growing.
 | [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
 | [0239-sliding-window-maximum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0239-sliding-window-maximum/) | Hard |
 | [0396-rotate-function](https://github.com/01mayankk/Leetcode-solutions/tree/main/0396-rotate-function/) | Medium |
+| [0645-set-mismatch](https://github.com/01mayankk/Leetcode-solutions/tree/main/0645-set-mismatch/) | Easy |
 | [0661-image-smoother](https://github.com/01mayankk/Leetcode-solutions/tree/main/0661-image-smoother/) | Easy |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
 | [1306-jump-game-iii](https://github.com/01mayankk/Leetcode-solutions/tree/main/1306-jump-game-iii/) | Medium |
@@ -281,6 +282,7 @@ Keeps solving, keep growing.
 | [0169-majority-element](https://github.com/01mayankk/Leetcode-solutions/tree/main/0169-majority-element/) | Easy |
 | [0205-isomorphic-strings](https://github.com/01mayankk/Leetcode-solutions/tree/main/0205-isomorphic-strings/) | Easy |
 | [0383-ransom-note](https://github.com/01mayankk/Leetcode-solutions/tree/main/0383-ransom-note/) | Easy |
+| [0645-set-mismatch](https://github.com/01mayankk/Leetcode-solutions/tree/main/0645-set-mismatch/) | Easy |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
 | [1345-jump-game-iv](https://github.com/01mayankk/Leetcode-solutions/tree/main/1345-jump-game-iv/) | Hard |
 | [1674-minimum-moves-to-make-array-complementary](https://github.com/01mayankk/Leetcode-solutions/tree/main/1674-minimum-moves-to-make-array-complementary/) | Medium |
@@ -322,6 +324,7 @@ Keeps solving, keep growing.
 ## Bit Manipulation
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0645-set-mismatch](https://github.com/01mayankk/Leetcode-solutions/tree/main/0645-set-mismatch/) | Easy |
 | [1009-complement-of-base-10-integer](https://github.com/01mayankk/Leetcode-solutions/tree/main/1009-complement-of-base-10-integer/) | Easy |
 | [2657-find-the-prefix-common-array-of-two-arrays](https://github.com/01mayankk/Leetcode-solutions/tree/main/2657-find-the-prefix-common-array-of-two-arrays/) | Medium |
 ## Binary Search
@@ -391,6 +394,7 @@ Keeps solving, keep growing.
 | [0015-3sum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0015-3sum/) | Medium |
 | [0088-merge-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0088-merge-sorted-array/) | Easy |
 | [0169-majority-element](https://github.com/01mayankk/Leetcode-solutions/tree/main/0169-majority-element/) | Easy |
+| [0645-set-mismatch](https://github.com/01mayankk/Leetcode-solutions/tree/main/0645-set-mismatch/) | Easy |
 | [1340-jump-game-v](https://github.com/01mayankk/Leetcode-solutions/tree/main/1340-jump-game-v/) | Hard |
 | [1665-minimum-initial-energy-to-finish-tasks](https://github.com/01mayankk/Leetcode-solutions/tree/main/1665-minimum-initial-energy-to-finish-tasks/) | Hard |
 | [1727-largest-submatrix-with-rearrangements](https://github.com/01mayankk/Leetcode-solutions/tree/main/1727-largest-submatrix-with-rearrangements/) | Medium |
