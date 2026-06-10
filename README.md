@@ -111,6 +111,7 @@ Keeps solving, keep growing.
 | [1345-jump-game-iv](https://github.com/01mayankk/Leetcode-solutions/tree/main/1345-jump-game-iv/) | Hard |
 | [1365-how-many-numbers-are-smaller-than-the-current-number](https://github.com/01mayankk/Leetcode-solutions/tree/main/1365-how-many-numbers-are-smaller-than-the-current-number/) | Easy |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
+| [1441-build-an-array-with-stack-operations](https://github.com/01mayankk/Leetcode-solutions/tree/main/1441-build-an-array-with-stack-operations/) | Medium |
 | [1536-minimum-swaps-to-arrange-a-binary-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1536-minimum-swaps-to-arrange-a-binary-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 | [1582-special-positions-in-a-binary-matrix](https://github.com/01mayankk/Leetcode-solutions/tree/main/1582-special-positions-in-a-binary-matrix/) | Easy |
@@ -256,6 +257,7 @@ Keeps solving, keep growing.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
+| [1441-build-an-array-with-stack-operations](https://github.com/01mayankk/Leetcode-solutions/tree/main/1441-build-an-array-with-stack-operations/) | Medium |
 | [1545-find-kth-bit-in-nth-binary-string](https://github.com/01mayankk/Leetcode-solutions/tree/main/1545-find-kth-bit-in-nth-binary-string/) | Medium |
 | [1914-cyclically-rotating-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1914-cyclically-rotating-a-grid/) | Medium |
 | [2069-walking-robot-simulation-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/2069-walking-robot-simulation-ii/) | Medium |
@@ -480,6 +482,7 @@ Keeps solving, keep growing.
 ## Stack
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1441-build-an-array-with-stack-operations](https://github.com/01mayankk/Leetcode-solutions/tree/main/1441-build-an-array-with-stack-operations/) | Medium |
 | [2751-robot-collisions](https://github.com/01mayankk/Leetcode-solutions/tree/main/2751-robot-collisions/) | Hard |
 ## Divide and Conquer
 | Problem Name | Difficulty |
