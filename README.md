@@ -253,6 +253,7 @@ Keeps solving, keep growing.
 ## Recursion
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0024-swap-nodes-in-pairs](https://github.com/01mayankk/Leetcode-solutions/tree/main/0024-swap-nodes-in-pairs/) | Medium |
 | [1545-find-kth-bit-in-nth-binary-string](https://github.com/01mayankk/Leetcode-solutions/tree/main/1545-find-kth-bit-in-nth-binary-string/) | Medium |
 ## Simulation
 | Problem Name | Difficulty |
@@ -548,6 +549,7 @@ Keeps solving, keep growing.
 ## Linked List
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0024-swap-nodes-in-pairs](https://github.com/01mayankk/Leetcode-solutions/tree/main/0024-swap-nodes-in-pairs/) | Medium |
 | [0061-rotate-list](https://github.com/01mayankk/Leetcode-solutions/tree/main/0061-rotate-list/) | Medium |
 ## Number Theory
 | Problem Name | Difficulty |
