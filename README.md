@@ -300,6 +300,7 @@ Keeps solving, keep growing.
 | [3742-maximum-path-score-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/3742-maximum-path-score-in-a-grid/) | Medium |
 | [3751-total-waviness-of-numbers-in-range-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3751-total-waviness-of-numbers-in-range-i/) | Medium |
 | [3753-total-waviness-of-numbers-in-range-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/3753-total-waviness-of-numbers-in-range-ii/) | Hard |
+| [3954-sum-of-compatible-numbers-in-range-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3954-sum-of-compatible-numbers-in-range-i/) | Easy |
 ## Sliding Window
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -363,6 +364,7 @@ Keeps solving, keep growing.
 | [0645-set-mismatch](https://github.com/01mayankk/Leetcode-solutions/tree/main/0645-set-mismatch/) | Easy |
 | [1009-complement-of-base-10-integer](https://github.com/01mayankk/Leetcode-solutions/tree/main/1009-complement-of-base-10-integer/) | Easy |
 | [2657-find-the-prefix-common-array-of-two-arrays](https://github.com/01mayankk/Leetcode-solutions/tree/main/2657-find-the-prefix-common-array-of-two-arrays/) | Medium |
+| [3954-sum-of-compatible-numbers-in-range-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3954-sum-of-compatible-numbers-in-range-i/) | Easy |
 ## Binary Search
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -485,6 +487,7 @@ Keeps solving, keep growing.
 | [3546-equal-sum-grid-partition-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3546-equal-sum-grid-partition-i/) | Medium |
 | [3548-equal-sum-grid-partition-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/3548-equal-sum-grid-partition-ii/) | Hard |
 | [3751-total-waviness-of-numbers-in-range-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3751-total-waviness-of-numbers-in-range-i/) | Medium |
+| [3954-sum-of-compatible-numbers-in-range-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3954-sum-of-compatible-numbers-in-range-i/) | Easy |
 ## String Matching
 | Problem Name | Difficulty |
 | ------- | ------- |
