@@ -229,6 +229,7 @@ Keeps solving, keep growing.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/01mayankk/Leetcode-solutions/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
+| [0008-string-to-integer-atoi](https://github.com/01mayankk/Leetcode-solutions/tree/main/0008-string-to-integer-atoi/) | Medium |
 | [0125-valid-palindrome](https://github.com/01mayankk/Leetcode-solutions/tree/main/0125-valid-palindrome/) | Easy |
 | [0205-isomorphic-strings](https://github.com/01mayankk/Leetcode-solutions/tree/main/0205-isomorphic-strings/) | Easy |
 | [0383-ransom-note](https://github.com/01mayankk/Leetcode-solutions/tree/main/0383-ransom-note/) | Easy |
