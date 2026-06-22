@@ -25,6 +25,7 @@ public:
             if (sum > coins) {
                 sum -= cost;
                 len--;
+                break;
             }
         }
 
