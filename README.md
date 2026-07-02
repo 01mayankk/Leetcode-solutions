@@ -235,6 +235,7 @@ Keeps solving, keep growing.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/01mayankk/Leetcode-solutions/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
+| [0005-longest-palindromic-substring](https://github.com/01mayankk/Leetcode-solutions/tree/main/0005-longest-palindromic-substring/) | Medium |
 | [0008-string-to-integer-atoi](https://github.com/01mayankk/Leetcode-solutions/tree/main/0008-string-to-integer-atoi/) | Medium |
 | [0012-integer-to-roman](https://github.com/01mayankk/Leetcode-solutions/tree/main/0012-integer-to-roman/) | Medium |
 | [0125-valid-palindrome](https://github.com/01mayankk/Leetcode-solutions/tree/main/0125-valid-palindrome/) | Easy |
@@ -293,6 +294,7 @@ Keeps solving, keep growing.
 ## Dynamic Programming
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0005-longest-palindromic-substring](https://github.com/01mayankk/Leetcode-solutions/tree/main/0005-longest-palindromic-substring/) | Medium |
 | [0053-maximum-subarray](https://github.com/01mayankk/Leetcode-solutions/tree/main/0053-maximum-subarray/) | Medium |
 | [0055-jump-game](https://github.com/01mayankk/Leetcode-solutions/tree/main/0055-jump-game/) | Medium |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/01mayankk/Leetcode-solutions/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
@@ -486,6 +488,7 @@ Keeps solving, keep growing.
 ## Two Pointers
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0005-longest-palindromic-substring](https://github.com/01mayankk/Leetcode-solutions/tree/main/0005-longest-palindromic-substring/) | Medium |
 | [0015-3sum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0015-3sum/) | Medium |
 | [0019-remove-nth-node-from-end-of-list](https://github.com/01mayankk/Leetcode-solutions/tree/main/0019-remove-nth-node-from-end-of-list/) | Medium |
 | [0026-remove-duplicates-from-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0026-remove-duplicates-from-sorted-array/) | Easy |
