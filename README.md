@@ -236,6 +236,7 @@ Keeps solving, keep growing.
 | ------- | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/01mayankk/Leetcode-solutions/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 | [0008-string-to-integer-atoi](https://github.com/01mayankk/Leetcode-solutions/tree/main/0008-string-to-integer-atoi/) | Medium |
+| [0012-integer-to-roman](https://github.com/01mayankk/Leetcode-solutions/tree/main/0012-integer-to-roman/) | Medium |
 | [0125-valid-palindrome](https://github.com/01mayankk/Leetcode-solutions/tree/main/0125-valid-palindrome/) | Easy |
 | [0205-isomorphic-strings](https://github.com/01mayankk/Leetcode-solutions/tree/main/0205-isomorphic-strings/) | Easy |
 | [0383-ransom-note](https://github.com/01mayankk/Leetcode-solutions/tree/main/0383-ransom-note/) | Easy |
@@ -328,6 +329,7 @@ Keeps solving, keep growing.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/01mayankk/Leetcode-solutions/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
+| [0012-integer-to-roman](https://github.com/01mayankk/Leetcode-solutions/tree/main/0012-integer-to-roman/) | Medium |
 | [0169-majority-element](https://github.com/01mayankk/Leetcode-solutions/tree/main/0169-majority-element/) | Easy |
 | [0205-isomorphic-strings](https://github.com/01mayankk/Leetcode-solutions/tree/main/0205-isomorphic-strings/) | Easy |
 | [0383-ransom-note](https://github.com/01mayankk/Leetcode-solutions/tree/main/0383-ransom-note/) | Easy |
@@ -421,6 +423,7 @@ Keeps solving, keep growing.
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0012-integer-to-roman](https://github.com/01mayankk/Leetcode-solutions/tree/main/0012-integer-to-roman/) | Medium |
 | [0048-rotate-image](https://github.com/01mayankk/Leetcode-solutions/tree/main/0048-rotate-image/) | Medium |
 | [0150-evaluate-reverse-polish-notation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0150-evaluate-reverse-polish-notation/) | Medium |
 | [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
