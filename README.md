@@ -385,6 +385,7 @@ Keeps solving, keep growing.
 ## Bit Manipulation
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0029-divide-two-integers](https://github.com/01mayankk/Leetcode-solutions/tree/main/0029-divide-two-integers/) | Medium |
 | [0645-set-mismatch](https://github.com/01mayankk/Leetcode-solutions/tree/main/0645-set-mismatch/) | Easy |
 | [1009-complement-of-base-10-integer](https://github.com/01mayankk/Leetcode-solutions/tree/main/1009-complement-of-base-10-integer/) | Easy |
 | [2657-find-the-prefix-common-array-of-two-arrays](https://github.com/01mayankk/Leetcode-solutions/tree/main/2657-find-the-prefix-common-array-of-two-arrays/) | Medium |
@@ -426,6 +427,7 @@ Keeps solving, keep growing.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0012-integer-to-roman](https://github.com/01mayankk/Leetcode-solutions/tree/main/0012-integer-to-roman/) | Medium |
+| [0029-divide-two-integers](https://github.com/01mayankk/Leetcode-solutions/tree/main/0029-divide-two-integers/) | Medium |
 | [0048-rotate-image](https://github.com/01mayankk/Leetcode-solutions/tree/main/0048-rotate-image/) | Medium |
 | [0150-evaluate-reverse-polish-notation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0150-evaluate-reverse-polish-notation/) | Medium |
 | [0189-rotate-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0189-rotate-array/) | Medium |
