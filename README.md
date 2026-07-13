@@ -555,6 +555,7 @@ Keeps solving, keep growing.
 ## Depth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0559-maximum-depth-of-n-ary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0559-maximum-depth-of-n-ary-tree/) | Easy |
 | [0637-average-of-levels-in-binary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0637-average-of-levels-in-binary-tree/) | Easy |
 | [1306-jump-game-iii](https://github.com/01mayankk/Leetcode-solutions/tree/main/1306-jump-game-iii/) | Medium |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
@@ -580,6 +581,7 @@ Keeps solving, keep growing.
 ## Breadth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0559-maximum-depth-of-n-ary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0559-maximum-depth-of-n-ary-tree/) | Easy |
 | [0637-average-of-levels-in-binary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0637-average-of-levels-in-binary-tree/) | Easy |
 | [1306-jump-game-iii](https://github.com/01mayankk/Leetcode-solutions/tree/main/1306-jump-game-iii/) | Medium |
 | [1345-jump-game-iv](https://github.com/01mayankk/Leetcode-solutions/tree/main/1345-jump-game-iv/) | Hard |
@@ -589,6 +591,7 @@ Keeps solving, keep growing.
 ## Tree
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0559-maximum-depth-of-n-ary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0559-maximum-depth-of-n-ary-tree/) | Easy |
 | [0637-average-of-levels-in-binary-tree](https://github.com/01mayankk/Leetcode-solutions/tree/main/0637-average-of-levels-in-binary-tree/) | Easy |
 | [2196-create-binary-tree-from-descriptions](https://github.com/01mayankk/Leetcode-solutions/tree/main/2196-create-binary-tree-from-descriptions/) | Medium |
 ## Binary Tree
