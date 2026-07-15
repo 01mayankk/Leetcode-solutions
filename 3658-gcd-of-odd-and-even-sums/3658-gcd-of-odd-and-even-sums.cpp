@@ -1,14 +1,14 @@
 class Solution {
 public:
     int gcdOfOddEvenSums(int n) {
-        
-        // int evenSum = 0, oddSum = 0;
 
-        // evenSum = n *  ( n + 1);
-        // oddSum = n * n;
+        // Sum of the first n odd numbers = n²
+        int oddSum = n * n;
 
-        // return gcd(evenSum, oddSum);
+        // Sum of the first n even numbers = n(n + 1)
+        int evenSum = n * (n + 1);
 
-        return n;
+        // Return the GCD of both sums
+        return gcd(oddSum, evenSum);
     }
 };
