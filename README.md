@@ -109,6 +109,7 @@ Keeps solving, keep growing.
 | [0645-set-mismatch](https://github.com/01mayankk/Leetcode-solutions/tree/main/0645-set-mismatch/) | Easy |
 | [0661-image-smoother](https://github.com/01mayankk/Leetcode-solutions/tree/main/0661-image-smoother/) | Easy |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
+| [1260-shift-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1260-shift-2d-grid/) | Easy |
 | [1306-jump-game-iii](https://github.com/01mayankk/Leetcode-solutions/tree/main/1306-jump-game-iii/) | Medium |
 | [1331-rank-transform-of-an-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/1331-rank-transform-of-an-array/) | Easy |
 | [1340-jump-game-v](https://github.com/01mayankk/Leetcode-solutions/tree/main/1340-jump-game-v/) | Hard |
@@ -213,6 +214,7 @@ Keeps solving, keep growing.
 | ------- | ------- |
 | [0048-rotate-image](https://github.com/01mayankk/Leetcode-solutions/tree/main/0048-rotate-image/) | Medium |
 | [0661-image-smoother](https://github.com/01mayankk/Leetcode-solutions/tree/main/0661-image-smoother/) | Easy |
+| [1260-shift-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1260-shift-2d-grid/) | Easy |
 | [1391-check-if-there-is-a-valid-path-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1391-check-if-there-is-a-valid-path-in-a-grid/) | Medium |
 | [1536-minimum-swaps-to-arrange-a-binary-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1536-minimum-swaps-to-arrange-a-binary-grid/) | Medium |
 | [1559-detect-cycles-in-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
@@ -284,6 +286,7 @@ Keeps solving, keep growing.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
+| [1260-shift-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1260-shift-2d-grid/) | Easy |
 | [1441-build-an-array-with-stack-operations](https://github.com/01mayankk/Leetcode-solutions/tree/main/1441-build-an-array-with-stack-operations/) | Medium |
 | [1545-find-kth-bit-in-nth-binary-string](https://github.com/01mayankk/Leetcode-solutions/tree/main/1545-find-kth-bit-in-nth-binary-string/) | Medium |
 | [1914-cyclically-rotating-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1914-cyclically-rotating-a-grid/) | Medium |
