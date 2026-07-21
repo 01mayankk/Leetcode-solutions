@@ -245,6 +245,7 @@ Keeps solving, keep growing.
 | [0005-longest-palindromic-substring](https://github.com/01mayankk/Leetcode-solutions/tree/main/0005-longest-palindromic-substring/) | Medium |
 | [0008-string-to-integer-atoi](https://github.com/01mayankk/Leetcode-solutions/tree/main/0008-string-to-integer-atoi/) | Medium |
 | [0012-integer-to-roman](https://github.com/01mayankk/Leetcode-solutions/tree/main/0012-integer-to-roman/) | Medium |
+| [0020-valid-parentheses](https://github.com/01mayankk/Leetcode-solutions/tree/main/0020-valid-parentheses/) | Easy |
 | [0058-length-of-last-word](https://github.com/01mayankk/Leetcode-solutions/tree/main/0058-length-of-last-word/) | Easy |
 | [0125-valid-palindrome](https://github.com/01mayankk/Leetcode-solutions/tree/main/0125-valid-palindrome/) | Easy |
 | [0205-isomorphic-strings](https://github.com/01mayankk/Leetcode-solutions/tree/main/0205-isomorphic-strings/) | Easy |
@@ -549,6 +550,7 @@ Keeps solving, keep growing.
 ## Stack
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0020-valid-parentheses](https://github.com/01mayankk/Leetcode-solutions/tree/main/0020-valid-parentheses/) | Easy |
 | [0042-trapping-rain-water](https://github.com/01mayankk/Leetcode-solutions/tree/main/0042-trapping-rain-water/) | Hard |
 | [0150-evaluate-reverse-polish-notation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0150-evaluate-reverse-polish-notation/) | Medium |
 | [1081-smallest-subsequence-of-distinct-characters](https://github.com/01mayankk/Leetcode-solutions/tree/main/1081-smallest-subsequence-of-distinct-characters/) | Medium |
