@@ -110,6 +110,7 @@ Keeps solving, keep growing.
 | [0645-set-mismatch](https://github.com/01mayankk/Leetcode-solutions/tree/main/0645-set-mismatch/) | Easy |
 | [0661-image-smoother](https://github.com/01mayankk/Leetcode-solutions/tree/main/0661-image-smoother/) | Easy |
 | [0874-walking-robot-simulation](https://github.com/01mayankk/Leetcode-solutions/tree/main/0874-walking-robot-simulation/) | Medium |
+| [0877-stone-game](https://github.com/01mayankk/Leetcode-solutions/tree/main/0877-stone-game/) | Medium |
 | [0994-rotting-oranges](https://github.com/01mayankk/Leetcode-solutions/tree/main/0994-rotting-oranges/) | Medium |
 | [1260-shift-2d-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1260-shift-2d-grid/) | Easy |
 | [1306-jump-game-iii](https://github.com/01mayankk/Leetcode-solutions/tree/main/1306-jump-game-iii/) | Medium |
@@ -324,6 +325,7 @@ Keeps solving, keep growing.
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/0122-best-time-to-buy-and-sell-stock-ii/) | Medium |
 | [0396-rotate-function](https://github.com/01mayankk/Leetcode-solutions/tree/main/0396-rotate-function/) | Medium |
 | [0788-rotated-digits](https://github.com/01mayankk/Leetcode-solutions/tree/main/0788-rotated-digits/) | Medium |
+| [0877-stone-game](https://github.com/01mayankk/Leetcode-solutions/tree/main/0877-stone-game/) | Medium |
 | [1320-minimum-distance-to-type-a-word-using-two-fingers](https://github.com/01mayankk/Leetcode-solutions/tree/main/1320-minimum-distance-to-type-a-word-using-two-fingers/) | Hard |
 | [1340-jump-game-v](https://github.com/01mayankk/Leetcode-solutions/tree/main/1340-jump-game-v/) | Hard |
 | [1594-maximum-non-negative-product-in-a-matrix](https://github.com/01mayankk/Leetcode-solutions/tree/main/1594-maximum-non-negative-product-in-a-matrix/) | Medium |
@@ -460,6 +462,7 @@ Keeps solving, keep growing.
 | [0396-rotate-function](https://github.com/01mayankk/Leetcode-solutions/tree/main/0396-rotate-function/) | Medium |
 | [0628-maximum-product-of-three-numbers](https://github.com/01mayankk/Leetcode-solutions/tree/main/0628-maximum-product-of-three-numbers/) | Easy |
 | [0788-rotated-digits](https://github.com/01mayankk/Leetcode-solutions/tree/main/0788-rotated-digits/) | Medium |
+| [0877-stone-game](https://github.com/01mayankk/Leetcode-solutions/tree/main/0877-stone-game/) | Medium |
 | [1622-fancy-sequence](https://github.com/01mayankk/Leetcode-solutions/tree/main/1622-fancy-sequence/) | Hard |
 | [1878-get-biggest-three-rhombus-sums-in-a-grid](https://github.com/01mayankk/Leetcode-solutions/tree/main/1878-get-biggest-three-rhombus-sums-in-a-grid/) | Medium |
 | [1979-find-greatest-common-divisor-of-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/1979-find-greatest-common-divisor-of-array/) | Easy |
@@ -673,4 +676,8 @@ Keeps solving, keep growing.
 | ------- | ------- |
 | [0042-trapping-rain-water](https://github.com/01mayankk/Leetcode-solutions/tree/main/0042-trapping-rain-water/) | Hard |
 | [1081-smallest-subsequence-of-distinct-characters](https://github.com/01mayankk/Leetcode-solutions/tree/main/1081-smallest-subsequence-of-distinct-characters/) | Medium |
+## Game Theory
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0877-stone-game](https://github.com/01mayankk/Leetcode-solutions/tree/main/0877-stone-game/) | Medium |
 <!---LeetCode Topics End-->
