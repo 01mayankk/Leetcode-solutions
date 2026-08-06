@@ -474,6 +474,7 @@ Keeps solving, keep growing.
 | [3014-minimum-number-of-pushes-to-type-word-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3014-minimum-number-of-pushes-to-type-word-i/) | Easy |
 | [3296-minimum-number-of-seconds-to-make-mountain-height-zero](https://github.com/01mayankk/Leetcode-solutions/tree/main/3296-minimum-number-of-seconds-to-make-mountain-height-zero/) | Medium |
 | [3300-minimum-element-after-replacement-with-digit-sum](https://github.com/01mayankk/Leetcode-solutions/tree/main/3300-minimum-element-after-replacement-with-digit-sum/) | Easy |
+| [3345-smallest-divisible-digit-product-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3345-smallest-divisible-digit-product-i/) | Easy |
 | [3464-maximize-the-distance-between-points-on-a-square](https://github.com/01mayankk/Leetcode-solutions/tree/main/3464-maximize-the-distance-between-points-on-a-square/) | Hard |
 | [3513-number-of-unique-xor-triplets-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3513-number-of-unique-xor-triplets-i/) | Medium |
 | [3536-maximum-product-of-two-digits](https://github.com/01mayankk/Leetcode-solutions/tree/main/3536-maximum-product-of-two-digits/) | Easy |
@@ -568,6 +569,7 @@ Keeps solving, keep growing.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [1291-sequential-digits](https://github.com/01mayankk/Leetcode-solutions/tree/main/1291-sequential-digits/) | Medium |
+| [3345-smallest-divisible-digit-product-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3345-smallest-divisible-digit-product-i/) | Easy |
 | [3546-equal-sum-grid-partition-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3546-equal-sum-grid-partition-i/) | Medium |
 | [3548-equal-sum-grid-partition-ii](https://github.com/01mayankk/Leetcode-solutions/tree/main/3548-equal-sum-grid-partition-ii/) | Hard |
 | [3751-total-waviness-of-numbers-in-range-i](https://github.com/01mayankk/Leetcode-solutions/tree/main/3751-total-waviness-of-numbers-in-range-i/) | Medium |
