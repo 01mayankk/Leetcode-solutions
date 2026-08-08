@@ -19,7 +19,7 @@ public:
         // to make the integer as large as possible.
         for (int i = 0; i < n; ++i) {
             // Take the maximum possible valid digit (up to 9 or remaining sum)
-            int digit = std::min(9, s);
+            int digit = min(9, s);
             
             // Append the digit to our result
             result = result * 10 + digit;
