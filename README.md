@@ -83,6 +83,7 @@ Keeps solving, keep growing.
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0014-longest-common-prefix](https://github.com/01mayankk/Leetcode-solutions/tree/main/0014-longest-common-prefix/) | Easy |
 | [0015-3sum](https://github.com/01mayankk/Leetcode-solutions/tree/main/0015-3sum/) | Medium |
 | [0026-remove-duplicates-from-sorted-array](https://github.com/01mayankk/Leetcode-solutions/tree/main/0026-remove-duplicates-from-sorted-array/) | Easy |
 | [0027-remove-element](https://github.com/01mayankk/Leetcode-solutions/tree/main/0027-remove-element/) | Easy |
@@ -255,6 +256,7 @@ Keeps solving, keep growing.
 | [0005-longest-palindromic-substring](https://github.com/01mayankk/Leetcode-solutions/tree/main/0005-longest-palindromic-substring/) | Medium |
 | [0008-string-to-integer-atoi](https://github.com/01mayankk/Leetcode-solutions/tree/main/0008-string-to-integer-atoi/) | Medium |
 | [0012-integer-to-roman](https://github.com/01mayankk/Leetcode-solutions/tree/main/0012-integer-to-roman/) | Medium |
+| [0014-longest-common-prefix](https://github.com/01mayankk/Leetcode-solutions/tree/main/0014-longest-common-prefix/) | Easy |
 | [0020-valid-parentheses](https://github.com/01mayankk/Leetcode-solutions/tree/main/0020-valid-parentheses/) | Easy |
 | [0028-find-the-index-of-the-first-occurrence-in-a-string](https://github.com/01mayankk/Leetcode-solutions/tree/main/0028-find-the-index-of-the-first-occurrence-in-a-string/) | Easy |
 | [0058-length-of-last-word](https://github.com/01mayankk/Leetcode-solutions/tree/main/0058-length-of-last-word/) | Easy |
@@ -620,6 +622,7 @@ Keeps solving, keep growing.
 ## Trie
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0014-longest-common-prefix](https://github.com/01mayankk/Leetcode-solutions/tree/main/0014-longest-common-prefix/) | Easy |
 | [2452-words-within-two-edits-of-dictionary](https://github.com/01mayankk/Leetcode-solutions/tree/main/2452-words-within-two-edits-of-dictionary/) | Medium |
 | [3043-find-the-length-of-the-longest-common-prefix](https://github.com/01mayankk/Leetcode-solutions/tree/main/3043-find-the-length-of-the-longest-common-prefix/) | Medium |
 | [3093-longest-common-suffix-queries](https://github.com/01mayankk/Leetcode-solutions/tree/main/3093-longest-common-suffix-queries/) | Hard |
